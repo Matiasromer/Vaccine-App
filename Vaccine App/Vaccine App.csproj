@@ -95,10 +95,34 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Handler\VaccineHandler.cs" />
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Kalender.cs" />
+    <Compile Include="Model\Registrering.cs" />
+    <Compile Include="Model\VaccinePlan.cs" />
+    <Compile Include="Persistency\PersistencyService.cs" />
+    <Compile Include="Model\VaccineSingleton.cs" />
+    <Compile Include="View Model\VaccineViewmodel.cs" />
+    <Compile Include="View\Bruger.xaml.cs">
+      <DependentUpon>Bruger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Kalender.xaml.cs">
+      <DependentUpon>Kalender.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Opret.xaml.cs">
+      <DependentUpon>Opret.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Påmindelse.xaml.cs">
+      <DependentUpon>Påmindelse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Registrer.xaml.cs">
+      <DependentUpon>Registrer.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -121,18 +145,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\Bruger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Kalender.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Opret.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Påmindelse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Registrer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Handler\" />
-    <Folder Include="Model\" />
-    <Folder Include="Persistency\" />
-    <Folder Include="View Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
