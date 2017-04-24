@@ -100,6 +100,7 @@
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Kalender.cs" />
     <Compile Include="Model\Registrering.cs" />
+    <Compile Include="Model\Vaccine.cs" />
     <Compile Include="Model\VaccinePlan.cs" />
     <Compile Include="Persistency\PersistencyService.cs" />
     <Compile Include="Model\VaccineSingleton.cs" />
