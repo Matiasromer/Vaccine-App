@@ -103,7 +103,7 @@
     <Compile Include="Model\VaccinePlan.cs" />
     <Compile Include="Persistency\PersistencyService.cs" />
     <Compile Include="Model\VaccineSingleton.cs" />
-    <Compile Include="View Model\VaccineViewmodel.cs" />
+    <Compile Include="ViewModel\VaccineViewmodel.cs" />
     <Compile Include="View\Bruger.xaml.cs">
       <DependentUpon>Bruger.xaml</DependentUpon>
     </Compile>

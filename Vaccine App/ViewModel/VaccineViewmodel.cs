@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vaccine_App.View_Model
+namespace Vaccine_App.ViewModel
 {
     class VaccineViewmodel
     {
