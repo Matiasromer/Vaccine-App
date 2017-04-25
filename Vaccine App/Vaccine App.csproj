@@ -97,7 +97,6 @@
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Handler\VaccineHandler.cs" />
-    <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Kalender.cs" />
     <Compile Include="Model\Registrering.cs" />
     <Compile Include="Model\Vaccine.cs" />

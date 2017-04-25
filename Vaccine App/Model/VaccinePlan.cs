@@ -8,5 +8,11 @@ namespace Vaccine_App.Model
 {
     class VaccinePlan
     {
+        public DateTime Dato { get; set; }
+
+        public VaccinePlan(DateTime Dato)
+        {
+            this.Dato = Dato;
+        }
     }
 }

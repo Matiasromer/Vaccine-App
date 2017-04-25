@@ -8,5 +8,13 @@ namespace Vaccine_App.Model
 {
     class Kalender
     {
+        public double Vaccineret { get; set; }
+        public DateTime Date { get; set; }
+
+        public Kalender(double Vaccineret, DateTime DateTime)
+        {
+            this.Vaccineret = Vaccineret;
+            this.Date = DateTime;
+        }
     }
 }
