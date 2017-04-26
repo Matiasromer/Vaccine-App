@@ -97,12 +97,14 @@
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Handler\VaccineHandler.cs" />
+    <Compile Include="Model\Bruger.cs" />
+    <Compile Include="Model\BrugerSingleton.cs" />
     <Compile Include="Model\Kalender.cs" />
-    <Compile Include="Model\Registrering.cs" />
     <Compile Include="Model\Vaccine.cs" />
-    <Compile Include="Model\VaccinePlan.cs" />
+    <Compile Include="Model\Vaccinehistorik.cs" />
     <Compile Include="Persistency\PersistencyService.cs" />
     <Compile Include="Model\VaccineSingleton.cs" />
+    <Compile Include="ViewModel\BrugerViewmodel.cs" />
     <Compile Include="ViewModel\VaccineViewmodel.cs" />
     <Compile Include="View\Bruger.xaml.cs">
       <DependentUpon>Bruger.xaml</DependentUpon>

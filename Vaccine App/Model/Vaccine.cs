@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vaccine_App.Model
 {
-    class Vaccine
+    public class Vaccine
     {
         //props
         public string Navn { get; set; }

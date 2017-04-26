@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Vaccine_App.Model
 {
-    class Kalender
+    class Vaccinehistorik
     {
         public string VaccineNavn { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Dato { get; set; }
+        public double Vaccineret { get; set; }
 
-        public Kalender(string VaccineNavn, DateTime DateTime)
+        public Vaccinehistorik(string VaccineNavn, DateTime Dato, double Vaccineret)
         {
             this.VaccineNavn = VaccineNavn;
-            this.Date = DateTime;
+            this.Vaccineret = Vaccineret;
+            this.Dato = Dato;
         }
     }
 }
