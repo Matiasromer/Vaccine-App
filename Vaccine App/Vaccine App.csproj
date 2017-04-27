@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Handler\BrugerHandler.cs" />
     <Compile Include="Handler\VaccineHandler.cs" />
     <Compile Include="Model\Bruger.cs" />
     <Compile Include="Model\BrugerSingleton.cs" />
