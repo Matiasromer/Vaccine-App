@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.ApplicationModel.UserDataAccounts.SystemAccess;
 using Vaccine_App.Handler;
 using Vaccine_App.Model;
 
@@ -12,7 +13,7 @@ namespace Vaccine_App.ViewModel
 {
     class BrugerViewmodel : INotifyPropertyChanged
     {
-        public BrugerSingleton BrugerSingleton { get; set; }
+        public BarnSingleton BrugerSingleton { get; set; }
         public VaccineSingleton VaccineSingleton { get; set; }
         //Commands
         public ICommand CreateBarnCommand { get; set; }
@@ -21,12 +22,12 @@ namespace Vaccine_App.ViewModel
 
         //Handler
 
-        private int barncpr;
+        private int fødselsdato;
 
-        public int Barncpr
+        public int Fødselsdato
         {
-            get { return barncpr; }
-            set { barncpr = value; }
+            get { return fødselsdato; }
+            set { fødselsdato = value; }
         }
 
         private string barnnavn;
@@ -37,13 +38,43 @@ namespace Vaccine_App.ViewModel
             set { barnnavn = value; }
         }
 
-        public Handler.BrugerHandler BrugerHandler;
+        //private string email;
+
+       // public string Email
+        //{
+        //    get { return email; }
+        //    set { email = value; }
+        //}
+        private int gender;
+
+        public int Gender
+        {
+            get { return gender;}
+            set { gender = value; }
+        }
+        private int tlfnr;
+
+        public int Tlfnr
+        {
+            get { return tlfnr;}
+            set { tlfnr = value; }
+        }
+
+        private int deviceId;
+
+        public int DeviceId
+        {
+            get {return deviceId;}
+            set { deviceId = value; }
+        }
+
+        public Handler.BarnHandler BrugerHandler;
 
         //ViewModel
         public BrugerViewmodel()
         {
-            BrugerHandler = new Handler.BrugerHandler(this);
-            BrugerSingleton = BrugerSingleton.Instance;
+            BrugerHandler = new Handler.BarnHandler(this);
+            BrugerSingleton = BarnSingleton.Instance;
         }
 
     

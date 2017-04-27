@@ -7,31 +7,32 @@ using System.Threading.Tasks;
 
 namespace Vaccine_App.Model
 {
-    class BrugerSingleton
+    class BarnSingleton
     {
-        private ObservableCollection<Model.Bruger> bruger;
+        //Denne klasse hed engang BrugerSingleton
+        private ObservableCollection<Model.Barn> bruger;
 
-        public ObservableCollection<Model.Bruger> BrugerCollection
+        public ObservableCollection<Model.Barn> BrugerCollection
         {
             get { return bruger; }
             set { bruger = value; }
 
         }
 
+        private static BarnSingleton instance;
 
-
-        private static BrugerSingleton instance;
-
-        public static BrugerSingleton Instance
+        public static BarnSingleton Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new BrugerSingleton();
+                    instance = new BarnSingleton();
                 }
                 return instance;
             }
         }
+
+        
     }
 }

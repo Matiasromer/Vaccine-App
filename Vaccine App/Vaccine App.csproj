@@ -96,10 +96,10 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
-    <Compile Include="Handler\BrugerHandler.cs" />
+    <Compile Include="Handler\BarnHandler.cs" />
     <Compile Include="Handler\VaccineHandler.cs" />
-    <Compile Include="Model\Bruger.cs" />
-    <Compile Include="Model\BrugerSingleton.cs" />
+    <Compile Include="Model\Barn.cs" />
+    <Compile Include="Model\BarnSingleton.cs" />
     <Compile Include="Model\Kalender.cs" />
     <Compile Include="Model\Vaccine.cs" />
     <Compile Include="Model\Vaccinehistorik.cs" />
