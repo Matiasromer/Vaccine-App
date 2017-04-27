@@ -18,15 +18,16 @@ namespace Vaccine_App.Handler
             this.BrugerViewmodel = bvm;
         }
 
-        //udkodet fordi commit (rød streg kode)
-        //public void CreateBarn()
-        //{
-        //    Model.Barn tempBarn = new Model.Barn();
-        //    tempBarn.Fødselsdato = BrugerViewmodel.Fødselsdato;
-        //    tempBarn.DeviceId = BrugerViewmodel.DeviceId;
-        //    tempBarn.Gender = BrugerViewmodel.Gender;
-        //    tempBarn.BarnNavn = BrugerViewmodel.BarnNavn;
-        //  //  BarnSingleton.Instance.
-        //}
+        
+        public void CreateBarn()
+        {
+            Model.Barn tempBarn = new Model.Barn(BrugerViewmodel.Fødselsdato, BrugerViewmodel.DeviceId, BrugerViewmodel.Gender, BrugerViewmodel.BarnNavn, BrugerViewmodel.Tlfnr);
+            tempBarn.Fødselsdato = BrugerViewmodel.Fødselsdato;
+            tempBarn.DeviceId = BrugerViewmodel.DeviceId;
+            tempBarn.Gender = BrugerViewmodel.Gender;
+            tempBarn.BarnNavn = BrugerViewmodel.BarnNavn;
+            tempBarn.Tlfnr = BrugerViewmodel.Tlfnr;
+            BarnSingleton.Instance.AddBarn(tempBarn);
+        }
     }
 }

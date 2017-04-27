@@ -9,13 +9,13 @@ namespace Vaccine_App.Model
 {
     class BarnSingleton
     {
-        //Denne klasse hed engang BrugerSingleton
-        private ObservableCollection<Model.Barn> bruger;
+        //Denne klasse hed engang BrugerSingleton og ændre bruger og brugercollection til barn og Barncollection
+        private ObservableCollection<Model.Barn> barn;
 
-        public ObservableCollection<Model.Barn> BrugerCollection
+        public ObservableCollection<Model.Barn> BarnCollection
         {
-            get { return bruger; }
-            set { bruger = value; }
+            get { return barn; }
+            set { barn = value; }
 
         }
 
@@ -33,6 +33,15 @@ namespace Vaccine_App.Model
             }
         }
 
-        
+        // mangler persistencyservice
+        public void AddBarn(Barn BAdd)
+        {
+            BarnCollection.Add(BAdd);
+        }
+
+        public void RemoveBarn(Barn BRemove)
+        {
+            BarnCollection.Remove(BRemove);
+        }
     }
 }
