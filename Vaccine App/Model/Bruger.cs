@@ -8,17 +8,19 @@ namespace Vaccine_App.Model
 {
     class Bruger
     {
-        public string Navn { get; set; }
+        public int DeviceId { get; set; }
         public int Cpr { get; set; }
         public string Email { get; set; }
-        public string Underbruger { get; set; }
+        public string Barn { get; set; }
+        public int Tlfnr { get; set; }
 
-        public Bruger(string Navn, int Cpr, string Email, string Underbruger)
+        public Bruger(int DeviceId, int Cpr, string Email, string Barn, int Tlfnr)
         {
-            this.Navn = Navn;
+            this.DeviceId = DeviceId;
             this.Cpr = Cpr;
             this.Email = Email;
-            this.Underbruger = Underbruger;
+            this.Barn = Barn;
+            this.Tlfnr = Tlfnr;
         }
     }
 }
