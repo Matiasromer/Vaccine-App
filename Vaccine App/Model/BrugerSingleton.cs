@@ -33,4 +33,5 @@ namespace Vaccine_App.Model
                 return instance;
             }
         }
+    }
 }
