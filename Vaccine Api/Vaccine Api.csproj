@@ -196,7 +196,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Barn.cs" />
+    <Compile Include="Controllers\BarnController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KalendersController.cs" />
+    <Compile Include="Controllers\VaccinesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="Global.asax.cs">
