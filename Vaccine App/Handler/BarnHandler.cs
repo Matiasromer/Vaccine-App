@@ -30,7 +30,7 @@ namespace Vaccine_App.Handler
             tempBarn.Tlfnr = BrugerViewmodel.Tlfnr;
             BarnSingleton.Instance.AddBarn(tempBarn);
         }
-
+         
         public void DeleteBarn()
         {
             BarnSingleton.Instance.RemoveBarn(BrugerViewmodel.SelectedBarn);
