@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.UserDataAccounts.SystemAccess;
+using Vaccine_App.Common;
 using Vaccine_App.Handler;
 using Vaccine_App.Model;
 
@@ -13,7 +14,7 @@ namespace Vaccine_App.ViewModel
 {
     class BrugerViewmodel : INotifyPropertyChanged
     {
-        public BarnSingleton BrugerSingleton { get; set; }
+        public BarnSingleton BarnSingleton { get; set; }
         public VaccineSingleton VaccineSingleton { get; set; }
         //Commands
         public ICommand CreateBarnCommand { get; set; }
@@ -68,13 +69,24 @@ namespace Vaccine_App.ViewModel
             set { deviceId = value; }
         }
 
-        public Handler.BarnHandler BrugerHandler;
+        private Barn selectedBarn;
+        public Barn SelectedBarn
+        {
+            get { return selectedBarn; }
+            set { selectedBarn = value; OnPropertyChanged(nameof(SelectedBarn)); }
+        }
+
+        //Handler
+        public Handler.BarnHandler BarnHandler;
 
         //ViewModel
         public BrugerViewmodel()
         {
-            BrugerHandler = new Handler.BarnHandler(this);
-            BrugerSingleton = BarnSingleton.Instance;
+            BarnHandler = new Handler.BarnHandler(this);
+            BarnSingleton = BarnSingleton.Instance;
+
+            CreateBarnCommand = new RelayCommand(BarnHandler.CreateBarn);
+            DeleteBarnCommand =  new RelayCommand(BarnHandler.DeleteBarn)
         }
 
     

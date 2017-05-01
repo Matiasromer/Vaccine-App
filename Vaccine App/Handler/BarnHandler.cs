@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vaccine_App.Model;
+using Vaccine_App.View;
 using Vaccine_App.ViewModel;
 
 namespace Vaccine_App.Handler
@@ -28,6 +29,11 @@ namespace Vaccine_App.Handler
             tempBarn.BarnNavn = BrugerViewmodel.BarnNavn;
             tempBarn.Tlfnr = BrugerViewmodel.Tlfnr;
             BarnSingleton.Instance.AddBarn(tempBarn);
+        }
+
+        public void DeleteBarn()
+        {
+            BarnSingleton.Instance.RemoveBarn(BrugerViewmodel.SelectedBarn);
         }
 
     }
