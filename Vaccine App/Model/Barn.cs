@@ -28,5 +28,14 @@ namespace Vaccine_App.Model
           //  this.Barn = Barn;
             this.Tlfnr = Tlfnr;
         }
+
+        public Barn(int fødselsdato, int deviceId, int gender, string barnNavn, int tlfnr)
+        {
+            Fødselsdato = fødselsdato;
+            DeviceId = deviceId;
+            Gender = gender;
+            BarnNavn = barnNavn;
+            Tlfnr = tlfnr;
+        }
     }
 }

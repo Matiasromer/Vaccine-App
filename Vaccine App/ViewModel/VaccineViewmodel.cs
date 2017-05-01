@@ -11,8 +11,6 @@ namespace Vaccine_App.ViewModel
     class VaccineViewmodel : INotifyPropertyChanged
     {
         //Commands
-        public ICommand CreateBarnCommand { get; set; }
-        public ICommand DeleteBarnCommand { get; set; }
 
 
         //Handler
