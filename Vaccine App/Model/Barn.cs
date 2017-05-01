@@ -8,7 +8,7 @@ namespace Vaccine_App.Model
 {
     class Barn
     {
-        // Barn klasse (denne klasse) hed engang Bruger
+        // Barn klasse (denne klasse) hed engang Bruger.
         public string BarnNavn;
         public int DeviceId { get; set; }
         public int Fødselsdato { get; set; }
