@@ -29,5 +29,6 @@ namespace Vaccine_App.Handler
             tempBarn.Tlfnr = BrugerViewmodel.Tlfnr;
             BarnSingleton.Instance.AddBarn(tempBarn);
         }
+
     }
 }

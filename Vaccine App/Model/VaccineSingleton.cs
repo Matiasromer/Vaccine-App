@@ -12,7 +12,7 @@ namespace Vaccine_App.ViewModel
         private ObservableCollection<Model.Vaccine> vaccine;
 
         public ObservableCollection<Model.Vaccine> VaccineCollection
-        {
+        {   
             get { return vaccine; }
             set { vaccine = value; }
 
