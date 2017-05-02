@@ -9,7 +9,7 @@ using Vaccine_App.ViewModel;
 
 namespace Vaccine_App.Handler
 {
-    class BarnHandler
+   public class BarnHandler
     {
         // denne klasse hed engang BrugerHandler
         public BrugerViewmodel BrugerViewmodel { get; set; }

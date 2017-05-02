@@ -4,18 +4,19 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vaccine_App.Persistency;
 
 namespace Vaccine_App.Model
 {
-    class BarnSingleton
+   public class BarnSingleton
     {
         //Denne klasse hed engang BrugerSingleton og ændre bruger og brugercollection til barn og Barncollection
-        private ObservableCollection<Model.Barn> barn;
+        private ObservableCollection<Model.Barn> barns;
 
-        public ObservableCollection<Model.Barn> BarnCollection
+        public ObservableCollection<Model.Barn> BarnsCollection
         {
-            get { return barn; }
-            set { barn = value; }
+            get { return barns; }
+            set { barns = value; }
 
         }
 
@@ -32,17 +33,31 @@ namespace Vaccine_App.Model
                 return instance;
             }
         }
-                
 
+        public BarnSingleton()
+        {
+            BarnsCollection = new ObservableCollection<Barn>();
+
+        }
         // mangler persistencyservice
         public void AddBarn(Barn BAdd)
         {
-            BarnCollection.Add(BAdd);
+            BarnsCollection.Add(BAdd);
+            PersistencyService.PostGuestAsync(BAdd);
         }
 
         public void RemoveBarn(Barn BRemove)
         {
-            BarnCollection.Remove(BRemove);
+            BarnsCollection.Remove(BRemove);
+            PersistencyService.DeleteGuestAsync(BRemove);
+        }
+
+        public async Task GetBarnASync()
+        {
+            foreach (var item in await PersistencyService.GetBarnAsync())
+            {
+                this.BarnsCollection.Add(item);
+            }
         }
     }
 }

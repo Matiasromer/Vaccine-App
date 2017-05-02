@@ -8,7 +8,7 @@ using Vaccine_App.Model;
 
 namespace Vaccine_App.Handler
 {
-    class VaccineHandler
+   public class VaccineHandler
     {
         public VaccineViewmodel VaccineViewmodel { get; set; }
 

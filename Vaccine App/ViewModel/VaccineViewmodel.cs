@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Vaccine_App.ViewModel
 {
-    class VaccineViewmodel : INotifyPropertyChanged
+   public class VaccineViewmodel : INotifyPropertyChanged
     {
         //Commands
 

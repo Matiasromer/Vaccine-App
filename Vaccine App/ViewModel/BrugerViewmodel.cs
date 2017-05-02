@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,12 @@ using Vaccine_App.Model;
 
 namespace Vaccine_App.ViewModel
 {
-    class BrugerViewmodel : INotifyPropertyChanged
+   public class BrugerViewmodel : INotifyPropertyChanged
     {
         public BarnSingleton BarnSingleton { get; set; }
         public VaccineSingleton VaccineSingleton { get; set; }
+
+        public ObservableCollection<Barn> Barn
         //Commands
         public ICommand CreateBarnCommand { get; set; }
         public ICommand DeleteBarnCommand { get; set; }
