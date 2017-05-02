@@ -86,7 +86,7 @@ namespace Vaccine_App.ViewModel
             BarnSingleton = BarnSingleton.Instance;
 
             CreateBarnCommand = new RelayCommand(BarnHandler.CreateBarn);
-            DeleteBarnCommand =  new RelayCommand(BarnHandler.DeleteBarn)
+            DeleteBarnCommand = new RelayCommand(BarnHandler.DeleteBarn);
         }
 
     
