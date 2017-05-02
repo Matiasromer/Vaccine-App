@@ -11,6 +11,7 @@ namespace Vaccine_App.Model
         // Barn klasse (denne klasse) hed engang Bruger.
         public string BarnNavn;
         public int DeviceId { get; set; }
+        
         public int Fødselsdato { get; set; }
         // Gender er int fordi vi kan nemmere binde den til fremtidige knapper
         public int Gender { get; set; }

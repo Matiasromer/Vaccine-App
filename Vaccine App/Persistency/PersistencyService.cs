@@ -51,26 +51,36 @@ namespace Vaccine_App.Persistency
         }
 
         // Delete
-        //public static void DeleteGuestAsync(Guest DeleteGuest)
-        //{
-        //    using (var client = new HttpClient())
-        //    {
+        
+        public static void DeleteGuestAsync(Barn DeleteBarn)
+        {
+            using (var client = new HttpClient())
 
-        //        client.BaseAddress = new Uri(serverURL);
-        //        client.DefaultRequestHeaders.Clear();
-        //        string urlString = "api/guests/" + DeleteGuest.Guest_No.ToString();
+            {
 
-        //        try
-        //        {
-        //            var Response = client.DeleteAsync(urlString).Result;
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/barn/" + DeleteBarn.Fødselsdato;                                
+                
+                try
+                {
+                    var response = client.DeleteAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageDialog barnDeleted = new MessageDialog("Barn er Slettet");
+                        barnDeleted.Commands.Add(new UICommand { Label = "Ok" });
+                        barnDeleted.ShowAsync().AsTask();
+                    }
 
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            MessageDialog guestNotCreated = new MessageDialog("Delete guest failed" + e);
-        //        }
-        //    }
-        //}
+                }
+                catch (Exception e)
+                {
+                    MessageDialog barnDeleted = new MessageDialog("Barn blev ikke Slettet" + e);
+                    barnDeleted.Commands.Add(new UICommand { Label = "Ok" });
+                    barnDeleted.ShowAsync().AsTask();
+                }
+            }
+        }
 
         //Get        
         //public static async Task<ObservableCollection<Guest>> GetGuestAsync()
