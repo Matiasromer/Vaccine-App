@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Http;
@@ -24,7 +25,7 @@ namespace Vaccine_App.Persistency
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlStringCreate = "api/barn";
+                string urlStringCreate = "api/Barns/";
 
                 try
                 {
@@ -51,7 +52,7 @@ namespace Vaccine_App.Persistency
         }
 
         // Delete
-        
+
         public static void DeleteGuestAsync(Barn DeleteBarn)
         {
             using (var client = new HttpClient())
@@ -60,15 +61,15 @@ namespace Vaccine_App.Persistency
 
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/barn/" + DeleteBarn.Fødselsdato;                                
-                
+                string urlString = "api/Barns/" + DeleteBarn.Fødselsdato;
+
                 try
                 {
                     var response = client.DeleteAsync(urlString).Result;
                     if (response.IsSuccessStatusCode)
                     {
                         MessageDialog barnDeleted = new MessageDialog("Barn er Slettet");
-                        barnDeleted.Commands.Add(new UICommand { Label = "Ok" });
+                        barnDeleted.Commands.Add(new UICommand {Label = "Ok"});
                         barnDeleted.ShowAsync().AsTask();
                     }
 
@@ -76,38 +77,41 @@ namespace Vaccine_App.Persistency
                 catch (Exception e)
                 {
                     MessageDialog barnDeleted = new MessageDialog("Barn blev ikke Slettet" + e);
-                    barnDeleted.Commands.Add(new UICommand { Label = "Ok" });
+                    barnDeleted.Commands.Add(new UICommand {Label = "Ok"});
                     barnDeleted.ShowAsync().AsTask();
                 }
             }
         }
 
         //Get        
-        //public static async Task<ObservableCollection<Guest>> GetGuestAsync()
-        //{
-        //    ObservableCollection<Guest> TempGuestCollection = new ObservableCollection<Guest>();
-        //    using (var client = new HttpClient())
-        //    {
-        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        //        client.BaseAddress = new Uri(serverURL);
-        //        client.DefaultRequestHeaders.Clear();
-        //        string urlstring = "api/guests";
-        //        try
-        //        {
-        //            HttpResponseMessage response = await client.GetAsync(urlstring);
-        //            if (response.IsSuccessStatusCode)
-        //            {
-        //                TempGuestCollection = response.Content.ReadAsAsync<ObservableCollection<Guest>>().Result;
+        public static async Task<ObservableCollection<Barn>> GetBarnAsync()
+        {
+            ObservableCollection<Barn> TempBarnCollection = new ObservableCollection<Barn>();
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+                string urlstring = "api/Barns/";
 
-        //            }
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            MessageDialog exception = new MessageDialog(e.Message);
-        //            return TempGuestCollection = null;
-        //        }
-        //        return TempGuestCollection;
-        //    }
+                
+                
+                HttpResponseMessage response = await client.GetAsync(urlstring);
+                if (response.IsSuccessStatusCode)
+                  {
+                        TempBarnCollection = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
+                        return TempBarnCollection;
+                  }
+                }
+                //catch (Exception e)
+                //{
+                //    MessageDialog exception = new MessageDialog(e.Message);
+                //    return TempBarnCollection = null;
+
+                return null;
+            }
+            
+        }
     }
-    }
+
 
