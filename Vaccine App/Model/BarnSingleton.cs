@@ -37,19 +37,19 @@ namespace Vaccine_App.Model
         public BarnSingleton()
         {
             BarnsCollection = new ObservableCollection<Barn>();
-
+            GetBarnASync();
         }
         // mangler persistencyservice
         public void AddBarn(Barn BAdd)
         {
             BarnsCollection.Add(BAdd);
-            PersistencyService.PostGuestAsync(BAdd);
+            PersistencyService.PostBarnAsync(BAdd);      
         }
 
         public void RemoveBarn(Barn BRemove)
         {
             BarnsCollection.Remove(BRemove);
-            PersistencyService.DeleteGuestAsync(BRemove);
+            PersistencyService.DeleteBarnAsync(BRemove);
         }
 
         public async Task GetBarnASync()

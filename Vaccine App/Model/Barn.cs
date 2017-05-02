@@ -17,9 +17,9 @@ namespace Vaccine_App.Model
         public int Gender { get; set; }
        // public string Email { get; set; }
       //  public string Barn { get; set; }
-        public int Tlfnr { get; set; }
+       // public int Tlfnr { get; set; }
 
-        public Barn(string BarnNavn, int DeviceId, int Fødselsdato, int Gender, int Tlfnr)
+        public Barn(string BarnNavn, int DeviceId, int Fødselsdato, int Gender)
         {
             this.BarnNavn = BarnNavn;
             this.DeviceId = DeviceId;
@@ -27,16 +27,21 @@ namespace Vaccine_App.Model
             this.Gender = Gender;
           //  this.Email = Email;
           //  this.Barn = Barn;
-            this.Tlfnr = Tlfnr;
+          //  this.Tlfnr = Tlfnr;
         }
 
-        public Barn(int fødselsdato, int deviceId, int gender, string barnNavn, int tlfnr)
+        public Barn(int fødselsdato, int deviceId, int gender, string barnNavn)
         {
             Fødselsdato = fødselsdato;
             DeviceId = deviceId;
             Gender = gender;
             BarnNavn = barnNavn;
-            Tlfnr = tlfnr;
+          //  Tlfnr = tlfnr;
+        }
+
+        public override string ToString()
+        {
+            return $"{BarnNavn}  -  {DeviceId}  -  {Fødselsdato}  -  {Gender}  ";
         }
     }
 }

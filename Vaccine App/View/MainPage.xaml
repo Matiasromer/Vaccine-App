@@ -12,9 +12,13 @@
         <Grid.DataContext>
             <ViewModel:BrugerViewmodel/>
         </Grid.DataContext>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="225" Margin="0,10,0,0" VerticalAlignment="Top" Width="340"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="53" Margin="10,353,0,0" VerticalAlignment="Top" Width="124"/>
-        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Height="53" Margin="206,353,0,0" VerticalAlignment="Top" Width="134"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="225" Margin="0,10,0,0" VerticalAlignment="Top" Width="340" ItemsSource="{Binding BarnCollection, Mode=TwoWay}" SelectedItem="{Binding SelectedBarn, Mode=TwoWay}"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="53" Margin="10,452,0,0" VerticalAlignment="Top" Width="124" Command="{Binding CreateBarnCommand}"/>
+        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Height="53" Margin="216,452,0,0" VerticalAlignment="Top" Width="134" Command="{Binding DeleteBarnCommand}"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,267,0,0" TextWrapping="Wrap" Text="{Binding Fødselsdato, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="Fødselsdato"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="10,299,0,0" TextWrapping="Wrap" Text="{Binding BarnNavn, Mode=TwoWay}" VerticalAlignment="Top" Width="124"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="37" Margin="10,331,0,0" TextWrapping="Wrap" Text="{Binding DeviceId, Mode=TwoWay}" VerticalAlignment="Top" Width="124"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="0" Margin="10,368,0,0" TextWrapping="Wrap" Text="{Binding Gender, Mode=TwoWay}" VerticalAlignment="Top" Width="124"/>
 
     </Grid>
 </Page>

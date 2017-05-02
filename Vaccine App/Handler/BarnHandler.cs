@@ -22,12 +22,12 @@ namespace Vaccine_App.Handler
         
         public void CreateBarn()
         {
-            Model.Barn tempBarn = new Model.Barn(BrugerViewmodel.Fødselsdato, BrugerViewmodel.DeviceId, BrugerViewmodel.Gender, BrugerViewmodel.BarnNavn, BrugerViewmodel.Tlfnr);
+            Model.Barn tempBarn = new Model.Barn(BrugerViewmodel.BarnNavn, BrugerViewmodel.DeviceId, BrugerViewmodel.Fødselsdato, BrugerViewmodel.Gender);
             tempBarn.Fødselsdato = BrugerViewmodel.Fødselsdato;
             tempBarn.DeviceId = BrugerViewmodel.DeviceId;
             tempBarn.Gender = BrugerViewmodel.Gender;
             tempBarn.BarnNavn = BrugerViewmodel.BarnNavn;
-            tempBarn.Tlfnr = BrugerViewmodel.Tlfnr;
+           // tempBarn.Tlfnr = BrugerViewmodel.Tlfnr;
             BarnSingleton.Instance.AddBarn(tempBarn);
         }
          
@@ -36,5 +36,9 @@ namespace Vaccine_App.Handler
             BarnSingleton.Instance.RemoveBarn(BrugerViewmodel.SelectedBarn);
         }
 
+        public async void GetBarn()
+        {
+            await BarnSingleton.Instance.GetBarnASync();
+        }
     }
 }

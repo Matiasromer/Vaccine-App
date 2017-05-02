@@ -15,14 +15,24 @@ namespace Vaccine_App.ViewModel
 {
    public class BrugerViewmodel : INotifyPropertyChanged
     {
+        //Singletons
         public BarnSingleton BarnSingleton { get; set; }
         public VaccineSingleton VaccineSingleton { get; set; }
 
-        public ObservableCollection<Barn> Barn
+        //ObersvableCollections
+        private ObservableCollection<Barn> barnCollection;
+
+        public ObservableCollection<Barn> BarnCollection
+        {
+            get { return barnCollection; }
+            set { barnCollection = value; }
+        }
+
+
         //Commands
         public ICommand CreateBarnCommand { get; set; }
         public ICommand DeleteBarnCommand { get; set; }
-
+        public ICommand GetBarnCommand { get; set; }
 
         //Handler
 
@@ -85,14 +95,26 @@ namespace Vaccine_App.ViewModel
         //ViewModel
         public BrugerViewmodel()
         {
+            BarnCollection = BarnSingleton.Instance.BarnsCollection;
             BarnHandler = new Handler.BarnHandler(this);
             BarnSingleton = BarnSingleton.Instance;
 
-            CreateBarnCommand = new RelayCommand(BarnHandler.CreateBarn);
-            DeleteBarnCommand = new RelayCommand(BarnHandler.DeleteBarn);
+            CreateBarnCommand = new RelayCommand(BarnHandler.CreateBarn, null);
+            DeleteBarnCommand = new RelayCommand(BarnHandler.DeleteBarn, CanDeleteBarn);
+            GetBarnCommand = new RelayCommand(BarnHandler.GetBarn, null);
         }
 
-    
+        public bool CanDeleteBarn()
+        {
+            if (BarnCollection.Count > 0)
+                return true;
+            else
+            {
+                return false;
+            }
+
+        }
+
 
         //INotifyPropChanged interface
         public event PropertyChangedEventHandler PropertyChanged;

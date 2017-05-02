@@ -18,14 +18,14 @@ namespace Vaccine_App.Persistency
         const string serverURL = "http://vaccinewebapi20170501110100.azurewebsites.net/";
 
         // Post, laver et barn og sender til db
-        public static void PostGuestAsync(Barn PostBarn)
+        public static void PostBarnAsync(Barn PostBarn)
         {
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlStringCreate = "api/Barns/";
+                string urlStringCreate = "api/barns/";
 
                 try
                 {
@@ -53,7 +53,7 @@ namespace Vaccine_App.Persistency
 
         // Delete
 
-        public static void DeleteGuestAsync(Barn DeleteBarn)
+        public static void DeleteBarnAsync(Barn DeleteBarn)
         {
             using (var client = new HttpClient())
 
@@ -61,7 +61,7 @@ namespace Vaccine_App.Persistency
 
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/Barns/" + DeleteBarn.Fødselsdato;
+                string urlString = "api/barns/" + DeleteBarn.Fødselsdato;
 
                 try
                 {
@@ -92,7 +92,7 @@ namespace Vaccine_App.Persistency
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlstring = "api/Barns/";
+                string urlstring = "api/barns/";
 
                 
                 
