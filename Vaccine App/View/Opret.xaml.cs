@@ -26,5 +26,20 @@ namespace Vaccine_App.View
         {
             this.InitializeComponent();
         }
+
+        /*private void Buttom_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainePage_Beta_2), null);
+        }*/
+
+        private void Buttom_Click_2(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage), null);
+        }
+
+        private void Buttom_Click_3(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Påmindelse), null);
+        }
     }
 }
