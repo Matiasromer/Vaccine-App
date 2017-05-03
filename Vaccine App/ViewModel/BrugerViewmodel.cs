@@ -21,7 +21,6 @@ namespace Vaccine_App.ViewModel
 
         //ObersvableCollections
         private ObservableCollection<Barn> barnCollection;
-
         public ObservableCollection<Barn> BarnCollection
         {
             get { return barnCollection; }
@@ -104,6 +103,7 @@ namespace Vaccine_App.ViewModel
             GetBarnCommand = new RelayCommand(BarnHandler.GetBarn, null);
         }
 
+        //Fail-Safe; Kan ikke bruge slette nap hvis der intet er i listen.
         public bool CanDeleteBarn()
         {
             if (BarnCollection.Count > 0)
