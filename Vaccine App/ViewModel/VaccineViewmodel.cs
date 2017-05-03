@@ -8,11 +8,9 @@ using System.Windows.Input;
 
 namespace Vaccine_App.ViewModel
 {
-    class VaccineViewmodel : INotifyPropertyChanged
+   public class VaccineViewmodel : INotifyPropertyChanged
     {
         //Commands
-        public ICommand CreateBarnCommand { get; set; }
-        public ICommand DeleteBarnCommand { get; set; }
 
 
         //Handler

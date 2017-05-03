@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Vaccine_App.ViewModel
 {
-    class VaccineSingleton
+   public class VaccineSingleton
     {
         private ObservableCollection<Model.Vaccine> vaccine;
 

@@ -1,24 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.UserDataAccounts.SystemAccess;
+using Vaccine_App.Common;
 using Vaccine_App.Handler;
 using Vaccine_App.Model;
 
 namespace Vaccine_App.ViewModel
 {
-    class BrugerViewmodel : INotifyPropertyChanged
+   public class BrugerViewmodel : INotifyPropertyChanged
     {
-        public BarnSingleton BrugerSingleton { get; set; }
+        //Singletons
+        public BarnSingleton BarnSingleton { get; set; }
         public VaccineSingleton VaccineSingleton { get; set; }
+
+        //ObersvableCollections
+        private ObservableCollection<Barn> barnCollection;
+
+        public ObservableCollection<Barn> BarnCollection
+        {
+            get { return barnCollection; }
+            set { barnCollection = value; }
+        }
+
+
         //Commands
         public ICommand CreateBarnCommand { get; set; }
         public ICommand DeleteBarnCommand { get; set; }
-
+        public ICommand GetBarnCommand { get; set; }
 
         //Handler
 
@@ -68,16 +82,39 @@ namespace Vaccine_App.ViewModel
             set { deviceId = value; }
         }
 
-        public Handler.BarnHandler BrugerHandler;
+        private Barn selectedBarn;
+        public Barn SelectedBarn
+        {
+            get { return selectedBarn; }
+            set { selectedBarn = value; OnPropertyChanged(nameof(SelectedBarn)); }
+        }
+
+        //Handler
+        public Handler.BarnHandler BarnHandler;
 
         //ViewModel
         public BrugerViewmodel()
         {
-            BrugerHandler = new Handler.BarnHandler(this);
-            BrugerSingleton = BarnSingleton.Instance;
+            BarnCollection = BarnSingleton.Instance.BarnsCollection;
+            BarnHandler = new Handler.BarnHandler(this);
+            BarnSingleton = BarnSingleton.Instance;
+
+            CreateBarnCommand = new RelayCommand(BarnHandler.CreateBarn, null);
+            DeleteBarnCommand = new RelayCommand(BarnHandler.DeleteBarn, CanDeleteBarn);
+            GetBarnCommand = new RelayCommand(BarnHandler.GetBarn, null);
         }
 
-    
+        public bool CanDeleteBarn()
+        {
+            if (BarnCollection.Count > 0)
+                return true;
+            else
+            {
+                return false;
+            }
+
+        }
+
 
         //INotifyPropChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
