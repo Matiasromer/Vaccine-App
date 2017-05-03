@@ -25,7 +25,7 @@ namespace Vaccine_App.Persistency
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlStringCreate = "api/barn/";
+                string urlStringCreate = "api/Barn/";
                     
                 try
                 {
@@ -61,7 +61,7 @@ namespace Vaccine_App.Persistency
 
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/barn/" + DeleteBarn.Fødselsdato;
+                string urlString = "api/barn/" + DeleteBarn.Barn_Id;
 
                 try
                 {
