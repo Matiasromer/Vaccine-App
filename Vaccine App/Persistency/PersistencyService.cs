@@ -18,20 +18,20 @@ namespace Vaccine_App.Persistency
         const string serverURL = "http://vaccineapi.azurewebsites.net/";
 
         //Message Dialog
-        public static async void ShowMessage(string content)
-        {
-            MessageDialog messageDialog = new MessageDialog(content);
-            await messageDialog.ShowAsync();
-        }
+        //public static async void ShowMessage(string content)
+        //{
+        //    MessageDialog messageDialog = new MessageDialog(content);
+        //    await messageDialog.ShowAsync();
+        //}
 
         // Post, laver et barn og sender til db - Error Message; Bad Request
         public static void PostBarnAsync(Barn PostBarn)
         {
             using (var client = new HttpClient())
-            {
-                //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            {                
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 string urlStringCreate = "api/barn/";
 
                 try
@@ -39,17 +39,18 @@ namespace Vaccine_App.Persistency
                     var response = client.PostAsJsonAsync<Barn>("api/barn", PostBarn).Result;
                     if (response.IsSuccessStatusCode)
                     {
-                        ShowMessage("Barn er oprettet");
+                        MessageDialog BarnAdded = new MessageDialog("Dit barn blev tilføjet");
+                        BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
+                        BarnAdded.ShowAsync().AsTask();
                     }
-                    else
-                    {
-                        ShowMessage("Barnet blev ikke oprettet. Fejl: " + response.StatusCode);
-                    }
+                    
                 }
                 catch (Exception e)
                 {
-
-                    ShowMessage("Der er sket en fejl: " + e.Message);
+                    MessageDialog BarnAdded = new MessageDialog("Fejl, barn blev ikke tilføjet" + e);
+                    BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
+                    BarnAdded.ShowAsync().AsTask();
+                    throw;
                 }
             }
         }
