@@ -17,39 +17,71 @@ namespace Vaccine_App.Persistency
         //server Url
         const string serverURL = "http://vaccineapi.azurewebsites.net/";
 
-        // Post, laver et barn og sender til db
+        //Message Dialog
+        //public static async void ShowMessage(string content)
+        //{
+        //    MessageDialog messageDialog = new MessageDialog(content);
+        //    await messageDialog.ShowAsync();
+        //}
+
+        // Post, laver et barn og sender til db - Error Message; Bad Request
         public static void PostBarnAsync(Barn PostBarn)
         {
             using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            {                
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlStringCreate = "api/Barn/";
-                    
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string urlStringCreate = "api/barn/";
+
                 try
                 {
-                    var Response = client.PostAsJsonAsync(urlStringCreate, PostBarn).Result;
-
-                    if (Response.IsSuccessStatusCode)
+                    var response = client.PostAsJsonAsync<Barn>("api/barn", PostBarn).Result;
+                    if (response.IsSuccessStatusCode)
                     {
-                        MessageDialog barnCreated = new MessageDialog("Barn er tilføjet");
-                        barnCreated.Commands.Add(new UICommand {Label = "Ok"});
-                        barnCreated.ShowAsync().AsTask();
+                        MessageDialog BarnAdded = new MessageDialog("Dit barn blev tilføjet");
+                        BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
+                        BarnAdded.ShowAsync().AsTask();
                     }
-                    //else
-                    //{
-                    //    MessageDialog guestNotCreated = new MessageDialog("Create guest failed");
-                    //}
+                    
                 }
                 catch (Exception e)
                 {
-                    MessageDialog barnCreated = new MessageDialog("Barn blev ikke tilføjet" + e);
-                    barnCreated.Commands.Add(new UICommand {Label = "Ok"});
-                    barnCreated.ShowAsync().AsTask();
+                    MessageDialog BarnAdded = new MessageDialog("Fejl, barn blev ikke tilføjet" + e);
+                    BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
+                    BarnAdded.ShowAsync().AsTask();
+                    throw;
                 }
             }
         }
+        //egen metode, Virker ikke, arbejd på ovenstående
+        //public static void PostBarnAsync(Barn PostBarn)
+        //{
+        //    using (var client = new HttpClient())
+        //    {
+        //        client.BaseAddress = new Uri(serverURL);
+        //        client.DefaultRequestHeaders.Clear();
+
+        //        try
+        //        {
+        //            var response = client.PostAsJsonAsync<Barn>("api/børn", PostBarn).Result;
+        //            if (response.IsSuccessStatusCode)
+        //            {
+        //                ShowMessage("Du har oprettet en ny guest");
+        //            }
+        //            else
+        //            {
+        //                ShowMessage("FEJL, Guest blev ikke oprettet: " + response.StatusCode);
+        //            }
+        //        }
+        //        catch (Exception e)
+        //        {
+
+        //            ShowMessage("Der er sket en fejl: " + e.Message);
+        //        }
+        //    }
+        //}
+        
 
         // Delete
 
@@ -61,7 +93,7 @@ namespace Vaccine_App.Persistency
 
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/barn/" + DeleteBarn.Barn_Id;
+                string urlString = "api/barn/" + DeleteBarn.Fødselsdato;
 
                 try
                 {
