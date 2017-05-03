@@ -15,7 +15,7 @@ namespace Vaccine_App.Persistency
     class PersistencyService
     {
         //server Url
-        const string serverURL = "http://vaccinewebapi20170501110100.azurewebsites.net/";
+        const string serverURL = "http://vaccineapi.azurewebsites.net/";
 
         // Post, laver et barn og sender til db
         public static void PostBarnAsync(Barn PostBarn)
@@ -25,8 +25,8 @@ namespace Vaccine_App.Persistency
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlStringCreate = "api/barns/";
-
+                string urlStringCreate = "api/barn/";
+                    
                 try
                 {
                     var Response = client.PostAsJsonAsync(urlStringCreate, PostBarn).Result;
@@ -61,7 +61,7 @@ namespace Vaccine_App.Persistency
 
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/barns/" + DeleteBarn.Fødselsdato;
+                string urlString = "api/barn/" + DeleteBarn.Fødselsdato;
 
                 try
                 {
@@ -92,7 +92,7 @@ namespace Vaccine_App.Persistency
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlstring = "api/barns/";
+                string urlstring = "api/barn/";
 
                 
                 
