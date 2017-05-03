@@ -93,7 +93,7 @@ namespace Vaccine_App.Persistency
 
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/barn/" + DeleteBarn.Fødselsdato;
+                string urlString = "api/barn/" + DeleteBarn.Barn_Id;
 
                 try
                 {
