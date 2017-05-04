@@ -36,7 +36,7 @@ namespace Vaccine_App.Persistency
 
                 try
                 {
-                    var response = client.PostAsJsonAsync<Barn>("api/barn", PostBarn).Result;
+                    var response = client.PostAsJsonAsync<Barn>(urlStringCreate, PostBarn).Result;
                     if (response.IsSuccessStatusCode)
                     {
                         MessageDialog BarnAdded = new MessageDialog("Dit barn blev tilføjet");
@@ -93,7 +93,7 @@ namespace Vaccine_App.Persistency
 
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/barn/" + DeleteBarn.Barn_Id;
+                string urlString = "api/barn/" + DeleteBarn.BarnId;
 
                 try
                 {
@@ -124,7 +124,7 @@ namespace Vaccine_App.Persistency
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlstring = "api/barn/";
+                string urlstring = "api/barn";
 
                 
                 
@@ -132,7 +132,7 @@ namespace Vaccine_App.Persistency
                 if (response.IsSuccessStatusCode)
                   {
                         TempBarnCollection = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
-                        return TempBarnCollection;
+                        
                   }
                 }
                 //catch (Exception e)
@@ -140,7 +140,7 @@ namespace Vaccine_App.Persistency
                 //    MessageDialog exception = new MessageDialog(e.Message);
                 //    return TempBarnCollection = null;
 
-                return null;
+                return TempBarnCollection;
             }
             
         }

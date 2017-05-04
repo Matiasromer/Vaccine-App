@@ -95,7 +95,7 @@ namespace Vaccine_App.ViewModel
         public BrugerViewmodel()
         {
             BarnCollection = BarnSingleton.Instance.BarnsCollection;
-            BarnHandler = new Handler.BarnHandler(this);
+            BarnHandler = new BarnHandler(this);
             BarnSingleton = BarnSingleton.Instance;
 
             CreateBarnCommand = new RelayCommand(BarnHandler.CreateBarn, null);

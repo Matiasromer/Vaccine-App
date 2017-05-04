@@ -12,7 +12,7 @@ namespace Vaccine_App.Model
     {
         //Denne klasse hed engang BrugerSingleton og ændre bruger og brugercollection til barn og Barncollection
         private ObservableCollection<Model.Barn> barns;
-        public ObservableCollection<Model.Barn> BarnsCollection
+        public ObservableCollection<Barn> BarnsCollection
         {
             get { return barns; }
             set { barns = value; }
@@ -36,7 +36,7 @@ namespace Vaccine_App.Model
         public BarnSingleton()
         {
             BarnsCollection = new ObservableCollection<Barn>();
-            GetBarnASync();
+             GetBarnASync();
         }
         // mangler persistencyservice
         public void AddBarn(Barn BAdd)
