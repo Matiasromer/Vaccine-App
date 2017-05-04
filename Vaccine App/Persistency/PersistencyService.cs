@@ -36,7 +36,7 @@ namespace Vaccine_App.Persistency
 
                 try
                 {
-                    var response = client.PostAsJsonAsync<Barn>("api/barn", PostBarn).Result;
+                    var response = client.PostAsJsonAsync<Barn>(urlStringCreate, PostBarn).Result;
                     if (response.IsSuccessStatusCode)
                     {
                         MessageDialog BarnAdded = new MessageDialog("Dit barn blev tilføjet");
@@ -44,7 +44,7 @@ namespace Vaccine_App.Persistency
                         BarnAdded.ShowAsync().AsTask();
                     }
 
-                }
+                }   
                 catch (Exception e)
                 {
                     MessageDialog BarnAdded = new MessageDialog("Fejl, barn blev ikke tilføjet" + e);
@@ -119,28 +119,56 @@ namespace Vaccine_App.Persistency
         //Get        
         public static async Task<ObservableCollection<Barn>> GetBarnAsync()
         {
-            ObservableCollection<Barn> TempBarnCollection = new ObservableCollection<Barn>();
+            // ObservableCollection<Barn> TempBarnCollection = new ObservableCollection<Barn>();
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlstring = "api/barn";
-                try
-                {
+                string urlstring = "api/barn/";
+
+                
+                
                     HttpResponseMessage response = await client.GetAsync(urlstring);
                     if (response.IsSuccessStatusCode)
                     {
-                        TempBarnCollection = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
+                        var BarnListe = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
+                        return BarnListe;
                     }
-                }
-                catch (Exception e)
-                {
-                    MessageDialog exception = new MessageDialog(e.Message);
-                    return TempBarnCollection = null;
-                }
-                return TempBarnCollection;
+                    return null;
+                
+                
             }
+
+
+
+
+            //catch (Exception e)
+            //{
+            //    MessageDialog exception = new MessageDialog(e.Message);
+            //    return TempBarnCollection = null;
+            // }
+
+            //public static ObservableCollection<Barn> GetBarn()
+            //{
+            //    using (var Client = new HttpClient())
+            //    {
+            //        Client.BaseAddress = new Uri(serverURL);
+            //        Client.DefaultRequestHeaders.Clear();
+            //        string urlStringGet = "api/barn/";
+
+            //        var response = Client.GetAsync(urlStringGet).Result;
+
+            //        if (response.IsSuccessStatusCode)
+            //        {
+            //            var BarnListe = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
+
+            //            return BarnListe;
+            //        }
+            //        return null;
+            //    }
+            //}
+
         }
     }
 }
