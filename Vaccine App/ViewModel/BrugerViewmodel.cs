@@ -17,7 +17,7 @@ namespace Vaccine_App.ViewModel
     {
         //Singletons
         public BarnSingleton BarnSingleton { get; set; }
-        public VaccineSingleton VaccineSingleton { get; set; }
+        //public VaccineSingleton VaccineSingleton { get; set; }
 
         //ObersvableCollections
         private ObservableCollection<Barn> barnCollection;
@@ -33,10 +33,8 @@ namespace Vaccine_App.ViewModel
         public ICommand DeleteBarnCommand { get; set; }
         public ICommand GetBarnCommand { get; set; }
 
-        //Handler
-
+        //Props
         private int fødselsdato;
-
         public int Fødselsdato
         {
             get { return fødselsdato; }
@@ -44,7 +42,6 @@ namespace Vaccine_App.ViewModel
         }
 
         private string barnnavn;
-
         public string BarnNavn
         {
             get { return barnnavn; }
@@ -59,14 +56,13 @@ namespace Vaccine_App.ViewModel
         //    set { email = value; }
         //}
         private int gender;
-
         public int Gender
         {
             get { return gender;}
             set { gender = value; }
         }
-        private int tlfnr;
 
+        private int tlfnr;
         public int Tlfnr
         {
             get { return tlfnr;}
@@ -74,7 +70,6 @@ namespace Vaccine_App.ViewModel
         }
 
         private int deviceId;
-
         public int DeviceId
         {
             get {return deviceId;}
