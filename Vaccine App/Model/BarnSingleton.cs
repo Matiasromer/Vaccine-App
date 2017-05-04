@@ -51,6 +51,11 @@ namespace Vaccine_App.Model
             PersistencyService.DeleteBarnAsync(BRemove);
         }
 
+        //public void Hentbarn()
+        //{
+        //    BarnsCollection = PersistencyService.GetBarnAsync();
+        //}
+
         public async Task GetBarnASync()
         {
             foreach (var item in await PersistencyService.GetBarnAsync())

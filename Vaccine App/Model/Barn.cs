@@ -9,22 +9,21 @@ namespace Vaccine_App.Model
    public class Barn
     {
         // Barn klasse (denne klasse) hed engang Bruger.
-        public string BarnNavn;
-        public int DeviceId { get; set; }
-        public int BarnId { get; set; }
-        public int Foedselsdato { get; set; }
+        public string Barn_Navn;
+        public int Device_id { get; set; }
+        public int Barn_Id { get; set; }
+        public int Barn_Foedsel { get; set; }
         // Gender er int fordi vi kan nemmere binde den til fremtidige knapper
         public int Gender { get; set; }
        // public string Email { get; set; }
       //  public string Barn { get; set; }
        // public int Tlfnr { get; set; }
 
-        public Barn(string BarnNavn, int DeviceId, int Foedselsdato, int Gender)
+        public Barn(string BarnNavn, int DeviceId, int Fødselsdato, int Gender)
         {
-            this.BarnId = this.BarnId;
-            this.BarnNavn = BarnNavn;
-            this.DeviceId = DeviceId;
-            this.Foedselsdato = Foedselsdato;
+            this.Barn_Navn = BarnNavn;
+            this.Device_id = DeviceId;
+            this.Barn_Foedsel = Fødselsdato;
             this.Gender = Gender;
           //  this.Email = Email;
           //  this.Barn = Barn;
@@ -42,7 +41,7 @@ namespace Vaccine_App.Model
 
         public override string ToString()
         {
-            return $"{BarnNavn}  -  {DeviceId}  -  {Foedselsdato}  -  {Gender}  ";
+            return $"{Barn_Navn}  -  {Device_id}  -  {Barn_Foedsel}  -  {Gender}  ";
         }
     }
 }

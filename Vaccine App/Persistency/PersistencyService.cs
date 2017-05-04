@@ -28,7 +28,7 @@ namespace Vaccine_App.Persistency
         public static void PostBarnAsync(Barn PostBarn)
         {
             using (var client = new HttpClient())
-            {                
+            {
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -40,20 +40,21 @@ namespace Vaccine_App.Persistency
                     if (response.IsSuccessStatusCode)
                     {
                         MessageDialog BarnAdded = new MessageDialog("Dit barn blev tilføjet");
-                        BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
+                        BarnAdded.Commands.Add(new UICommand {Label = "Ok"});
                         BarnAdded.ShowAsync().AsTask();
                     }
-                    
-                }
+
+                }   
                 catch (Exception e)
                 {
                     MessageDialog BarnAdded = new MessageDialog("Fejl, barn blev ikke tilføjet" + e);
-                    BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
+                    BarnAdded.Commands.Add(new UICommand {Label = "Ok"});
                     BarnAdded.ShowAsync().AsTask();
                     throw;
                 }
             }
         }
+
         //egen metode, Virker ikke, arbejd på ovenstående
         //public static void PostBarnAsync(Barn PostBarn)
         //{
@@ -81,7 +82,7 @@ namespace Vaccine_App.Persistency
         //        }
         //    }
         //}
-        
+
 
         // Delete
 
@@ -93,7 +94,7 @@ namespace Vaccine_App.Persistency
 
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/barn/" + DeleteBarn.BarnId;
+                string urlString = "api/barn/" + DeleteBarn.Barn_Id;
 
                 try
                 {
@@ -118,32 +119,59 @@ namespace Vaccine_App.Persistency
         //Get        
         public static async Task<ObservableCollection<Barn>> GetBarnAsync()
         {
-            ObservableCollection<Barn> TempBarnCollection = new ObservableCollection<Barn>();
+            // ObservableCollection<Barn> TempBarnCollection = new ObservableCollection<Barn>();
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlstring = "api/barn";
+                string urlstring = "api/barn/";
 
                 
                 
-                HttpResponseMessage response = await client.GetAsync(urlstring);
-                if (response.IsSuccessStatusCode)
-                  {
-                        TempBarnCollection = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
-                        
-                  }
-                }
-                //catch (Exception e)
-                //{
-                //    MessageDialog exception = new MessageDialog(e.Message);
-                //    return TempBarnCollection = null;
-
-                return TempBarnCollection;
+                    HttpResponseMessage response = await client.GetAsync(urlstring);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var BarnListe = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
+                        return BarnListe;
+                    }
+                    return null;
+                
+                
             }
-            
+
+
+
+
+            //catch (Exception e)
+            //{
+            //    MessageDialog exception = new MessageDialog(e.Message);
+            //    return TempBarnCollection = null;
+            // }
+
+            //public static ObservableCollection<Barn> GetBarn()
+            //{
+            //    using (var Client = new HttpClient())
+            //    {
+            //        Client.BaseAddress = new Uri(serverURL);
+            //        Client.DefaultRequestHeaders.Clear();
+            //        string urlStringGet = "api/barn/";
+
+            //        var response = Client.GetAsync(urlStringGet).Result;
+
+            //        if (response.IsSuccessStatusCode)
+            //        {
+            //            var BarnListe = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
+
+            //            return BarnListe;
+            //        }
+            //        return null;
+            //    }
+            //}
+
         }
     }
+}
+    
 
 
