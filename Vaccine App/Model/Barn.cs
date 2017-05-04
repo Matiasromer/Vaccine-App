@@ -9,10 +9,10 @@ namespace Vaccine_App.Model
    public class Barn
     {
         // Barn klasse (denne klasse) hed engang Bruger.
-        public string BarnNavn;
-        public int DeviceId { get; set; }
+        public string Barn_Navn;
+        public int Device_id { get; set; }
         public int Barn_Id { get; set; }
-        public int Fødselsdato { get; set; }
+        public int Barn_Foedsel { get; set; }
         // Gender er int fordi vi kan nemmere binde den til fremtidige knapper
         public int Gender { get; set; }
        // public string Email { get; set; }
@@ -21,27 +21,27 @@ namespace Vaccine_App.Model
 
         public Barn(string BarnNavn, int DeviceId, int Fødselsdato, int Gender)
         {
-            this.BarnNavn = BarnNavn;
-            this.DeviceId = DeviceId;
-            this.Fødselsdato = Fødselsdato;
+            this.Barn_Navn = BarnNavn;
+            this.Device_id = DeviceId;
+            this.Barn_Foedsel = Fødselsdato;
             this.Gender = Gender;
           //  this.Email = Email;
           //  this.Barn = Barn;
           //  this.Tlfnr = Tlfnr;
         }
 
-        public Barn(int fødselsdato, int deviceId, int gender, string barnNavn)
-        {
-            Fødselsdato = fødselsdato;
-            DeviceId = deviceId;
-            Gender = gender;
-            BarnNavn = barnNavn;
-          //  Tlfnr = tlfnr;
-        }
+        //public Barn(int fødselsdato, int deviceId, int gender, string barnNavn)
+        //{
+        //    Fødselsdato = fødselsdato;
+        //    DeviceId = deviceId;
+        //    Gender = gender;
+        //    BarnNavn = barnNavn;
+        //  //  Tlfnr = tlfnr;
+        //}
 
         public override string ToString()
         {
-            return $"{BarnNavn}  -  {DeviceId}  -  {Fødselsdato}  -  {Gender}  ";
+            return $"{Barn_Navn}  -  {Device_id}  -  {Barn_Foedsel}  -  {Gender}  ";
         }
     }
 }

@@ -89,18 +89,18 @@ namespace Vaccine_App.ViewModel
         }
 
         //Handler
-        public Handler.BarnHandler BarnHandler;
+        public Handler.BarnHandler Bh { get; set; }
 
         //ViewModel
         public BrugerViewmodel()
         {
             BarnCollection = BarnSingleton.Instance.BarnsCollection;
-            BarnHandler = new Handler.BarnHandler(this);
+            Bh = new Handler.BarnHandler(this);
             BarnSingleton = BarnSingleton.Instance;
 
-            CreateBarnCommand = new RelayCommand(BarnHandler.CreateBarn, null);
-            DeleteBarnCommand = new RelayCommand(BarnHandler.DeleteBarn, CanDeleteBarn);
-            GetBarnCommand = new RelayCommand(BarnHandler.GetBarn, null);
+            CreateBarnCommand = new RelayCommand(Bh.CreateBarn, null);
+            DeleteBarnCommand = new RelayCommand(Bh.DeleteBarn, CanDeleteBarn);
+            GetBarnCommand = new RelayCommand(Bh.GetBarn, null);
         }
 
         //Fail-Safe; Kan ikke bruge slette nap hvis der intet er i listen.
