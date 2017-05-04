@@ -125,24 +125,15 @@ namespace Vaccine_App.Persistency
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlstring = "api/barn/";
-
-                
-                
-                    HttpResponseMessage response = await client.GetAsync(urlstring);
-                    if (response.IsSuccessStatusCode)
+                string urlstring = "api/barn/";                                
+                HttpResponseMessage response = await client.GetAsync(urlstring);
+                if (response.IsSuccessStatusCode)
                     {
                         var BarnListe = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
                         return BarnListe;
                     }
-                    return null;
-                
-                
+                    return null;               
             }
-
-
-
-
             //catch (Exception e)
             //{
             //    MessageDialog exception = new MessageDialog(e.Message);
@@ -168,7 +159,37 @@ namespace Vaccine_App.Persistency
             //        return null;
             //    }
             //}
+        }
 
+        //Post-Vaccine metode, til eventuelle extra vacciner
+        public static void PostVaccineAsync(Vaccine PostVac)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string urlStringCreate = "api/Vaccine/";
+
+                try
+                {
+                    var response = client.PostAsJsonAsync<Vaccine>(urlStringCreate, PostVac).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageDialog BarnAdded = new MessageDialog("Vaccinen blev tilføjet");
+                        BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
+                        BarnAdded.ShowAsync().AsTask();
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageDialog BarnAdded = new MessageDialog("Fejl, Vaccinen blev ikke tilføjet" + e);
+                    BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
+                    BarnAdded.ShowAsync().AsTask();
+                    throw;
+                }
+            }
         }
     }
 }
