@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Vaccine_App.Model;
 using Vaccine_App.View;
 using Vaccine_App.ViewModel;
+using Vaccine_App.Persistency;
 
 namespace Vaccine_App.Handler
 {
@@ -22,13 +23,14 @@ namespace Vaccine_App.Handler
         
         public void CreateBarn()
         {
-            Model.Barn tempBarn = new Model.Barn(BrugerViewmodel.BarnNavn, BrugerViewmodel.DeviceId, BrugerViewmodel.Fødselsdato, BrugerViewmodel.Gender);
-            tempBarn.Fødselsdato = BrugerViewmodel.Fødselsdato;
-            tempBarn.DeviceId = BrugerViewmodel.DeviceId;
+            Barn tempBarn = new Barn(BrugerViewmodel.BarnNavn, BrugerViewmodel.DeviceId, BrugerViewmodel.Fødselsdato, BrugerViewmodel.Gender);
+            tempBarn.Barn_Foedsel = BrugerViewmodel.Fødselsdato;
+            tempBarn.Device_id = BrugerViewmodel.DeviceId;
             tempBarn.Gender = BrugerViewmodel.Gender;
-            tempBarn.BarnNavn = BrugerViewmodel.BarnNavn;
+            tempBarn.Barn_Navn = BrugerViewmodel.BarnNavn;
            // tempBarn.Tlfnr = BrugerViewmodel.Tlfnr;
             BarnSingleton.Instance.AddBarn(tempBarn);
+            Vaccine_App.Persistency.PersistencyService.PostBarnAsync(tempBarn);
         }
          
         public void DeleteBarn()

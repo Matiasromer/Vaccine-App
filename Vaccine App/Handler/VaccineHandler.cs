@@ -16,5 +16,17 @@ namespace Vaccine_App.Handler
         {
             this.VaccineViewmodel = vvm;
         }
+
+        //Post Metode
+        public void CreateVaccine()
+        {
+            Vaccine tempVacc = new Vaccine(VaccineViewmodel.Vac_Id, VaccineViewmodel.Vac_Name, VaccineViewmodel.Vac_Info);
+            tempVacc.Vac_Id = VaccineViewmodel.Vac_Id;
+            tempVacc.Vac_Navn = VaccineViewmodel.Vac_Name;
+            tempVacc.Vac_Info = VaccineViewmodel.Vac_Info;
+
+            VaccineSingleton.Instance.AddVaccine(tempVacc);
+            Vaccine_App.Persistency.PersistencyService.PostVaccineAsync(tempVacc);
+        }
     }
 }
