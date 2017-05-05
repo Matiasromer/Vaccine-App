@@ -30,7 +30,7 @@ namespace Vaccine_App.Handler
             tempBarn.Barn_Navn = BrugerViewmodel.BarnNavn;
            // tempBarn.Tlfnr = BrugerViewmodel.Tlfnr;
             BarnSingleton.Instance.AddBarn(tempBarn);
-            Vaccine_App.Persistency.PersistencyService.PostBarnAsync(tempBarn);
+           // Vaccine_App.Persistency.PersistencyService.PostBarnAsync(tempBarn);
         }
          
         public void DeleteBarn()

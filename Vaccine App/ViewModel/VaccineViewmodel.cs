@@ -10,75 +10,78 @@ using Vaccine_App.Handler;
 using Vaccine_App.Model;
 
 namespace Vaccine_App.ViewModel
-{
-   public class VaccineViewmodel : INotifyPropertyChanged
-    {
+{ 
+//{
+   //public class VaccineViewmodel : INotifyPropertyChanged
+   // {
         //Singletons
-        public VaccineSingleton VaccineSingleton { get; set; }
+        //public VaccineSingleton VaccineSingleton { get; set; }
 
-        //ObservableColletions
-        private ObservableCollection<Vaccine> vaccineCollection;
-        public ObservableCollection<Vaccine> VaccineCollection
-        {
-            get { return vaccineCollection; }
-            set { vaccineCollection = value; }
-        }
+        ////ObservableColletions
+        //private ObservableCollection<Vaccine> vaccineCollection;
+        //public ObservableCollection<Vaccine> VaccineCollection
+        //{
+        //    get { return vaccineCollection; }
+        //    set { vaccineCollection = value; }
+        //}
 
-        //Commands
-        public ICommand CreateVaccineCommand { get; set; }
+        ////Commands
+        //public ICommand CreateVaccineCommand { get; set; }
 
-        //props
-        private int vac_Id;
+        ////props
+        //private int vac_Id;
 
-        public int Vac_Id
-        {
-            get { return vac_Id; }
-            set { vac_Id = value; }
-        }
+        //public int Vac_Id
+        //{
+        //    get { return vac_Id; }
+        //    set { vac_Id = value; }
+        //}
 
-        private string vac_Name;
+        //private string vac_Name;
 
-        public string Vac_Name
-        {
-            get { return vac_Name; }
-            set { vac_Name = value; }
-        }
+        //public string Vac_Name
+        //{
+        //    get { return vac_Name; }
+        //    set { vac_Name = value; }
+        //}
 
-        private string vac_Info;
-        public string Vac_Info
-        {
-            get { return vac_Info; }
-            set { vac_Info = value; }
-        }
+        //private string vac_Info;
+        //public string Vac_Info
+        //{
+        //    get { return vac_Info; }
+        //    set { vac_Info = value; }
+        //}
 
-        private Vaccine selectedVaccine;
+        //private Vaccine selectedVaccine;
 
-        public Vaccine SelectedVaccine
-        {
-            get { return selectedVaccine; }
-            set { selectedVaccine = value; }
-        }
+        //public Vaccine SelectedVaccine
+        //{
+        //    get { return selectedVaccine; }
+        //    set { selectedVaccine = value; }
+        //}
         
-        //Handler
-        public Handler.VaccineHandler VaccineHandler;
+        ////Handler
+        //public Handler.VaccineHandler VaccineHandler;
 
-        //ViewModel
-        public VaccineViewmodel()
-        {
-            VaccineCollection = VaccineSingleton.Instance.VaccineCollection;
-            VaccineHandler = new VaccineHandler(this);
-            VaccineSingleton = VaccineSingleton.Instance;
-        }
+        ////ViewModel
+        //public VaccineViewmodel()
+        //{
+        //    VaccineCollection = VaccineSingleton.Instance.VaccineCollection;
+        //    VaccineHandler = new VaccineHandler(this);
+        //    VaccineSingleton = VaccineSingleton.Instance;
+        //}
 
-        //INotifyPropChanged interface
-        public event PropertyChangedEventHandler PropertyChanged;
+        ////INotifyPropChanged interface
+        //public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
+        //protected virtual void OnPropertyChanged(string propertyName)
+        //{
+        //    if (PropertyChanged != null)
+        //    {
+        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        //    }
+//        }
+//    }
+
+//}
 }

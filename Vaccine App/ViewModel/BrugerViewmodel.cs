@@ -17,7 +17,7 @@ namespace Vaccine_App.ViewModel
     {
         //Singletons
         public BarnSingleton BarnSingleton { get; set; }
-        //public VaccineSingleton VaccineSingleton { get; set; }
+        public VaccineSingleton VaccineSingleton { get; set; }
 
         //ObersvableCollections
         private ObservableCollection<Barn> barnCollection;
