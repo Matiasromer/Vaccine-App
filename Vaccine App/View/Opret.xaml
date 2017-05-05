@@ -8,25 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="139,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="171" FontSize="30" Text="Fødselsdato"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="45,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="345" FontSize="30">
-            <Run Text="                "/>
-            <Run Text="Navn"/>
-            <LineBreak/>
-            <Run/>
-        </TextBlock>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="45,431,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="345" Height="72"/>
-        <Button x:Name="button1" Content="Ok" HorizontalAlignment="Left" Margin="45,615,0,0" VerticalAlignment="Top" Height="80" Width="160" FontSize="40" Click="Buttom_Click_3" Background="#59256FB4"/>
-        <Button x:Name="button2" Content="Clear" HorizontalAlignment="Left" Margin="230,615,0,0" VerticalAlignment="Top" Height="80" Width="160" FontSize="40" Background="#59256FB4"/>
-        <Rectangle Fill="#59256FB4" HorizontalAlignment="Left" Height="60" Stroke="Black" VerticalAlignment="Top" Width="432"/>
-        <Button x:Name="button" Content="≡" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Padding="0,0,0,14" Background="#00000000" FontSize="40" Margin="347,0,0,0" Width="85"/>
-        <Button x:Name="button_Copy" Content="←" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,0,0,14" Height="60" Width="85" Click="Buttom_Click_2" Background="#00000000" FontSize="40"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="178,10,0,0" TextWrapping="Wrap" Text="Opret" VerticalAlignment="Top" Height="50" Width="99" FontSize="30"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="45,217,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.51,0.538" Height="50"/>
-        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="125,217,0,0" VerticalAlignment="Top" Width="165" Height="50"/>
-        <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="290,217,0,0" VerticalAlignment="Top" Width="100" Height="50"/>
-        <RadioButton x:Name="radioButton" Content="♀" HorizontalAlignment="Left" Margin="131,275,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <RadioButton x:Name="radioButton1" Content="♂" HorizontalAlignment="Left" Margin="276,275,0,0" VerticalAlignment="Top" FontSize="16" Width="47"/>
 
     </Grid>
 </Page>
