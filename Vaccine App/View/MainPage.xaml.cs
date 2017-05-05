@@ -25,6 +25,10 @@ namespace Vaccine_App
         public MainPage()
         {
             this.InitializeComponent();
+            
         }
+        
+
+        
     }
 }
