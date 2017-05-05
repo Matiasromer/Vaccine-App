@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Vaccine_App.View.Opret"
+    x:Class="Vaccine_App.View.Forside"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Vaccine_App.View"
@@ -57,22 +57,18 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="Gray">
-                        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="Opret Barn" VerticalAlignment="Top" Height="35" Width="160" FontSize="25"/>
+                        <!--<TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Påmindelser" VerticalAlignment="Top" Height="30" Width="160" FontSize="25"/>-->
                     </Grid>
-                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="104,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="173" FontSize="30" Text="Fødselsdato" Grid.Row="1"/>
-                    <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="147,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="83" FontSize="30" Grid.Row="1">
-            
-                        <Run Text="Navn"/>
-                        <LineBreak/>
-                        <Run/>
-                    </TextBlock>
-                    <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="37,290,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="287" Height="59" Grid.Row="1"/>
-                    <Button x:Name="button1" Content="Ok" HorizontalAlignment="Left" Margin="115,436,0,0" VerticalAlignment="Top" Height="67" Width="133" FontSize="40" Click="Buttom_Click_5" Background="#59256FB4" Grid.Row="1"/>
-                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="37,113,0,0" VerticalAlignment="Top" Width="67" RenderTransformOrigin="0.51,0.538" Height="41" Grid.Row="1"/>
-                    <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="104,113,0,0" VerticalAlignment="Top" Width="137" Height="41" Grid.Row="1"/>
-                    <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="241,113,0,0" VerticalAlignment="Top" Width="83" Height="41" Grid.Row="1"/>
-                    <RadioButton x:Name="radioButton" Content="♀" HorizontalAlignment="Left" Margin="109,160,0,0" VerticalAlignment="Top" FontSize="16" Height="27" Width="121" Grid.Row="1"/>
-                    <RadioButton x:Name="radioButton1" Content="♂" HorizontalAlignment="Left" Margin="229,160,0,0" VerticalAlignment="Top" FontSize="16" Width="121" Height="27" Grid.Row="1"/>
+                    <Image x:Name="image" HorizontalAlignment="Left" Height="178" Margin="10,97,0,0" VerticalAlignment="Top" Width="340" Visibility="Visible" Source="ms-appx:///Assets/stort_logo.png" Grid.Row="1">
+                        
+                    </Image>
+                    <Button x:Name="button" 
+                        Content="+ Opret Barn" 
+                        HorizontalAlignment="Left" 
+                        Margin="90,421,0,0" 
+                        VerticalAlignment="Top" Height="61" 
+                        Width="180" Grid.Row="1" FontSize="25"
+                        Click="Buttom_Click_5"/>
                 </Grid>
             </SplitView.Content>
         </SplitView>
