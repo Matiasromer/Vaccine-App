@@ -55,8 +55,8 @@ namespace Vaccine_App.ViewModel
         //    get { return email; }
         //    set { email = value; }
         //}
-        private int gender;
-        public int Gender
+        private string gender;
+        public string Gender
         {
             get { return gender;}
             set { gender = value; }

@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace Vaccine_App
+namespace Vaccine_App.View
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -27,8 +27,10 @@ namespace Vaccine_App
             this.InitializeComponent();
             
         }
-        
 
-        
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(View.Forside));
+        }
     }
 }

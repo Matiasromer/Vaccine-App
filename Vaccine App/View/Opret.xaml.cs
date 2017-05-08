@@ -56,6 +56,21 @@ namespace Vaccine_App.View
             this.Frame.Navigate(typeof(View.Påmindelse), null);
         }
 
+        private void radioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            
+        }
 
+        private void radioButton1_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*ComboBox comboBox = new ComboBox();
+            comboBox.Items.Add("Dreng");
+            comboBox.Items.Add("Pige");*/
+        }
     }
 }
