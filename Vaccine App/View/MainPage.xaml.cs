@@ -26,8 +26,9 @@ namespace Vaccine_App
         {
             this.InitializeComponent();
             
-                
-            }
         }
+        
+
+        
     }
 }

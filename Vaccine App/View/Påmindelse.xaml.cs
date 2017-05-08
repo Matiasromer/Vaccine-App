@@ -26,5 +26,30 @@ namespace Vaccine_App.View
         {
             this.InitializeComponent();
         }
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+        }
+
+        private void Buttom_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(View.Forside), null);
+
+        }
+        private void Buttom_Click_2(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(View.Påmindelse), null);
+
+        }
+        private void Buttom_Click_3(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(View.Kalender), null);
+
+        }
+        private void Buttom_Click_4(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(View.Historik), null);
+        }
     }
 }

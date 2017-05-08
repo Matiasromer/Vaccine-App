@@ -20,9 +20,9 @@ namespace Vaccine_App.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Opret : Page
+    public sealed partial class Historik : Page
     {
-        public Opret()
+        public Historik()
         {
             this.InitializeComponent();
         }
@@ -51,11 +51,5 @@ namespace Vaccine_App.View
         {
             this.Frame.Navigate(typeof(View.Historik), null);
         }
-        private void Buttom_Click_5(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(View.Påmindelse), null);
-        }
-
-
     }
 }
