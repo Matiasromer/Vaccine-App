@@ -10,14 +10,14 @@ namespace Vaccine_App.Handler
 {
    public class VaccineHandler
     {
-        //public VaccineViewmodel VaccineViewmodel { get; set; }
+        public VaccineViewmodel VaccineViewmodel { get; set; }
 
-        //public VaccineHandler(VaccineViewmodel vvm)
-        //{
-        //    this.VaccineViewmodel = vvm;
-        //}
+        public VaccineHandler(VaccineViewmodel vvm)
+        {
+            this.VaccineViewmodel = vvm;
+        }
 
-        ////Post Metode
+        //Post Metode
         //public void CreateVaccine()
         //{
         //    Vaccine tempVacc = new Vaccine(VaccineViewmodel.Vac_Id, VaccineViewmodel.Vac_Name, VaccineViewmodel.Vac_Info);
@@ -26,7 +26,12 @@ namespace Vaccine_App.Handler
         //    tempVacc.Vac_Info = VaccineViewmodel.Vac_Info;
 
         //    VaccineSingleton.Instance.AddVaccine(tempVacc);
-        //   // Vaccine_App.Persistency.PersistencyService.PostVaccineAsync(tempVacc);
+            // Vaccine_App.Persistency.PersistencyService.PostVaccineAsync(tempVacc);
         //}
+
+        public async void VaccineGet()
+        {
+            await VaccineSingleton.Instance.GetVaccineASync();
+        }
     }
 }

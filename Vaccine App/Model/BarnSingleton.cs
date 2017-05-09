@@ -38,7 +38,7 @@ namespace Vaccine_App.Model
             BarnsCollection = new ObservableCollection<Barn>();
             GetBarnASync();
         }
-        // mangler persistencyservice
+        
         public void AddBarn(Barn BAdd)
         {
             BarnsCollection.Add(BAdd);

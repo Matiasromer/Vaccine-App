@@ -11,77 +11,77 @@ using Vaccine_App.Model;
 
 namespace Vaccine_App.ViewModel
 { 
-//{
-   //public class VaccineViewmodel : INotifyPropertyChanged
-   // {
-        //Singletons
-        //public VaccineSingleton VaccineSingleton { get; set; }
 
-        ////ObservableColletions
-        //private ObservableCollection<Vaccine> vaccineCollection;
-        //public ObservableCollection<Vaccine> VaccineCollection
-        //{
-        //    get { return vaccineCollection; }
-        //    set { vaccineCollection = value; }
-        //}
+   public class VaccineViewmodel : INotifyPropertyChanged
+    {
+       // Singletons
+        public VaccineSingleton VaccineSingleton { get; set; }
 
-        ////Commands
-        //public ICommand CreateVaccineCommand { get; set; }
+        //ObservableColletions
+        private ObservableCollection<Vaccine> vaccineCollection;
+        public ObservableCollection<Vaccine> VaccineCollection
+        {
+            get { return vaccineCollection; }
+            set { vaccineCollection = value; }
+        }
 
-        ////props
-        //private int vac_Id;
+        //Commands
+        public ICommand CreateVaccineCommand { get; set; }
+        public ICommand GetVaccineCommand { get; set; }
 
-        //public int Vac_Id
-        //{
-        //    get { return vac_Id; }
-        //    set { vac_Id = value; }
-        //}
+        //props
+        private int vac_Id;
 
-        //private string vac_Name;
+        public int Vac_Id
+        {
+            get { return vac_Id; }
+            set { vac_Id = value; }
+        }
 
-        //public string Vac_Name
-        //{
-        //    get { return vac_Name; }
-        //    set { vac_Name = value; }
-        //}
+        private string vac_Name;
 
-        //private string vac_Info;
-        //public string Vac_Info
-        //{
-        //    get { return vac_Info; }
-        //    set { vac_Info = value; }
-        //}
+        public string Vac_Name
+        {
+            get { return vac_Name; }
+            set { vac_Name = value; }
+        }
 
-        //private Vaccine selectedVaccine;
+        private string vac_Info;
+        public string Vac_Info
+        {
+            get { return vac_Info; }
+            set { vac_Info = value; }
+        }
 
-        //public Vaccine SelectedVaccine
-        //{
-        //    get { return selectedVaccine; }
-        //    set { selectedVaccine = value; }
-        //}
-        
-        ////Handler
-        //public Handler.VaccineHandler VaccineHandler;
+        private Vaccine selectedVaccine;
 
-        ////ViewModel
-        //public VaccineViewmodel()
-        //{
-        //    VaccineCollection = VaccineSingleton.Instance.VaccineCollection;
-        //    VaccineHandler = new VaccineHandler(this);
-        //    VaccineSingleton = VaccineSingleton.Instance;
-        //}
+        public Vaccine SelectedVaccine
+        {
+            get { return selectedVaccine; }
+            set { selectedVaccine = value; }
+        }
 
-        ////INotifyPropChanged interface
-        //public event PropertyChangedEventHandler PropertyChanged;
+        //Handler
+        public Handler.VaccineHandler VaccineHandler;
 
-        //protected virtual void OnPropertyChanged(string propertyName)
-        //{
-        //    if (PropertyChanged != null)
-        //    {
-        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        //    }
-//        }
-//    }
+        //ViewModel
+        public VaccineViewmodel()
+        {
+            VaccineCollection = VaccineSingleton.Instance.VaccineCollection;
+            VaccineHandler = new VaccineHandler(this);
+            VaccineSingleton = VaccineSingleton.Instance;
+        }
 
-//}
+        //INotifyPropChanged interface
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+
 }

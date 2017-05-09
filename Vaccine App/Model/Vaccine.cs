@@ -24,7 +24,7 @@ namespace Vaccine_App.Model
         //Override method
         public override string ToString()
         {
-            return $"{Vac_Id}  -  {Vac_Navn}  -  {Vac_Info}";
+            return $"{Vac_Id}  -  {Vac_Navn}  ";
         }
     }
 }

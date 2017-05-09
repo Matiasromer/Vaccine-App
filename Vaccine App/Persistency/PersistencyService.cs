@@ -24,7 +24,7 @@ namespace Vaccine_App.Persistency
         //    await messageDialog.ShowAsync();
         //}
 
-        // Post, laver et barn og sender til db - Error Message; Bad Request
+        // Post, laver et barn og sender til db - 
         public static void PostBarnAsync(Barn PostBarn)
         {
             using (var client = new HttpClient())
@@ -84,7 +84,7 @@ namespace Vaccine_App.Persistency
         //}
 
 
-        // Delete
+        // Delete Barn
 
         public static void DeleteBarnAsync(Barn DeleteBarn)
         {
@@ -116,7 +116,7 @@ namespace Vaccine_App.Persistency
             }
         }
 
-        //Get        
+        //Get Barn        
         public static async Task<ObservableCollection<Barn>> GetBarnAsync()
         {
             // ObservableCollection<Barn> TempBarnCollection = new ObservableCollection<Barn>();
@@ -161,6 +161,23 @@ namespace Vaccine_App.Persistency
             //}
         }
 
+        public static async Task<ObservableCollection<Vaccine>> GetVaccineAsync()
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+                string urlstring = "api/vaccine/";
+                HttpResponseMessage response = await client.GetAsync(urlstring);
+                if (response.IsSuccessStatusCode)
+                {
+                    var VaccineListe = response.Content.ReadAsAsync<ObservableCollection<Vaccine>>().Result;
+                    return VaccineListe;
+                }
+                return null;
+            }
+        }
         //Post-Vaccine metode, til eventuelle extra vacciner
         //public static void PostVaccineAsync(Vaccine PostVac)
         //{

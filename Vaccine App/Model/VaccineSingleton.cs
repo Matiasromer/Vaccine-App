@@ -14,41 +14,49 @@ namespace Vaccine_App.ViewModel
     {
 
         //observableCollections - Lister
-    //    private ObservableCollection<Model.Vaccine> vaccine;
-    //    public ObservableCollection<Model.Vaccine> VaccineCollection
-    //    {   
-    //        get { return vaccine; }
-    //        set { vaccine = value; }
-    //    }
+        private ObservableCollection<Model.Vaccine> vaccine;
+        public ObservableCollection<Model.Vaccine> VaccineCollection
+        {
+            get { return vaccine; }
+            set { vaccine = value; }
+        }
 
-    //    //Singleton Instances
-    //    private static VaccineSingleton instance;
-    //    public static VaccineSingleton Instance
-    //    {
-    //        get
-    //        {
-    //            if (instance == null)
-    //            {
-    //                instance = new VaccineSingleton();
-    //            }
-    //            return instance;
-    //        }
+        //Singleton Instances
+        private static VaccineSingleton instance;
+        public static VaccineSingleton Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new VaccineSingleton();
+                }
+                return instance;
+            }
 
-    //    }
+        }
 
-    //    public VaccineSingleton()
-    //    {
-    //        VaccineCollection = new ObservableCollection<Vaccine>();
-    //    }
+        public VaccineSingleton()
+        {
+            VaccineCollection = new ObservableCollection<Vaccine>();
+        }
 
-    //    //Mangler Persistency-metoder
+        //Mangler Persistency-metoder
 
-    //    //Add metode
-    //    public void AddVaccine(Vaccine VacAdd)
-    //    {
-    //        VaccineCollection.Add(VacAdd);
-    //      //  PersistencyService.PostVaccineAsync(VacAdd);
-    //    }
+        //Add metode
+        public void AddVaccine(Vaccine VacAdd)
+        {
+            VaccineCollection.Add(VacAdd);
+            //  PersistencyService.PostVaccineAsync(VacAdd);
+        }
+
+        public async Task GetVaccineASync()
+        {
+            foreach (var item in await PersistencyService.GetVaccineAsync())
+            {
+                this.VaccineCollection.Add(item);
+            }
+        }
     }
 
 }
