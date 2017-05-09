@@ -19,10 +19,10 @@ namespace Vaccine_App.Model
       //  public string Barn { get; set; }
        // public int Tlfnr { get; set; }
 
-        public Barn(string BarnNavn, int DeviceId, int Fødselsdato, int Gender)
+        public Barn(string BarnNavn/*, int DeviceId*/, int Fødselsdato, int Gender)
         {
             this.Barn_Navn = BarnNavn;
-            this.Device_id = DeviceId;
+            //this.Device_id = DeviceId;
             this.Barn_Foedsel = Fødselsdato;
             this.Gender = Gender;
           //  this.Email = Email;

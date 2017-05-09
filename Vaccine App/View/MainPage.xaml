@@ -22,7 +22,7 @@
         <Button x:Name="button1" Content="Delete" HorizontalAlignment="Left" Height="53" Margin="216,452,0,0" VerticalAlignment="Top" Width="134" Command="{Binding DeleteBarnCommand}"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="216,395,0,0" TextWrapping="Wrap" Text="{Binding Fødselsdato, Converter={StaticResource IntToString}, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="DD/MM/YYYY"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="10,351,0,0" TextWrapping="Wrap" Text="{Binding BarnNavn, Mode=TwoWay}" VerticalAlignment="Top" Width="124"/>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="37" Margin="10,383,0,0" TextWrapping="Wrap" Text="{Binding DeviceId, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="Device ID"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="37" Margin="10,383,0,0" TextWrapping="Wrap" Text="{Binding DeviceId, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="Device ID" TextAlignment="Center"/>
         <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="0" Margin="10,421,0,0" TextWrapping="Wrap" Text="{Binding Gender, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="Gender"/>
         <Button x:Name="button2" Content="Hent" HorizontalAlignment="Left" Height="59" Margin="10,522,0,0" VerticalAlignment="Top" Width="124" Command="{Binding GetBarnCommand, Mode=TwoWay}"/>
 
