@@ -51,5 +51,9 @@ namespace Vaccine_App.View
         {
             this.Frame.Navigate(typeof(View.Historik), null);
         }
+        private void Buttom_Click_7(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(View.VaccinationsInfo));
+        }
     }
 }

@@ -23,9 +23,9 @@ namespace Vaccine_App.Handler
         
         public void CreateBarn()
         {
-            Barn tempBarn = new Barn(BrugerViewmodel.BarnNavn, BrugerViewmodel.DeviceId, BrugerViewmodel.Fødselsdato, BrugerViewmodel.Gender);
+            Barn tempBarn = new Barn(BrugerViewmodel.BarnNavn/*, BrugerViewmodel.DeviceId*/, BrugerViewmodel.Fødselsdato, BrugerViewmodel.Gender);
             tempBarn.Barn_Foedsel = BrugerViewmodel.Fødselsdato;
-            tempBarn.Device_id = BrugerViewmodel.DeviceId;
+            //tempBarn.Device_id = BrugerViewmodel.DeviceId;
             tempBarn.Gender = BrugerViewmodel.Gender;
             tempBarn.Barn_Navn = BrugerViewmodel.BarnNavn;
            // tempBarn.Tlfnr = BrugerViewmodel.Tlfnr;

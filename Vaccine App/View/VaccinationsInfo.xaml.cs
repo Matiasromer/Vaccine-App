@@ -20,9 +20,9 @@ namespace Vaccine_App.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Forside : Page
+    public sealed partial class VaccinationsInfo : Page
     {
-        public Forside()
+        public VaccinationsInfo()
         {
             this.InitializeComponent();
         }
@@ -51,20 +51,32 @@ namespace Vaccine_App.View
         {
             this.Frame.Navigate(typeof(View.Historik), null);
         }
-
-        private void Buttom_Click_5(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(View.Opret), null);
-        }
-
-        private void Buttom_Click_6(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(View.MainPage));
-        }
-
         private void Buttom_Click_7(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(View.VaccinationsInfo));
+        }
+
+        //Popup knapper!
+
+        private void PopUp1(object sender, RoutedEventArgs e)
+        {
+            Info1.IsPaneOpen = !Info1.IsPaneOpen;
+        }
+        private void PopUp2(object sender, RoutedEventArgs e)
+        {
+            Info2.IsPaneOpen = !Info2.IsPaneOpen;
+        }
+        private void PopUp3(object sender, RoutedEventArgs e)
+        {
+            Info3.IsPaneOpen = !Info3.IsPaneOpen;
+        }
+        private void PopUp4(object sender, RoutedEventArgs e)
+        {
+            Info4.IsPaneOpen = !Info4.IsPaneOpen;
+        }
+        private void PopUp5(object sender, RoutedEventArgs e)
+        {
+            Info5.IsPaneOpen = !Info5.IsPaneOpen;
         }
     }
 }

@@ -58,9 +58,12 @@ namespace Vaccine_App.ViewModel
         private string gender;
         public string Gender
         {
-            get { return gender;}
+            get
+            { return gender;}
             set { gender = value; }
         }
+
+        
 
         private int tlfnr;
         public int Tlfnr
@@ -121,5 +124,7 @@ namespace Vaccine_App.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+
     }
 }

@@ -32,5 +32,15 @@ namespace Vaccine_App.View
         {
             this.Frame.Navigate(typeof(View.Forside));
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
     }
 }
