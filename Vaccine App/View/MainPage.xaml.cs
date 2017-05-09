@@ -33,5 +33,7 @@ namespace Vaccine_App
         {
             this.Frame.Navigate(typeof(Forside));
         }
+
+        
     }
 }

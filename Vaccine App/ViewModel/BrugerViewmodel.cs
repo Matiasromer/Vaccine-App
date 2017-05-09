@@ -40,10 +40,11 @@ namespace Vaccine_App.ViewModel
             get { return fødselsdato; }
             set
             {
-                fødselsdato = value.Date;
+                fødselsdato = value.Date;   
                 OnPropertyChanged(nameof(Fødselsdato));
             }
         }
+        
 
         private string barnnavn;
         public string BarnNavn
@@ -59,11 +60,15 @@ namespace Vaccine_App.ViewModel
         //    get { return email; }
         //    set { email = value; }
         //}
-        private string gender;
-        public string Gender
+        private String gender;
+        public String Gender
         {
             get { return gender;}
-            set { gender = value; }
+            set
+            {
+                gender = value;
+                OnPropertyChanged(nameof(Gender));
+            }
         }
 
         private int tlfnr;
