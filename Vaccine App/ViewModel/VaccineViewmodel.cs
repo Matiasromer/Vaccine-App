@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Vaccine_App.Common;
 using Vaccine_App.Handler;
 using Vaccine_App.Model;
 
@@ -62,14 +63,16 @@ namespace Vaccine_App.ViewModel
         }
 
         //Handler
-        public Handler.VaccineHandler VaccineHandler;
+        public Handler.VaccineHandler VH;
 
         //ViewModel
         public VaccineViewmodel()
         {
-            VaccineCollection = VaccineSingleton.Instance.VaccineCollection;
-            VaccineHandler = new VaccineHandler(this);
+            VaccineCollection = VaccineSingleton.Instance.VaccinesCollection;
+            VH = new VaccineHandler(this);
             VaccineSingleton = VaccineSingleton.Instance;
+
+            GetVaccineCommand = new RelayCommand(VH.VaccineGet, null);
         }
 
         //INotifyPropChanged interface

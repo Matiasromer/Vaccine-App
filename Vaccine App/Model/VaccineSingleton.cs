@@ -15,7 +15,7 @@ namespace Vaccine_App.ViewModel
 
         //observableCollections - Lister
         private ObservableCollection<Model.Vaccine> vaccine;
-        public ObservableCollection<Model.Vaccine> VaccineCollection
+        public ObservableCollection<Model.Vaccine> VaccinesCollection
         {
             get { return vaccine; }
             set { vaccine = value; }
@@ -38,15 +38,16 @@ namespace Vaccine_App.ViewModel
 
         public VaccineSingleton()
         {
-            VaccineCollection = new ObservableCollection<Vaccine>();
+            VaccinesCollection = new ObservableCollection<Vaccine>();
+            GetVaccineASync();
         }
 
-        //Mangler Persistency-metoder
+        
 
         //Add metode
         public void AddVaccine(Vaccine VacAdd)
         {
-            VaccineCollection.Add(VacAdd);
+            VaccinesCollection.Add(VacAdd);
             //  PersistencyService.PostVaccineAsync(VacAdd);
         }
 
@@ -54,7 +55,7 @@ namespace Vaccine_App.ViewModel
         {
             foreach (var item in await PersistencyService.GetVaccineAsync())
             {
-                this.VaccineCollection.Add(item);
+                this.VaccinesCollection.Add(item);
             }
         }
     }
