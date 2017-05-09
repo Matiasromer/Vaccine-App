@@ -44,7 +44,7 @@ namespace Vaccine_App.ViewModel
 
         
 
-        //Add metode
+        //Add metode - ikke brugt for nu (fordi det ikke er needed)
         public void AddVaccine(Vaccine VacAdd)
         {
             VaccinesCollection.Add(VacAdd);

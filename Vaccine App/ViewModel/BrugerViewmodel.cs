@@ -34,11 +34,15 @@ namespace Vaccine_App.ViewModel
         public ICommand GetBarnCommand { get; set; }
 
         //Props
-        private int fødselsdato;
-        public int Fødselsdato
+        private DateTime fødselsdato = DateTime.Now;
+        public DateTime Fødselsdato
         {
             get { return fødselsdato; }
-            set { fødselsdato = value; }
+            set
+            {
+                fødselsdato = value.Date;
+                OnPropertyChanged(nameof(Fødselsdato));
+            }
         }
 
         private string barnnavn;
@@ -116,9 +120,10 @@ namespace Vaccine_App.ViewModel
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
+           // if (PropertyChanged != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+              //  PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
