@@ -16,21 +16,15 @@ namespace Vaccine_App.ViewModel
 {
     public class BrugerViewmodel : INotifyPropertyChanged
     {
-        #region combobox experimental code
+        #region combobox code
 
         //http://stackoverflow.com/questions/33821672/uwp-combobox-binding-to-selecteditem-property
 
-        private ObservableCollection<Windows.UI.Xaml.Controls.ComboBoxItem> _comboBoxOptions;
+        public ObservableCollection<ComboBoxItem> ComboBoxOptions { get; set; } = new ObservableCollection<ComboBoxItem>();
 
-        public ObservableCollection<Windows.UI.Xaml.Controls.ComboBoxItem> ComboBoxOptions
-        {
-            get { return _comboBoxOptions; }
-            set { _comboBoxOptions = value; }
-        }
+        private ComboBoxItem _SelectedComboBoxOption;
 
-        private Windows.UI.Xaml.Controls.ComboBoxItem _SelectedComboBoxOption;
-
-        public Windows.UI.Xaml.Controls.ComboBoxItem SelectedComboBoxOption
+        public ComboBoxItem SelectedComboBoxOption
         {
             get
             {
@@ -139,14 +133,6 @@ namespace Vaccine_App.ViewModel
             CreateBarnCommand = new RelayCommand(Bh.CreateBarn, null);
             DeleteBarnCommand = new RelayCommand(Bh.DeleteBarn, CanDeleteBarn);
             GetBarnCommand = new RelayCommand(Bh.GetBarn, null);
-
-
-            //combobox related stuff
-            ComboBoxOptions = new ObservableCollection<Windows.UI.Xaml.Controls.ComboBoxItem>();
-            //Adds ComboBox items to the ComboBox
-            ComboBoxOptionsManager.GetComboBoxList(ComboBoxOptions);
-            //Sets the default value of the combobox
-            SelectedComboBoxOption = ComboBoxOptions[0];
         }
 
         //Fail-Safe; Kan ikke bruge slette nap hvis der intet er i listen.

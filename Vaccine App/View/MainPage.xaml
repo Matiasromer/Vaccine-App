@@ -28,15 +28,14 @@
         <Button x:Name="button2" Content="Forside" HorizontalAlignment="Left" Margin="179,561,0,0" VerticalAlignment="Top" Click="button2_Click"/>
         <DatePicker HorizontalAlignment="Left" Margin="16,314,0,0" VerticalAlignment="Top" Date="{Binding Fødselsdato, Mode=TwoWay}"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="147,362,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBox x:Name="comboBox"  
-                  ItemsSource="{Binding ComboBoxOptions}"
-                  DisplayMemberPath="Content"
-                  SelectedItem="{Binding SelectedComboBoxOption, Mode=TwoWay, Converter={StaticResource CbiToString}}"
-                  SelectedValuePath="Content"/>
-            <TextBlock Name="BoundTextblock" Text="{Binding Gender, Mode=OneWay}" />
+            <ComboBox 
+                x:Name="comboBox"
+                SelectedItem="{Binding SelectedComboBoxOption, Mode=TwoWay, Converter={StaticResource CbiToString}}">
+                <ComboBoxItem Content="Dreng"/>
+                <ComboBoxItem Content="Pige"/>
+            </ComboBox>
         </StackPanel>
-        <!--<ComboBoxItem Content="Dreng"/>
-                <ComboBoxItem Content="Pige"/>-->
+
 
 
 
