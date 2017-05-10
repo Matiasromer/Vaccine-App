@@ -19,7 +19,7 @@ namespace Vaccine_App.Model
       //  public string Barn { get; set; }
        // public int Tlfnr { get; set; }
 
-        public Barn(string BarnNavn, int DeviceId, DateTime Fødselsdato, string Gender)
+        public Barn(string BarnNavn, int DeviceId, DateTime Fødselsdato, String Gender)
         {
             this.Barn_Navn = BarnNavn;
             this.Device_id = DeviceId;
@@ -41,7 +41,7 @@ namespace Vaccine_App.Model
 
         public override string ToString()
         {
-            return $"{Barn_Navn}  -  {Device_id}  -  {Barn_Foedsel}  -  {Gender}  ";
+            return $"{Barn_Navn}   -  {Barn_Foedsel}  -  {Gender}  ";
         }
     }
 }

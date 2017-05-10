@@ -19,21 +19,20 @@
         </Grid.DataContext>
         <ListView x:Name="listView" HorizontalAlignment="Left" Height="225" Margin="0,10,0,0" VerticalAlignment="Top" Width="340" ItemsSource="{Binding BarnCollection, Mode=TwoWay}" SelectedItem="{Binding SelectedBarn, Mode=TwoWay}"/>
         <Button x:Name="button" Content="Create" HorizontalAlignment="Left" Height="53" Margin="10,464,0,0" VerticalAlignment="Top" Width="124" Command="{Binding CreateBarnCommand}"/>
-        <Button x:Name="button1" Content="Delete" HorizontalAlignment="Left" Height="53" Margin="216,452,0,0" VerticalAlignment="Top" Width="134" Command="{Binding DeleteBarnCommand}"/>
+        <Button x:Name="button1" Content="Delete" HorizontalAlignment="Left" Height="53" Margin="216,452,0,0" VerticalAlignment="Top" Width="134" Command="{Binding DeleteBarnCommand, Mode=TwoWay}"/>
       <!--  <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="216,395,0,0" TextWrapping="Wrap" Text="{Binding Fødselsdato, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="DD/MM/YYYY"/> -->
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="10,351,0,0" TextWrapping="Wrap" Text="{Binding BarnNavn, Mode=TwoWay}" VerticalAlignment="Top" Width="124"/>
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="37" Margin="10,383,0,0" TextWrapping="Wrap" Text="{Binding DeviceId, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="Device ID"/>
-        <!--<TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="0" Margin="10,421,0,0" TextWrapping="Wrap" Text="{Binding Gender, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="Gender"/>-->
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="0" Margin="10,421,0,0" TextWrapping="Wrap" Text="{Binding Gender, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="Gender"/>
         <Button x:Name="button2" Content="Forside" HorizontalAlignment="Left" Margin="179,561,0,0" VerticalAlignment="Top" Click="button2_Click"/>
         <DatePicker HorizontalAlignment="Left" Margin="16,314,0,0" VerticalAlignment="Top" Date="{Binding Fødselsdato, Mode=TwoWay}"/>
 
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="139,362,0,0" VerticalAlignment="Top" Width="120">
-            
-            <ComboBox>
+        <!--<ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="147,362,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding Gender, Mode=TwoWay}">
+                       
                 <ComboBoxItem Content="Dreng"/>
                 <ComboBoxItem Content="Pige"/>
-            </ComboBox>
-        </ComboBox>
+            
+        </ComboBox>-->
 
         <!--  <Button x:Name="button2" Content="Hent" HorizontalAlignment="Left" Height="59" Margin="10,522,0,0" VerticalAlignment="Top" Width="124" Command="{Binding GetBarnCommand, Mode=TwoWay}"/> -->
 

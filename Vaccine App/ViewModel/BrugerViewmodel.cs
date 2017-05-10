@@ -110,13 +110,13 @@ namespace Vaccine_App.ViewModel
         //Fail-Safe; Kan ikke bruge slette nap hvis der intet er i listen.
         public bool CanDeleteBarn()
         {
-            if (BarnCollection.Count > 0)
+            if (SelectedBarn != null)
                 return true;
             else
             {
                 return false;
             }
-
+           
         }
 
 
@@ -125,10 +125,10 @@ namespace Vaccine_App.ViewModel
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-           // if (PropertyChanged != null)
+            if (PropertyChanged != null)
             {
-              //  PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+               // PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
