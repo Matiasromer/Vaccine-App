@@ -18,19 +18,19 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="HamburgerButt" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
-                    Width="50" Height="50" Background="Gray" Click="HamburgerButton_Click" Margin="0,0,0,0"/>
+                    Width="50" Height="50" Background="#FF6BAFCD" Click="HamburgerButton_Click" Margin="0,0,0,0"/>
 
-        <Button x:Name="button1" Click="PopUp1" Content="Hepatitis B Vaccine" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.494,0.495" Grid.Row="1" Margin="10,50,0,0" Grid.Column="1"/>
-        <Button x:Name="button2" Click="PopUp2" Content="Di-Te-Ki-Pol-Hib Vaccine" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.494,0.495" Grid.Row="1" Margin="10,150,0,0" Grid.Column="1"/>
-        <Button x:Name="button3" Click="PopUp3" Content="Pneumokok Vaccinen" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.494,0.495" Grid.Row="1" Margin="10,250,0,0" Grid.Column="1"/>
-        <Button x:Name="button4" Click="PopUp4" Content="MFR Vaccine" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.494,0.495" Grid.Row="1" Margin="10,350,0,0" Grid.Column="1"/>
-        <Button x:Name="button5" Click="PopUp5" Content="HPV Vaccine" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.494,0.495" Grid.Row="1" Margin="10,450,0,0" Grid.Column="1"/>
+        <Button x:Name="button1" Click="PopUp1" Content="Hepatitis B Vaccine" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.494,0.495" Grid.Row="1" Margin="10,50,0,0" Grid.Column="1" Background="#FF9CC6ED"/>
+        <Button x:Name="button2" Click="PopUp2" Content="Di-Te-Ki-Pol-Hib Vaccine" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.494,0.495" Grid.Row="1" Margin="10,150,0,0" Grid.Column="1" Background="#FF9CC6ED"/>
+        <Button x:Name="button3" Click="PopUp3" Content="Pneumokok Vaccinen" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.494,0.495" Grid.Row="1" Margin="10,250,0,0" Grid.Column="1" Background="#FF9CC6ED"/>
+        <Button x:Name="button4" Click="PopUp4" Content="MFR Vaccine" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.494,0.495" Grid.Row="1" Margin="10,350,0,0" Grid.Column="1" Background="#FF9CC6ED"/>
+        <Button x:Name="button5" Click="PopUp5" Content="HPV Vaccine" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.494,0.495" Grid.Row="1" Margin="10,450,0,0" Grid.Column="1" Background="#FF9CC6ED"/>
 
         <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False"
                CompactPaneLength="0" OpenPaneLength="150" Grid.RowSpan="2" Grid.ColumnSpan="2">
 
             <SplitView.Pane>
-                <StackPanel Background="#FFBED7EE">
+                <StackPanel Background="#FF9CC6ED" BorderThickness="2" BorderBrush="#FF7F97B3">
                     <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                     Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
 
@@ -67,7 +67,7 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="Gray">
+                    <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="#FF6BAFCD">
                         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="Vaccinations Info" VerticalAlignment="Top" Height="35" Width="200" FontSize="25"/>
                     </Grid>
 
@@ -78,7 +78,7 @@
         <SplitView x:Name="Info1" DisplayMode="CompactOverlay"  IsPaneOpen="False"
                CompactPaneLength="0" OpenPaneLength="360" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <SplitView.Pane>
-                <StackPanel Margin="60,60,50,80" Background="Gray">
+                <StackPanel Margin="60,60,50,80" Background="#FF6BAFCD">
                     <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp1" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
                     <TextBlock x:Name="HepatitisB" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
                                VerticalAlignment="Top" Height="40" Width="243" FontSize="15" Text="Hepatitis B:"/>
@@ -104,7 +104,7 @@
         <SplitView x:Name="Info2" DisplayMode="CompactOverlay"  IsPaneOpen="False"
                CompactPaneLength="0" OpenPaneLength="360" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <SplitView.Pane>
-                <StackPanel Margin="60,60,50,80" Background="Gray">
+                <StackPanel Margin="60,60,50,80" Background="#FF6BAFCD">
                     <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp2" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
                     <TextBlock x:Name="Difteri" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
                                VerticalAlignment="Top" Height="40" Width="243" FontSize="15" Text="Difteri-tetanus-kighoste-polio-hib:"/>
@@ -138,7 +138,7 @@
         <SplitView x:Name="Info3" DisplayMode="CompactOverlay"  IsPaneOpen="False"
                CompactPaneLength="0" OpenPaneLength="360" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <SplitView.Pane>
-                <StackPanel Margin="60,60,50,80" Background="Gray">
+                <StackPanel Margin="60,60,50,80" Background="#FF6BAFCD">
                     <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp3" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
                     <TextBlock x:Name="Pneumokok" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
                                VerticalAlignment="Top" Height="40" Width="243" FontSize="15" Text="Pneumokok:"/>
@@ -166,7 +166,7 @@
         <SplitView x:Name="Info4" DisplayMode="CompactOverlay"  IsPaneOpen="False"
                CompactPaneLength="0" OpenPaneLength="360" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <SplitView.Pane>
-                <StackPanel Margin="60,60,50,80" Background="Gray">
+                <StackPanel Margin="60,60,50,80" Background="#FF6BAFCD">
                     <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp4" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
                     <TextBlock x:Name="MFR" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
                                VerticalAlignment="Top" Height="40" Width="243" FontSize="15" Text="MFR:"/>
@@ -195,7 +195,7 @@
         <SplitView x:Name="Info5" DisplayMode="CompactOverlay"  IsPaneOpen="False"
                CompactPaneLength="0" OpenPaneLength="360" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <SplitView.Pane>
-                <StackPanel Margin="60,60,50,80" Background="Gray">
+                <StackPanel Margin="60,60,50,80" Background="#FF6BAFCD">
                     <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp5" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
                     <TextBlock x:Name="HPV" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
                                VerticalAlignment="Top" Height="40" Width="243" FontSize="15" Text="HPV:"/>

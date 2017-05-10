@@ -18,13 +18,13 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="HamburgerButt" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
-                    Width="50" Height="50" Background="Gray" Click="HamburgerButton_Click" Margin="0,0,0,0.4"/>
+                    Width="50" Height="50" Background="#FF6BAFCD" Click="HamburgerButton_Click" Margin="0,0,0,0"/>
 
         <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False"
                CompactPaneLength="0" OpenPaneLength="150" Grid.RowSpan="2" Grid.ColumnSpan="2">
 
             <SplitView.Pane>
-                <StackPanel Background="Gray">
+                <StackPanel Background="#FF9CC6ED" BorderThickness="2" BorderBrush="#FF7F97B3">
                     <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                     Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
 
@@ -61,7 +61,7 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="Gray">
+                    <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="#FF6BAFCD">
                         <!--<TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Påmindelser" VerticalAlignment="Top" Height="30" Width="160" FontSize="25"/>-->
                     </Grid>
                     <Image x:Name="image" HorizontalAlignment="Left" Height="178" Margin="10,97,0,0" VerticalAlignment="Top" Width="340" Visibility="Visible" Source="ms-appx:///Assets/stort_logo.png" Grid.Row="1">
@@ -73,7 +73,7 @@
                         Margin="90,421,0,0" 
                         VerticalAlignment="Top" Height="61" 
                         Width="180" Grid.Row="1" FontSize="25"
-                        Click="Buttom_Click_5"/>
+                        Click="Buttom_Click_5" Background="#FF9CC6ED"/>
                     <Button x:Name="button1" Content="MainPage" HorizontalAlignment="Left" Margin="265,10,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Buttom_Click_6"/>
                 </Grid>
             </SplitView.Content>
