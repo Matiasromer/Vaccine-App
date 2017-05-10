@@ -10,7 +10,7 @@ using Windows.ApplicationModel.UserDataAccounts.SystemAccess;
 using Vaccine_App.Handler;
 using Vaccine_App.Model;
 using Vaccine_App.Common;
-//using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls;
 
 namespace Vaccine_App.ViewModel
 {
@@ -20,17 +20,17 @@ namespace Vaccine_App.ViewModel
 
         //http://stackoverflow.com/questions/33821672/uwp-combobox-binding-to-selecteditem-property
 
-        private ObservableCollection<ComboBoxItem> _comboBoxOptions;
+        private ObservableCollection<Windows.UI.Xaml.Controls.ComboBoxItem> _comboBoxOptions;
 
-        public ObservableCollection<ComboBoxItem> ComboBoxOptions
+        public ObservableCollection<Windows.UI.Xaml.Controls.ComboBoxItem> ComboBoxOptions
         {
             get { return _comboBoxOptions; }
             set { _comboBoxOptions = value; }
         }
 
-        private ComboBoxItem _SelectedComboBoxOption;
+        private Windows.UI.Xaml.Controls.ComboBoxItem _SelectedComboBoxOption;
 
-        public ComboBoxItem SelectedComboBoxOption
+        public Windows.UI.Xaml.Controls.ComboBoxItem SelectedComboBoxOption
         {
             get
             {
@@ -42,7 +42,7 @@ namespace Vaccine_App.ViewModel
                 {
                     _SelectedComboBoxOption = value;
                     //Sets the Gender property when ComboBox item is selected/set
-                    Gender = _SelectedComboBoxOption.ComboBoxOption;
+                    Gender = _SelectedComboBoxOption.Content.ToString();
                     OnPropertyChanged("SelectedComboBoxOption");
                 }
             }
@@ -142,7 +142,7 @@ namespace Vaccine_App.ViewModel
 
 
             //combobox related stuff
-            ComboBoxOptions = new ObservableCollection<ComboBoxItem>();
+            ComboBoxOptions = new ObservableCollection<Windows.UI.Xaml.Controls.ComboBoxItem>();
             //Adds ComboBox items to the ComboBox
             ComboBoxOptionsManager.GetComboBoxList(ComboBoxOptions);
             //Sets the default value of the combobox

@@ -17,7 +17,7 @@ namespace Vaccine_App.Converter
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            return value as Common.ComboBoxItem;
+            return value as Windows.UI.Xaml.Controls.ComboBoxItem;
         }
     }
 }

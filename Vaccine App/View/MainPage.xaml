@@ -30,10 +30,10 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="147,362,0,0" VerticalAlignment="Top" Width="120">
             <ComboBox x:Name="comboBox"  
                   ItemsSource="{Binding ComboBoxOptions}"
-                  DisplayMemberPath="ComboBoxHumanReadableOption"
+                  DisplayMemberPath="Content"
                   SelectedItem="{Binding SelectedComboBoxOption, Mode=TwoWay, Converter={StaticResource CbiToString}}"
-                  SelectedValuePath="ComboBoxOption"/>
-            <TextBlock Name="BoundTextblock" Text="{Binding SelectedComboBoxOption.ComboBoxHumanReadableOption, Mode=OneWay}" />
+                  SelectedValuePath="Content"/>
+            <TextBlock Name="BoundTextblock" Text="{Binding Gender, Mode=OneWay}" />
         </StackPanel>
         <!--<ComboBoxItem Content="Dreng"/>
                 <ComboBoxItem Content="Pige"/>-->
