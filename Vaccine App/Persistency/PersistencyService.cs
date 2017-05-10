@@ -29,9 +29,10 @@ namespace Vaccine_App.Persistency
         {
             using (var client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                
                 string urlStringCreate = "api/barn/";
 
                 try
@@ -94,7 +95,7 @@ namespace Vaccine_App.Persistency
 
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/barn/" + DeleteBarn.Barn_Id.ToString();
+                string urlString = "api/barn/" + DeleteBarn.Barn_Navn.ToString();
 
                 try
                 {
@@ -119,7 +120,7 @@ namespace Vaccine_App.Persistency
         //Get Barn        
         public static async Task<ObservableCollection<Barn>> GetBarnAsync()
         {
-            // ObservableCollection<Barn> TempBarnCollection = new ObservableCollection<Barn>();
+             ObservableCollection<Barn> TempBarnCollection = new ObservableCollection<Barn>();
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -128,11 +129,12 @@ namespace Vaccine_App.Persistency
                 string urlstring = "api/barn/";                                
                 HttpResponseMessage response = await client.GetAsync(urlstring);
                 if (response.IsSuccessStatusCode)
-                    {
-                        var BarnListe = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
-                        return BarnListe;
-                    }
-                    return null;               
+                {
+                    TempBarnCollection = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
+                    //var BarnListe = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
+                    //return BarnListe;
+                }
+                    return TempBarnCollection;               
             }
             //catch (Exception e)
             //{

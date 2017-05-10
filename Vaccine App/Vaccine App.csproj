@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Converter\ComboboxItemConverter.cs" />
     <Compile Include="Converter\TextConverter.cs" />
     <Compile Include="Handler\BarnHandler.cs" />
     <Compile Include="Handler\VaccineHandler.cs" />

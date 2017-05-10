@@ -11,6 +11,7 @@
 
     <Page.Resources>
         <converters:TextConverter x:Name="IntToString"/>
+        <converters:ComboboxItemConverter x:Name="CbiToString"/>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -23,16 +24,16 @@
       <!--  <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="216,395,0,0" TextWrapping="Wrap" Text="{Binding Fødselsdato, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="DD/MM/YYYY"/> -->
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="10,351,0,0" TextWrapping="Wrap" Text="{Binding BarnNavn, Mode=TwoWay}" VerticalAlignment="Top" Width="124"/>
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="37" Margin="10,383,0,0" TextWrapping="Wrap" Text="{Binding DeviceId, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="Device ID"/>
-        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="0" Margin="10,421,0,0" TextWrapping="Wrap" Text="{Binding Gender, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="Gender"/>
+        <!--<TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="0" Margin="10,421,0,0" TextWrapping="Wrap" Text="{Binding Gender, Mode=TwoWay}" VerticalAlignment="Top" Width="124" PlaceholderText="Gender"/>-->
         <Button x:Name="button2" Content="Forside" HorizontalAlignment="Left" Margin="179,561,0,0" VerticalAlignment="Top" Click="button2_Click"/>
         <DatePicker HorizontalAlignment="Left" Margin="16,314,0,0" VerticalAlignment="Top" Date="{Binding Fødselsdato, Mode=TwoWay}"/>
 
-        <!--<ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="147,362,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding Gender, Mode=TwoWay}">
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="147,362,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding Gender, Mode=TwoWay, Converter={StaticResource CbiToString}}">
                        
                 <ComboBoxItem Content="Dreng"/>
                 <ComboBoxItem Content="Pige"/>
             
-        </ComboBox>-->
+        </ComboBox>
 
         <!--  <Button x:Name="button2" Content="Hent" HorizontalAlignment="Left" Height="59" Margin="10,522,0,0" VerticalAlignment="Top" Width="124" Command="{Binding GetBarnCommand, Mode=TwoWay}"/> -->
 

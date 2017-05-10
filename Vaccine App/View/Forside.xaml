@@ -69,6 +69,7 @@
                         VerticalAlignment="Top" Height="61" 
                         Width="180" Grid.Row="1" FontSize="25"
                         Click="Buttom_Click_5"/>
+                    <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="148,516,0,0" Grid.Row="1" VerticalAlignment="Top" Click="button1_Click"/>
                 </Grid>
             </SplitView.Content>
         </SplitView>
