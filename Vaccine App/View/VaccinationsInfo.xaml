@@ -30,7 +30,7 @@
                CompactPaneLength="0" OpenPaneLength="150" Grid.RowSpan="2" Grid.ColumnSpan="2">
 
             <SplitView.Pane>
-                <StackPanel Background="Gray">
+                <StackPanel Background="#FFBED7EE">
                     <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                     Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
 
@@ -85,9 +85,11 @@
                     <TextBlock x:Name="HepatitisB2" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
                                VerticalAlignment="Top" Height="33" Width="243" FontSize="12" Text="Vaccination gives normalt i tre doser, men man kan give fire doser i kortere interval."/>
                     <TextBlock x:Name="HepatitisB3" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
-                               VerticalAlignment="Top" Height="137" Width="243" FontSize="12" Text="Ved et normalt vaccinationsprogram for hepatitis B får man de to første vaccinationer med cirka 30 dages mellemrum efterfulgt af en booster vaccination minimum fem måneder efter anden vaccine. Efter den tredje vaccination er man 100% beskyttet mod hepatitis B virus resten af livet."/>
+                               VerticalAlignment="Top" Height="114" Width="243" FontSize="12" Text="Ved et normalt vaccinationsprogram for hepatitis B får man de to første vaccinationer med cirka 30 dages mellemrum efterfulgt af en booster vaccination minimum fem måneder efter anden vaccine. Efter den tredje vaccination er man 100% beskyttet mod hepatitis B virus resten af livet."/>
+                    <TextBlock x:Name="HepatitisB8" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="56" Width="243" FontSize="12" Text="Vaccinen mod hepatitis B gives i den store skuldermuskel, der strækker sig ned over overarmen."/>
                     <TextBlock x:Name="HepatitisB4" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
-                               VerticalAlignment="Top" Height="20" Width="243" FontSize="12" Text="Typiske bivirkninger:"/>
+                               VerticalAlignment="Top" Height="20" Width="243" FontSize="12" Text="Typiske bivirkninger:" FontWeight="Bold"/>
                     <TextBlock x:Name="HepatitisB5" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
                                VerticalAlignment="Top" Height="20" Width="243" FontSize="12" Text="- Ømhed og rødme ved indstiksstedet."/>
                     <TextBlock x:Name="HepatitisB6" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
@@ -100,9 +102,33 @@
         </SplitView>
 
         <SplitView x:Name="Info2" DisplayMode="CompactOverlay"  IsPaneOpen="False"
-               CompactPaneLength="0" OpenPaneLength="150" Grid.RowSpan="2" Grid.ColumnSpan="2">
+               CompactPaneLength="0" OpenPaneLength="360" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <SplitView.Pane>
-                <StackPanel Margin="60,100,50,80" Background="Gray">
+                <StackPanel Margin="60,60,50,80" Background="Gray">
+                    <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp2" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
+                    <TextBlock x:Name="Difteri" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="40" Width="243" FontSize="15" Text="Difteri-tetanus-kighoste-polio-hib:"/>
+                    <TextBlock x:Name="Difteri2" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="33" Width="243" FontSize="12" Text="Der gives en grundvaccination bestående af flere doser med forskellige intervaller."/>
+                    <TextBlock x:Name="Difteri3" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="52" Width="243" FontSize="12" Text="Vaccinen DiTeKiPol/Act-Hib består af to enheder, en fyldt injektionssprøjte og et hætteglas."/>
+                    <TextBlock x:Name="Difteri4" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="82" Width="243" FontSize="12" Text="Hætteglasset indeholder frysetørret vaccine (pulver) mod Haemophilus influenzae type b (Act-HIB®). Den fyldte injektionssprøjte indeholder vaccine mod difteri, stivkrampe, kighoste og polio. "/>
+                    <TextBlock x:Name="Difteri5" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="33" Width="243" FontSize="12" Text="Når de er kombineret er vaccine klar til intramuskulær injektion."/>
+                    <TextBlock x:Name="Difteri11" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="52" Width="243" FontSize="12" Text="Vaccinen gives typisk som en injektion i den store skuldermuskel, der strækker sig ned over overarmen."/>
+                    <TextBlock x:Name="Difteri6" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="19" Width="243" FontSize="12" Text="Typiske birvirkninger:" FontWeight="Bold"/>
+                    <TextBlock x:Name="Difteri7" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="36" Width="243" FontSize="12" Text="- Rødme, hævelse og ømhed på injektionsstedet."/>
+                    <TextBlock x:Name="Difteri8" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="20" Width="243" FontSize="12" Text="- Hovedpine."/>
+                    <TextBlock x:Name="Difteri9" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="23" Width="243" FontSize="12" Text="- Utilpashed."/>
+                    <TextBlock x:Name="Difteri10" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="23" Width="243" FontSize="12" Text="- Træthed og feber."/>
+
 
 
                 </StackPanel>
@@ -110,9 +136,27 @@
         </SplitView>
 
         <SplitView x:Name="Info3" DisplayMode="CompactOverlay"  IsPaneOpen="False"
-               CompactPaneLength="0" OpenPaneLength="150" Grid.RowSpan="2" Grid.ColumnSpan="2">
+               CompactPaneLength="0" OpenPaneLength="360" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <SplitView.Pane>
-                <StackPanel Margin="60,100,50,80" Background="Gray">
+                <StackPanel Margin="60,60,50,80" Background="Gray">
+                    <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp3" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
+                    <TextBlock x:Name="Pneumokok" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="40" Width="243" FontSize="15" Text="Pneumokok:"/>
+                    <TextBlock x:Name="Pneumokok2" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="20" Width="243" FontSize="12" Text="Vaccinen gives gennem injektionssprøjte."/>
+                    <TextBlock x:Name="Pneumokok3" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="52" Width="243" FontSize="12" Text="Vaccinen forebygger alvorlige pneumokokinfektioner hos både børn og voksne."/>
+                    <TextBlock x:Name="Pneumokok4" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="130" Width="243" FontSize="12" Text="Vaccinen anvendes til forebyggelse af sygdomme forårsaget af infektion med pneumokokbakterier herunder blodforgiftning (sepsis/bakteriæmi), meningitis, lunge-, bihule- og mellemørebetændelse."/>
+                    <TextBlock x:Name="Pneumokok6" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="19" Width="243" FontSize="12" Text="Typiske birvirkninger:" FontWeight="Bold"/>
+                    <TextBlock x:Name="Pneumokok7" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="36" Width="243" FontSize="12" Text="- Rødme, hævelse og ømhed på injektionsstedet."/>
+                    <TextBlock x:Name="Pneumokok8" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="20" Width="243" FontSize="12" Text="- Hovedpine."/>
+                    <TextBlock x:Name="Pneumokok9" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="23" Width="243" FontSize="12" Text="- Utilpashed og feber."/>
+                    
 
 
                 </StackPanel>
@@ -120,9 +164,28 @@
         </SplitView>
 
         <SplitView x:Name="Info4" DisplayMode="CompactOverlay"  IsPaneOpen="False"
-               CompactPaneLength="0" OpenPaneLength="150" Grid.RowSpan="2" Grid.ColumnSpan="2">
+               CompactPaneLength="0" OpenPaneLength="360" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <SplitView.Pane>
-                <StackPanel Margin="60,100,50,80" Background="Gray">
+                <StackPanel Margin="60,60,50,80" Background="Gray">
+                    <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp4" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
+                    <TextBlock x:Name="MFR" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="40" Width="243" FontSize="15" Text="MFR:"/>
+                    <TextBlock x:Name="MFR2" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="67" Width="243" FontSize="12" Text="Vaccinen er en kombineret vaccine, som indeholder levende, svækket mæslinge-, fåresyge- og røde hundevirus som gives gennem injektionssprøjte."/>
+                    <TextBlock x:Name="MFR3" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="50" Width="243" FontSize="12" Text="Vaccinen gives ved 15 måneder og 4 år, og efter to vaccinationer anses beskyttelsen for at være livslang."/>
+                    <TextBlock x:Name="MFR10" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="120" Width="243" FontSize="12" Text="Vaccinedosis er hver gang 0,5 ml. Vaccinen skal gives intramuskulært eller subkutant. De foretrukne vaccinationssteder er ydersiden af øvre lår hos små børn og ydersiden af skulderen hos større børn, teenagere og voksne."/>
+                    <TextBlock x:Name="MFR5" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="19" Width="243" FontSize="12" Text="Typiske birvirkninger:" FontWeight="Bold"/>
+                    <TextBlock x:Name="MFR7" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="36" Width="243" FontSize="12" Text="- Rødme, hævelse og ømhed på injektionsstedet."/>
+                    <TextBlock x:Name="MFR8" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="20" Width="243" FontSize="12" Text="- Hovedpine."/>
+                    <TextBlock x:Name="MFR9" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="23" Width="243" FontSize="12" Text="- Utilpashed."/>
+                    <TextBlock x:Name="MFR11" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="23" Width="243" FontSize="12" Text="- Feber og udslæt."/>
 
 
                 </StackPanel>
@@ -130,9 +193,30 @@
         </SplitView>
 
         <SplitView x:Name="Info5" DisplayMode="CompactOverlay"  IsPaneOpen="False"
-               CompactPaneLength="0" OpenPaneLength="150" Grid.RowSpan="2" Grid.ColumnSpan="2">
+               CompactPaneLength="0" OpenPaneLength="360" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <SplitView.Pane>
-                <StackPanel Margin="60,100,50,80" Background="Gray">
+                <StackPanel Margin="60,60,50,80" Background="Gray">
+                    <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp5" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
+                    <TextBlock x:Name="HPV" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="40" Width="243" FontSize="15" Text="HPV:"/>
+                    <TextBlock x:Name="HPV2" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="20" Width="243" FontSize="12" Text="Vaccinen gives gennem injektionssprøjte."/>
+                    <TextBlock x:Name="HPV3" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="66" Width="243" FontSize="12" Text="12-års vaccinen indeholder dele af døde virus. En vaccinationsserie består af to stik. Første stik når pigen er 12 år og næste stik efter 6 måneder."/>
+                    <TextBlock x:Name="HPV10" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="100" Width="243" FontSize="12" Text="Vaccinen giver nogen beskyttelse mod livmoderhalskræft og kønsvorter (kondylomer), idet 70 % af alle livmoderhalskræft skyldes HPV (human papillomavirus) og 90 % af alle kønsvorter er forårsaget af HPV."/>
+                    <TextBlock x:Name="HPV12" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="65" Width="243" FontSize="12" Text="Vaccinen gives som en injektion i den store skuldermuskel, der strækker sig ned over overarmen."/>
+                    <TextBlock x:Name="HPV5" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="19" Width="243" FontSize="12" Text="Typiske birvirkninger:" FontWeight="Bold"/>
+                    <TextBlock x:Name="HPV7" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="36" Width="243" FontSize="12" Text="- Rødme, hævelse og ømhed på injektionsstedet."/>
+                    <TextBlock x:Name="HPV8" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="20" Width="243" FontSize="12" Text="- Hovedpine."/>
+                    <TextBlock x:Name="HPV9" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="23" Width="243" FontSize="12" Text="- Feber."/>
+                    <TextBlock x:Name="HPV11" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Height="23" Width="243" FontSize="12" Text="- Kvalme."/>
 
 
                 </StackPanel>
