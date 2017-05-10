@@ -7,17 +7,51 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.UserDataAccounts.SystemAccess;
-using Vaccine_App.Common;
 using Vaccine_App.Handler;
 using Vaccine_App.Model;
+using Vaccine_App.Common;
+//using Windows.UI.Xaml.Controls;
 
 namespace Vaccine_App.ViewModel
 {
-   public class BrugerViewmodel : INotifyPropertyChanged
+    public class BrugerViewmodel : INotifyPropertyChanged
     {
+        #region combobox experimental code
+
+        //http://stackoverflow.com/questions/33821672/uwp-combobox-binding-to-selecteditem-property
+
+        private ObservableCollection<ComboBoxItem> _comboBoxOptions;
+
+        public ObservableCollection<ComboBoxItem> ComboBoxOptions
+        {
+            get { return _comboBoxOptions; }
+            set { _comboBoxOptions = value; }
+        }
+
+        private ComboBoxItem _SelectedComboBoxOption;
+
+        public ComboBoxItem SelectedComboBoxOption
+        {
+            get
+            {
+                return _SelectedComboBoxOption;
+            }
+            set
+            {
+                if (_SelectedComboBoxOption != value)
+                {
+                    _SelectedComboBoxOption = value;
+                    //Sets the Gender property when ComboBox item is selected/set
+                    Gender = _SelectedComboBoxOption.ComboBoxOption;
+                    OnPropertyChanged("SelectedComboBoxOption");
+                }
+            }
+        }
+        #endregion
+
         //Singletons
         public BarnSingleton BarnSingleton { get; set; }
-       // public VaccineSingleton VaccineSingleton { get; set; }
+        // public VaccineSingleton VaccineSingleton { get; set; }
 
         //ObersvableCollections
         private ObservableCollection<Barn> barnCollection;
@@ -40,11 +74,11 @@ namespace Vaccine_App.ViewModel
             get { return fødselsdato; }
             set
             {
-                fødselsdato = value.Date;   
+                fødselsdato = value.Date;
                 OnPropertyChanged(nameof(Fødselsdato));
             }
         }
-        
+
 
         private string barnnavn;
         public string BarnNavn
@@ -55,7 +89,7 @@ namespace Vaccine_App.ViewModel
 
         //private string email;
 
-       // public string Email
+        // public string Email
         //{
         //    get { return email; }
         //    set { email = value; }
@@ -63,7 +97,7 @@ namespace Vaccine_App.ViewModel
         private String gender;
         public String Gender
         {
-            get { return gender;}
+            get { return gender; }
             set
             {
                 gender = value;
@@ -74,14 +108,14 @@ namespace Vaccine_App.ViewModel
         private int tlfnr;
         public int Tlfnr
         {
-            get { return tlfnr;}
+            get { return tlfnr; }
             set { tlfnr = value; }
         }
 
         private int deviceId;
         public int DeviceId
         {
-            get {return deviceId;}
+            get { return deviceId; }
             set { deviceId = value; }
         }
 
@@ -105,6 +139,14 @@ namespace Vaccine_App.ViewModel
             CreateBarnCommand = new RelayCommand(Bh.CreateBarn, null);
             DeleteBarnCommand = new RelayCommand(Bh.DeleteBarn, CanDeleteBarn);
             GetBarnCommand = new RelayCommand(Bh.GetBarn, null);
+
+
+            //combobox related stuff
+            ComboBoxOptions = new ObservableCollection<ComboBoxItem>();
+            //Adds ComboBox items to the ComboBox
+            ComboBoxOptionsManager.GetComboBoxList(ComboBoxOptions);
+            //Sets the default value of the combobox
+            SelectedComboBoxOption = ComboBoxOptions[0];
         }
 
         //Fail-Safe; Kan ikke bruge slette nap hvis der intet er i listen.
@@ -116,7 +158,7 @@ namespace Vaccine_App.ViewModel
             {
                 return false;
             }
-           
+
         }
 
 
@@ -128,7 +170,7 @@ namespace Vaccine_App.ViewModel
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-               // PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                // PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }

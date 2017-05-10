@@ -95,7 +95,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\ComboBoxItem.cs" />
+    <Compile Include="Common\ComboBoxOptionsManager.cs" />
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Converter\ComboBoxItemConvert.cs" />
     <Compile Include="Converter\TextConverter.cs" />
     <Compile Include="Handler\BarnHandler.cs" />
     <Compile Include="Handler\VaccineHandler.cs" />
