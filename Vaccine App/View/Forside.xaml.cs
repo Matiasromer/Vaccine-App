@@ -59,7 +59,7 @@ namespace Vaccine_App.View
 
         private void Buttom_Click_6(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(View.MainPage));
+            this.Frame.Navigate(typeof(MainPage));
         }
 
         private void Buttom_Click_7(object sender, RoutedEventArgs e)
