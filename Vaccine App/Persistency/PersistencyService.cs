@@ -29,9 +29,10 @@ namespace Vaccine_App.Persistency
         {
             using (var client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                
                 string urlStringCreate = "api/barn/";
 
                 try
@@ -94,7 +95,7 @@ namespace Vaccine_App.Persistency
 
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/barn/" + DeleteBarn.Barn_Id.ToString();
+                string urlString = "api/barn/" + DeleteBarn.Barn_Navn.ToString();
 
                 try
                 {
