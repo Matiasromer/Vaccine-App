@@ -55,7 +55,25 @@ namespace Vaccine_App.View
         {
             this.Frame.Navigate(typeof(View.Påmindelse), null);
         }
+        private void Buttom_Click_7(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(View.VaccinationsInfo));
+        }
 
+        private void radioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            
+        }
 
+        private void radioButton1_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string selected = comboBox.SelectedItem.ToString();
+            
+        }
     }
 }

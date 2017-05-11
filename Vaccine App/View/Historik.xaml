@@ -18,13 +18,13 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="HamburgerButt" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
-                    Width="50" Height="50" Background="Gray" Click="HamburgerButton_Click" Margin="0,0,0,0.4"/>
+                    Width="50" Height="50" Background="#FF6BAFCD" Click="HamburgerButton_Click" Margin="0,0,0,0"/>
 
         <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False"
                CompactPaneLength="0" OpenPaneLength="150" Grid.RowSpan="2" Grid.ColumnSpan="2">
 
             <SplitView.Pane>
-                <StackPanel Background="Gray">
+                <StackPanel Background="#FF9CC6ED" BorderThickness="2" BorderBrush="#FF7F97B3">
                     <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                     Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
 
@@ -48,6 +48,11 @@
                         Width="150" Height="50" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Click="Buttom_Click_4"/>
                         <!--<TextBlock Text="Historik" FontSize="18" VerticalAlignment="Center" />-->
                     </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="MenuButton5" FontFamily="Arial" Content="Vaccine Info"
+                        Width="150" Height="50" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Click="Buttom_Click_7"/>
+                        <!--<TextBlock Text="Historik" FontSize="18" VerticalAlignment="Center" />-->
+                    </StackPanel>
                 </StackPanel>
             </SplitView.Pane>
             <SplitView.Content>
@@ -56,17 +61,17 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="Gray">
+                    <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="#FF6BAFCD">
                         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="Historik" VerticalAlignment="Top" Height="35" Width="160" FontSize="25"/>
                     </Grid>
                     <ListView x:Name="listView" HorizontalAlignment="Left" Height="262" Margin="32,55,0,0" VerticalAlignment="Top" Width="290" BorderBrush="Black" BorderThickness="2" Grid.Row="1"/>
                     <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="45,16,0,0" TextWrapping="Wrap" Text="Givne Vaccinationer" VerticalAlignment="Top" Height="34" Width="270" FontSize="30" Grid.Row="1"/>
                     <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="32,372,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="35" Width="290" Grid.Row="1"/>
-                    <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="67,335,0,0" TextWrapping="Wrap" Text="Opret givet vaccination:" VerticalAlignment="Top" Height="37" Width="248" FontSize="25" Grid.Row="1"/>
+                    <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="41,335,0,0" TextWrapping="Wrap" Text="Opret givet vaccination:" VerticalAlignment="Top" Height="37" Width="283" FontSize="25" Grid.Row="1"/>
                     <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="32,407,0,0" TextWrapping="Wrap" Text="(*F.eks rejsevaccinationer*)" VerticalAlignment="Top" Height="18" Width="262" FontSize="15" Grid.Row="1"/>
                     <DatePicker HorizontalAlignment="Left" Margin="32,446,0,0" VerticalAlignment="Top" Width="290" Height="38" Grid.Row="1"/>
-                    <Button x:Name="button1" Content="Ok" HorizontalAlignment="Left" Margin="32,508,0,0" VerticalAlignment="Top" Padding="0,0,0,1" Height="45" Width="105" FontSize="30" Click="Buttom_Click_3" Background="#59256FB4" Grid.Row="1"/>
-                    <Button x:Name="button2" Content="Delete" HorizontalAlignment="Left" Margin="217,508,0,0" VerticalAlignment="Top" Padding="0,0,0,1" Height="45" Width="105" FontSize="30" Background="#59256FB4" Grid.Row="1"/>
+                    <Button x:Name="button1" Content="Ok" HorizontalAlignment="Left" Margin="32,508,0,0" VerticalAlignment="Top" Padding="0,0,0,1" Height="45" Width="105" FontSize="30" Click="Buttom_Click_3" Background="#FF9CC6ED" Grid.Row="1"/>
+                    <Button x:Name="button2" Content="Delete" HorizontalAlignment="Left" Margin="217,508,0,0" VerticalAlignment="Top" Padding="0,0,0,1" Height="45" Width="105" FontSize="30" Background="#FF9CC6ED" Grid.Row="1"/>
                 </Grid>
             </SplitView.Content>
         </SplitView>

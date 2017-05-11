@@ -128,6 +128,9 @@
     <Compile Include="View\Historik.xaml.cs">
       <DependentUpon>Historik.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\VaccinationsInfo.xaml.cs">
+      <DependentUpon>VaccinationsInfo.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -172,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Historik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VaccinationsInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
