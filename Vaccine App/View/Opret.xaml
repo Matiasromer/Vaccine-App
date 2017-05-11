@@ -12,6 +12,8 @@
     <Page.Resources>
         <converter:TextConverter x:Name="IntToString"/>
         <converter:ComboBoxItemConvert x:Name="CbiToString"/>
+        <converter:DateTimeOffsetToDateTimeConverter x:Name="DtToDtOffset"/>
+
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -25,13 +27,13 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="HamburgerButt" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
-                    Width="50" Height="50" Background="Gray" Click="HamburgerButton_Click" Margin="0,0,0,0.4"/>
+                    Width="50" Height="50" Background="#FF6BAFCD" Click="HamburgerButton_Click" Margin="0,0,0,0"/>
 
         <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False"
-               CompactPaneLength="0" OpenPaneLength="150" Grid.RowSpan="2" Grid.ColumnSpan="2">
+               CompactPaneLength="0" OpenPaneLength="150" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0,0,0,0">
 
             <SplitView.Pane>
-                <StackPanel Background="Gray">
+                <StackPanel Background="#FF9CC6ED" BorderThickness="2" BorderBrush="#FF7F97B3">
                     <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                     Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
 
@@ -55,6 +57,11 @@
                         Width="150" Height="50" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Click="Buttom_Click_4"/>
                         <!--<TextBlock Text="Historik" FontSize="18" VerticalAlignment="Center" />-->
                     </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="MenuButton5" FontFamily="Arial" Content="Vaccine Info"
+                        Width="150" Height="50" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Click="Buttom_Click_7"/>
+                        <!--<TextBlock Text="Historik" FontSize="18" VerticalAlignment="Center" />-->
+                    </StackPanel>
                 </StackPanel>
             </SplitView.Pane>
             <Grid>
@@ -65,7 +72,7 @@
                 <Grid.DataContext>
                     <ViewModel:BrugerViewmodel/>
                 </Grid.DataContext>
-                <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="Gray">
+                <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="#FF6BAFCD">
                     <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="Opret Barn" VerticalAlignment="Top" Height="35" Width="160" FontSize="25"/>
                 </Grid>
                 <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="104,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="173" FontSize="30" Text="Fødselsdato" Grid.Row="1"/>
@@ -75,9 +82,9 @@
                         <LineBreak/>
                         <Run/>
                 </TextBlock>
-                <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="37,290,0,0" TextWrapping="Wrap" Text="{Binding BarnNavn, Mode=TwoWay}" VerticalAlignment="Top" Width="287" Height="59" Grid.Row="1"/>
-                <Button x:Name="button1" Content="Ok" HorizontalAlignment="Left" Margin="115,436,0,0" VerticalAlignment="Top" Height="67" Width="133" FontSize="40" Click="Buttom_Click_5" Background="#59256FB4" Grid.Row="1" Command="{Binding CreateBarnCommand}"/>
-                <DatePicker HorizontalAlignment="Left" Margin="32,112,0,0" VerticalAlignment="Top" Date="{Binding Fødselsdato, Mode=TwoWay}" Grid.Row="1" Width="261"/>
+                <TextBox x:Name="textBox2" HorizontalAlignment="Left" TextAlignment="Center" Margin="37,290,0,0" TextWrapping="Wrap" Text="{Binding BarnNavn, Mode=TwoWay}" VerticalAlignment="Top" Width="287" Height="59" Grid.Row="1" PlaceholderText="Navn" FontSize="25"/>
+                <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="115,436,0,0" VerticalAlignment="Top" Height="67" Width="133" FontSize="40" Click="Buttom_Click_5" Background="#FF9CC6ED" Grid.Row="1" Command="{Binding CreateBarnCommand}"/>
+                <DatePicker HorizontalAlignment="Left" Margin="32,112,0,0" VerticalAlignment="Top" Date="{Binding Fødselsdato, Mode=TwoWay, Converter={StaticResource DtToDtOffset}}" Grid.Row="1" Width="261"/>
 
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="144,173,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1">
                     <ComboBox 
