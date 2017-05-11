@@ -62,7 +62,7 @@ namespace Vaccine_App.ViewModel
         public ICommand GetBarnCommand { get; set; }
 
         //Props
-        private DateTime fødselsdato = DateTime.Now;
+        private DateTime fødselsdato;
         public DateTime Fødselsdato
         {
             get { return fødselsdato; }
@@ -126,6 +126,7 @@ namespace Vaccine_App.ViewModel
         //ViewModel
         public BrugerViewmodel()
         {
+            Fødselsdato = DateTime.Now;
             BarnCollection = BarnSingleton.Instance.BarnsCollection;
             Bh = new Handler.BarnHandler(this);
             BarnSingleton = BarnSingleton.Instance;
