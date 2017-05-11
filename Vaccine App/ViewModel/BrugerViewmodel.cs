@@ -156,7 +156,7 @@ namespace Vaccine_App.ViewModel
                 return false;
             }
         }
-
+        // test
 
         //INotifyPropChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
