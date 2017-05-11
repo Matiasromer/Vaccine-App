@@ -42,7 +42,7 @@ namespace Vaccine_App.ViewModel
             }
         }
         #endregion
-
+        // hej
         //Singletons
         public BarnSingleton BarnSingleton { get; set; }
         // public VaccineSingleton VaccineSingleton { get; set; }
