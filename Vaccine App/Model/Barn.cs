@@ -41,7 +41,7 @@ namespace Vaccine_App.Model
 
         public override string ToString()
         {
-            return $"{Barn_Navn}   -  {Barn_Foedsel:d}  -  {Gender}  ";
+            return $"{Barn_Navn}   -  {Barn_Foedsel:d} -  {Gender}  ";
         }
     }
 }

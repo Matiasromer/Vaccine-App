@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Converter\ComboBoxItemConvert.cs" />
+    <Compile Include="Converter\DateTimeOffsetToDateTimeConverter.cs" />
     <Compile Include="Converter\TextConverter.cs" />
     <Compile Include="Handler\BarnHandler.cs" />
     <Compile Include="Handler\VaccineHandler.cs" />
