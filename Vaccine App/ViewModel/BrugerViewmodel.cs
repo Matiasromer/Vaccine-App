@@ -11,7 +11,7 @@ using Vaccine_App.Handler;
 using Vaccine_App.Model;
 using Vaccine_App.Common;
 using Windows.UI.Xaml.Controls;
-
+using Vaccine_App.Converter;
 namespace Vaccine_App.ViewModel
 {
     public class BrugerViewmodel : INotifyPropertyChanged
@@ -130,7 +130,7 @@ namespace Vaccine_App.ViewModel
             Bh = new Handler.BarnHandler(this);
             BarnSingleton = BarnSingleton.Instance;
 
-            CreateBarnCommand = new RelayCommand(Bh.CreateBarn, null);
+            CreateBarnCommand = new RelayCommand(Bh.CreateBarn, CanCreateBarnNavn);
             DeleteBarnCommand = new RelayCommand(Bh.DeleteBarn, CanDeleteBarn);
             GetBarnCommand = new RelayCommand(Bh.GetBarn, null);
         }
@@ -147,16 +147,26 @@ namespace Vaccine_App.ViewModel
 
         }
 
+        public bool CanCreateBarnNavn()
+        {
+            if (BarnNavn != null && Gender != null)
+                return true;
+            else
+            {
+                return false;
+            }
+        }
+
 
         //INotifyPropChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
+           // if (PropertyChanged != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-                // PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+               // PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }

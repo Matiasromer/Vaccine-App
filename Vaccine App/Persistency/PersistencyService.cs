@@ -119,7 +119,7 @@ namespace Vaccine_App.Persistency
         //Get Barn        
         public static async Task<ObservableCollection<Barn>> GetBarnAsync()
         {
-            // ObservableCollection<Barn> TempBarnCollection = new ObservableCollection<Barn>();
+             ObservableCollection<Barn> TempBarnCollection = new ObservableCollection<Barn>();
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -128,11 +128,12 @@ namespace Vaccine_App.Persistency
                 string urlstring = "api/barn/";                                
                 HttpResponseMessage response = await client.GetAsync(urlstring);
                 if (response.IsSuccessStatusCode)
-                    {
-                        var BarnListe = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
-                        return BarnListe;
-                    }
-                    return null;               
+                {
+                    TempBarnCollection = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
+                    //var BarnListe = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
+                    //return BarnListe;
+                }
+                    return TempBarnCollection;               
             }
             //catch (Exception e)
             //{
