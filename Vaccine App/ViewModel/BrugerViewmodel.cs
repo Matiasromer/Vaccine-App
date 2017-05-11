@@ -117,7 +117,7 @@ namespace Vaccine_App.ViewModel
             Bh = new Handler.BarnHandler(this);
             BarnSingleton = BarnSingleton.Instance;
 
-            CreateBarnCommand = new RelayCommand(Bh.CreateBarn, null); // CanCreateBarnNavn)
+            CreateBarnCommand = new RelayCommand(Bh.CreateBarn, CanCreateBarnNavn);
             DeleteBarnCommand = new RelayCommand(Bh.DeleteBarn, CanDeleteBarn);
             GetBarnCommand = new RelayCommand(Bh.GetBarn, null);
 
@@ -136,17 +136,17 @@ namespace Vaccine_App.ViewModel
 
         }
 
-        //public bool CanCreateBarnNavn()
-        //{
-        //    if (BarnNavn != null && Gender != null)
-        //        return true;
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
+        public bool CanCreateBarnNavn()
+        {
+            if (BarnNavn != null && Gender != null)
+                return true;
+            else
+            {
+                return false;
+            }
+        }
 
-        
+
 
 
         //INotifyPropChanged interface
