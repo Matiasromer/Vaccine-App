@@ -17,7 +17,7 @@ namespace Vaccine_App.ViewModel
     public class BrugerViewmodel : INotifyPropertyChanged
     {
         #region combobox code
-
+        // hej
         //http://stackoverflow.com/questions/33821672/uwp-combobox-binding-to-selecteditem-property
 
         public ObservableCollection<ComboBoxItem> ComboBoxOptions { get; set; } = new ObservableCollection<ComboBoxItem>();
