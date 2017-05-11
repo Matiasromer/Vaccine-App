@@ -72,12 +72,12 @@ namespace Vaccine_App.ViewModel
             set { tlfnr = value; }
         }
 
-        private int deviceId;
-        public int DeviceId
-        {
-            get {return deviceId;}
-            set { deviceId = value; }
-        }
+        //private int deviceId;
+        //public int DeviceId
+        //{
+        //    get {return deviceId;}
+        //    set { deviceId = value; }
+        //}
 
         private Barn selectedBarn;
         public Barn SelectedBarn

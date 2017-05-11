@@ -25,7 +25,6 @@ namespace Vaccine_App.View
         public MainPage()
         {
             this.InitializeComponent();
-            
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
