@@ -95,7 +95,7 @@ namespace Vaccine_App.Persistency
 
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlString = "api/barn/" + DeleteBarn.Barn_Navn.ToString();
+                string urlString = "api/barn/" + DeleteBarn.Barn_Id.ToString();
 
                 try
                 {
