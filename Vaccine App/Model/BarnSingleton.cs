@@ -11,8 +11,8 @@ namespace Vaccine_App.Model
    public class BarnSingleton
     {
         //Denne klasse hed engang BrugerSingleton og ændre bruger og brugercollection til barn og Barncollection
-        private ObservableCollection<Model.Barn> barns;
-        public ObservableCollection<Model.Barn> BarnsCollection
+        private ObservableCollection<Barn> barns;
+        public ObservableCollection<Barn> BarnsCollection
         {
             get { return barns; }
             set { barns = value; }

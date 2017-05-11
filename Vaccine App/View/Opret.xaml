@@ -1,11 +1,18 @@
 ﻿<Page
-    x:Class="Vaccine_App.View.Opret"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Vaccine_App.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:Vaccine_App.Converter"
+    xmlns:ViewModel="using:Vaccine_App.ViewModel"
+    x:Class="Vaccine_App.View.Opret"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <converter:TextConverter x:Name="IntToString"/>
+        <converter:ComboBoxItemConvert x:Name="CbiToString"/>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
@@ -50,31 +57,37 @@
                     </StackPanel>
                 </StackPanel>
             </SplitView.Pane>
-            <SplitView.Content>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="Gray">
-                        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="Opret Barn" VerticalAlignment="Top" Height="35" Width="160" FontSize="25"/>
-                    </Grid>
-                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="104,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="173" FontSize="30" Text="Fødselsdato" Grid.Row="1"/>
-                    <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="147,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="83" FontSize="30" Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.DataContext>
+                    <ViewModel:BrugerViewmodel/>
+                </Grid.DataContext>
+                <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="Gray">
+                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="Opret Barn" VerticalAlignment="Top" Height="35" Width="160" FontSize="25"/>
+                </Grid>
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="104,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="173" FontSize="30" Text="Fødselsdato" Grid.Row="1"/>
+                <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="147,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="83" FontSize="30" Grid.Row="1">
             
                         <Run Text="Navn"/>
                         <LineBreak/>
                         <Run/>
-                    </TextBlock>
-                    <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="37,290,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="287" Height="59" Grid.Row="1"/>
-                    <Button x:Name="button1" Content="Ok" HorizontalAlignment="Left" Margin="115,436,0,0" VerticalAlignment="Top" Height="67" Width="133" FontSize="40" Click="Buttom_Click_5" Background="#59256FB4" Grid.Row="1"/>
-                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="37,113,0,0" VerticalAlignment="Top" Width="67" RenderTransformOrigin="0.51,0.538" Height="41" Grid.Row="1"/>
-                    <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="104,113,0,0" VerticalAlignment="Top" Width="137" Height="41" Grid.Row="1"/>
-                    <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="241,113,0,0" VerticalAlignment="Top" Width="83" Height="41" Grid.Row="1"/>
-                    <RadioButton x:Name="radioButton" Content="♀" HorizontalAlignment="Left" Margin="109,160,0,0" VerticalAlignment="Top" FontSize="16" Height="27" Width="121" Grid.Row="1"/>
-                    <RadioButton x:Name="radioButton1" Content="♂" HorizontalAlignment="Left" Margin="229,160,0,0" VerticalAlignment="Top" FontSize="16" Width="121" Height="27" Grid.Row="1"/>
-                </Grid>
-            </SplitView.Content>
+                </TextBlock>
+                <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="37,290,0,0" TextWrapping="Wrap" Text="{Binding BarnNavn, Mode=TwoWay}" VerticalAlignment="Top" Width="287" Height="59" Grid.Row="1"/>
+                <Button x:Name="button1" Content="Ok" HorizontalAlignment="Left" Margin="115,436,0,0" VerticalAlignment="Top" Height="67" Width="133" FontSize="40" Click="Buttom_Click_5" Background="#59256FB4" Grid.Row="1" Command="{Binding CreateBarnCommand}"/>
+                <DatePicker HorizontalAlignment="Left" Margin="32,112,0,0" VerticalAlignment="Top" Date="{Binding Fødselsdato, Mode=TwoWay}" Grid.Row="1" Width="261"/>
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="144,173,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1">
+                    <ComboBox 
+                x:Name="comboBox"
+                SelectedItem="{Binding SelectedComboBoxOption, Converter={StaticResource CbiToString}, Mode=TwoWay}">
+                        <ComboBoxItem Content="Dreng"/>
+                        <ComboBoxItem Content="Pige"/>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
         </SplitView>
     </Grid>
 </Page>

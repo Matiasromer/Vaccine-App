@@ -7,29 +7,54 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.UserDataAccounts.SystemAccess;
-using Windows.UI.Xaml.Controls;
-using Vaccine_App.Common;
 using Vaccine_App.Handler;
 using Vaccine_App.Model;
-
+using Vaccine_App.Common;
+using Windows.UI.Xaml.Controls;
+using Vaccine_App.Converter;
 namespace Vaccine_App.ViewModel
 {
     public class BrugerViewmodel : INotifyPropertyChanged
     {
+        #region combobox code
+        // hej
+        //http://stackoverflow.com/questions/33821672/uwp-combobox-binding-to-selecteditem-property
+
+        public ObservableCollection<ComboBoxItem> ComboBoxOptions { get; set; } = new ObservableCollection<ComboBoxItem>();
+
+        private ComboBoxItem _SelectedComboBoxOption;
+
+        public ComboBoxItem SelectedComboBoxOption
+        {
+            get
+            {
+                return _SelectedComboBoxOption;
+            }
+            set
+            {
+                if (_SelectedComboBoxOption != value)
+                {
+                    _SelectedComboBoxOption = value;
+                    //Sets the Gender property when ComboBox item is selected/set
+                    Gender = _SelectedComboBoxOption.Content.ToString();
+                    OnPropertyChanged("SelectedComboBoxOption");
+                }
+            }
+        }
+        #endregion
+
         //Singletons
         public BarnSingleton BarnSingleton { get; set; }
         // public VaccineSingleton VaccineSingleton { get; set; }
 
         //ObersvableCollections
         private ObservableCollection<Barn> barnCollection;
-
         public ObservableCollection<Barn> BarnCollection
         {
             get { return barnCollection; }
             set { barnCollection = value; }
         }
 
-        private ObservableCollection<ComboBoxItem> ComboBoxOptions;
 
         //Commands
         public ICommand CreateBarnCommand { get; set; }
@@ -37,8 +62,7 @@ namespace Vaccine_App.ViewModel
         public ICommand GetBarnCommand { get; set; }
 
         //Props
-        private DateTime fødselsdato = DateTime.Now;
-
+        private DateTime fødselsdato;
         public DateTime Fødselsdato
         {
             get { return fødselsdato; }
@@ -51,7 +75,6 @@ namespace Vaccine_App.ViewModel
 
 
         private string barnnavn;
-
         public string BarnNavn
         {
             get { return barnnavn; }
@@ -66,7 +89,6 @@ namespace Vaccine_App.ViewModel
         //    set { email = value; }
         //}
         private String gender;
-
         public String Gender
         {
             get { return gender; }
@@ -77,9 +99,7 @@ namespace Vaccine_App.ViewModel
             }
         }
 
-        
         private int tlfnr;
-
         public int Tlfnr
         {
             get { return tlfnr; }
@@ -87,7 +107,6 @@ namespace Vaccine_App.ViewModel
         }
 
         private int deviceId;
-
         public int DeviceId
         {
             get { return deviceId; }
@@ -95,15 +114,10 @@ namespace Vaccine_App.ViewModel
         }
 
         private Barn selectedBarn;
-
         public Barn SelectedBarn
         {
             get { return selectedBarn; }
-            set
-            {
-                selectedBarn = value;
-                OnPropertyChanged(nameof(SelectedBarn));
-            }
+            set { selectedBarn = value; OnPropertyChanged(nameof(SelectedBarn)); }
         }
 
         //Handler
@@ -112,7 +126,7 @@ namespace Vaccine_App.ViewModel
         //ViewModel
         public BrugerViewmodel()
         {
-
+            Fødselsdato = DateTime.Now;
             BarnCollection = BarnSingleton.Instance.BarnsCollection;
             Bh = new Handler.BarnHandler(this);
             BarnSingleton = BarnSingleton.Instance;
@@ -120,14 +134,12 @@ namespace Vaccine_App.ViewModel
             CreateBarnCommand = new RelayCommand(Bh.CreateBarn, CanCreateBarnNavn);
             DeleteBarnCommand = new RelayCommand(Bh.DeleteBarn, CanDeleteBarn);
             GetBarnCommand = new RelayCommand(Bh.GetBarn, null);
-
-            
         }
 
         //Fail-Safe; Kan ikke bruge slette nap hvis der intet er i listen.
         public bool CanDeleteBarn()
         {
-            if (SelectedBarn != null) 
+            if (SelectedBarn != null)
                 return true;
             else
             {
@@ -145,24 +157,18 @@ namespace Vaccine_App.ViewModel
                 return false;
             }
         }
-
-
-
+        // test
 
         //INotifyPropChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
+           // if (PropertyChanged != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-                // PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+               // PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
-
-        
-        
     }
 }
