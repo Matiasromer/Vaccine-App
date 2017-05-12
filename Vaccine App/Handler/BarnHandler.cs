@@ -14,13 +14,12 @@ namespace Vaccine_App.Handler
     {
         // denne klasse hed engang BrugerHandler.
         public BrugerViewmodel BrugerViewmodel { get; set; }
-
         public BarnHandler(BrugerViewmodel bvm)
         {
             this.BrugerViewmodel = bvm;
         }
 
-        
+        //createBarn - Laver temp barn, og tilføjer til Instancen i sngleton
         public void CreateBarn()
         {
             Barn tempBarn = new Barn(BrugerViewmodel.BarnNavn, BrugerViewmodel.DeviceId, BrugerViewmodel.Fødselsdato, BrugerViewmodel.Gender);
@@ -28,16 +27,16 @@ namespace Vaccine_App.Handler
             tempBarn.Device_id = BrugerViewmodel.DeviceId;
             tempBarn.Gender = BrugerViewmodel.Gender;
             tempBarn.Barn_Navn = BrugerViewmodel.BarnNavn;
-           // tempBarn.Tlfnr = BrugerViewmodel.Tlfnr;
             BarnSingleton.Instance.AddBarn(tempBarn);
-            //Vaccine_App.Persistency.PersistencyService.PostBarnAsync(tempBarn);
         }
          
+        //DeleteBarn -sletter fra instances
         public void DeleteBarn()
         {
             BarnSingleton.Instance.RemoveBarn(BrugerViewmodel.SelectedBarn);
         }
 
+        //henter dataen
         public async void GetBarn()
         {
             await BarnSingleton.Instance.GetBarnASync();

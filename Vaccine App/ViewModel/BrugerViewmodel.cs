@@ -16,6 +16,7 @@ namespace Vaccine_App.ViewModel
 {
     public class BrugerViewmodel : INotifyPropertyChanged
     {
+        //ComboBox koden - Nødvendig for ComboBox til at virke.
         #region combobox code
         // hej
         //http://stackoverflow.com/questions/33821672/uwp-combobox-binding-to-selecteditem-property
@@ -42,7 +43,7 @@ namespace Vaccine_App.ViewModel
             }
         }
         #endregion
-        // hej
+ 
         //Singletons
         public BarnSingleton BarnSingleton { get; set; }
         // public VaccineSingleton VaccineSingleton { get; set; }
@@ -73,7 +74,6 @@ namespace Vaccine_App.ViewModel
             }
         }
 
-
         private string barnnavn;
         public string BarnNavn
         {
@@ -81,13 +81,6 @@ namespace Vaccine_App.ViewModel
             set { barnnavn = value; }
         }
 
-        //private string email;
-
-        // public string Email
-        //{
-        //    get { return email; }
-        //    set { email = value; }
-        //}
         private String gender;
         public String Gender
         {
@@ -136,7 +129,7 @@ namespace Vaccine_App.ViewModel
             GetBarnCommand = new RelayCommand(Bh.GetBarn, null);
         }
 
-        //Fail-Safe; Kan ikke bruge slette nap hvis der intet er i listen.
+        //Fail-Safe; Kan ikke bruge slette knap hvis der intet er i listen.
         public bool CanDeleteBarn()
         {
             if (SelectedBarn != null)
@@ -145,7 +138,6 @@ namespace Vaccine_App.ViewModel
             {
                 return false;
             }
-
         }
 
         public bool CanCreateBarnNavn()
@@ -157,16 +149,15 @@ namespace Vaccine_App.ViewModel
                 return false;
             }
         }
-        // test
 
+        // test
         //INotifyPropChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
-        {
-           // if (PropertyChanged != null)
+        {         
             {
-               // PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                 //PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
                  PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }

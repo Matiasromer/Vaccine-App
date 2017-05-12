@@ -17,7 +17,7 @@ namespace Vaccine_App.Handler
             this.VaccineViewmodel = vvm;
         }
 
-        //Post Metode
+        //Post Metode - laver temp vaccine, og tilføjer til Instancen
         //public void CreateVaccine()
         //{
         //    Vaccine tempVacc = new Vaccine(VaccineViewmodel.Vac_Id, VaccineViewmodel.Vac_Name, VaccineViewmodel.Vac_Info);
@@ -26,9 +26,9 @@ namespace Vaccine_App.Handler
         //    tempVacc.Vac_Info = VaccineViewmodel.Vac_Info;
 
         //    VaccineSingleton.Instance.AddVaccine(tempVacc);
-            // Vaccine_App.Persistency.PersistencyService.PostVaccineAsync(tempVacc);
         //}
 
+        //Henter vaccine dataen
         public async void VaccineGet()
         {
             await VaccineSingleton.Instance.GetVaccineASync();

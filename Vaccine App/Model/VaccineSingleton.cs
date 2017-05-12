@@ -51,6 +51,7 @@ namespace Vaccine_App.ViewModel
             //  PersistencyService.PostVaccineAsync(VacAdd);
         }
 
+        //GetMetode - bruges samme måde som GetBarn. Henter vacciner fra Database, og tilføjer til Listen.
         public async Task GetVaccineASync()
         {
             foreach (var item in await PersistencyService.GetVaccineAsync())

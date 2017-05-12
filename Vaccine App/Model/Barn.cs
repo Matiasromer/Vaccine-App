@@ -9,35 +9,23 @@ namespace Vaccine_App.Model
    public class Barn
     {
         // Barn klasse (denne klasse) hed engang Bruger.
+        //Properties
         public string Barn_Navn;
         public int Device_id { get; set; }
         public int Barn_Id { get; set; }
         public DateTime Barn_Foedsel { get; set; }
         public String Gender { get; set; }
-       // public string Email { get; set; }
-      //  public string Barn { get; set; }
-       // public int Tlfnr { get; set; }
 
+        //Constructor
         public Barn(string BarnNavn, int DeviceId, DateTime Fødselsdato, String Gender)
         {
             this.Barn_Navn = BarnNavn;
             this.Device_id = DeviceId;
             this.Barn_Foedsel = Fødselsdato;
             this.Gender = Gender;
-          //  this.Email = Email;
-          //  this.Barn = Barn;
-          //  this.Tlfnr = Tlfnr;
         }
 
-        //public Barn(int fødselsdato, int deviceId, int gender, string barnNavn)
-        //{
-        //    Fødselsdato = fødselsdato;
-        //    DeviceId = deviceId;
-        //    Gender = gender;
-        //    BarnNavn = barnNavn;
-        //  //  Tlfnr = tlfnr;
-        //}
-
+        //Override string. Format data hentes ind i.
         public override string ToString()
         {
             return $"{Barn_Navn}   -  {Barn_Foedsel:d} -  {Gender}  ";

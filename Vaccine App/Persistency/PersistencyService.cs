@@ -17,13 +17,6 @@ namespace Vaccine_App.Persistency
         //server Url
         const string serverURL = "http://vaccineapi.azurewebsites.net/";
 
-        //Message Dialog
-        //public static async void ShowMessage(string content)
-        //{
-        //    MessageDialog messageDialog = new MessageDialog(content);
-        //    await messageDialog.ShowAsync();
-        //}
-
         // Post, laver et barn og sender til db - 
         public static void PostBarnAsync(Barn PostBarn)
         {
@@ -54,39 +47,9 @@ namespace Vaccine_App.Persistency
                     throw;
                 }
             }
-        }
-
-        //egen metode, Virker ikke, arbejd på ovenstående
-        //public static void PostBarnAsync(Barn PostBarn)
-        //{
-        //    using (var client = new HttpClient())
-        //    {
-        //        client.BaseAddress = new Uri(serverURL);
-        //        client.DefaultRequestHeaders.Clear();
-
-        //        try
-        //        {
-        //            var response = client.PostAsJsonAsync<Barn>("api/børn", PostBarn).Result;
-        //            if (response.IsSuccessStatusCode)
-        //            {
-        //                ShowMessage("Du har oprettet en ny guest");
-        //            }
-        //            else
-        //            {
-        //                ShowMessage("FEJL, Guest blev ikke oprettet: " + response.StatusCode);
-        //            }
-        //        }
-        //        catch (Exception e)
-        //        {
-
-        //            ShowMessage("Der er sket en fejl: " + e.Message);
-        //        }
-        //    }
-        //}
-
+        }        
 
         // Delete Barn
-
         public static void DeleteBarnAsync(Barn DeleteBarn)
         {
             using (var client = new HttpClient())
@@ -130,37 +93,10 @@ namespace Vaccine_App.Persistency
                 HttpResponseMessage response = await client.GetAsync(urlstring);
                 if (response.IsSuccessStatusCode)
                 {
-                    TempBarnCollection = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
-                    //var BarnListe = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
-                    //return BarnListe;
+                    TempBarnCollection = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;                   
                 }
                     return TempBarnCollection;               
-            }
-            //catch (Exception e)
-            //{
-            //    MessageDialog exception = new MessageDialog(e.Message);
-            //    return TempBarnCollection = null;
-            // }
-
-            //public static ObservableCollection<Barn> GetBarn()
-            //{
-            //    using (var Client = new HttpClient())
-            //    {
-            //        Client.BaseAddress = new Uri(serverURL);
-            //        Client.DefaultRequestHeaders.Clear();
-            //        string urlStringGet = "api/barn/";
-
-            //        var response = Client.GetAsync(urlStringGet).Result;
-
-            //        if (response.IsSuccessStatusCode)
-            //        {
-            //            var BarnListe = response.Content.ReadAsAsync<ObservableCollection<Barn>>().Result;
-
-            //            return BarnListe;
-            //        }
-            //        return null;
-            //    }
-            //}
+            }                     
         }
 
         public static async Task<ObservableCollection<Vaccine>> GetVaccineAsync()
@@ -180,7 +116,7 @@ namespace Vaccine_App.Persistency
                 return null;
             }
         }
-        //Post-Vaccine metode, til eventuelle extra vacciner
+        //Post-Vaccine metode, til eventuelle extra vacciner - Bruges dog ikke, da den ikke er nødvendig lige nu.
         //public static void PostVaccineAsync(Vaccine PostVac)
         //{
         //    using (var client = new HttpClient())
