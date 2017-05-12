@@ -13,7 +13,6 @@ namespace Vaccine_App.Model
         public int Device_id { get; set; }
         public int Barn_Id { get; set; }
         public DateTime Barn_Foedsel { get; set; }
-        // Gender er int fordi vi kan nemmere binde den til fremtidige knapper
         public String Gender { get; set; }
        // public string Email { get; set; }
       //  public string Barn { get; set; }

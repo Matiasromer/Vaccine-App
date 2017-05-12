@@ -38,11 +38,13 @@ namespace Vaccine_App.Model
             BarnsCollection = new ObservableCollection<Barn>();
             GetBarnASync();
         }
-        
+
         public void AddBarn(Barn BAdd)
         {
             BarnsCollection.Add(BAdd);
-            PersistencyService.PostBarnAsync(BAdd);      
+            PersistencyService.PostBarnAsync(BAdd);
+            BarnsCollection.Clear();
+            GetBarnASync();
         }
 
         public void RemoveBarn(Barn BRemove)
