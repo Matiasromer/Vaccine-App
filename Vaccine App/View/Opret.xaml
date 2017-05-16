@@ -89,7 +89,7 @@
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="144,173,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1">
                     <ComboBox 
                 x:Name="comboBox"
-                SelectedItem="{Binding SelectedComboBoxOption, Converter={StaticResource CbiToString}, Mode=TwoWay}">
+                SelectedItem="{Binding SelectedComboBoxOption, Converter={StaticResource CbiToString}, Mode=TwoWay}" PlaceholderText="Køn" Width="80" Margin="-5,0,0,0">
                         <ComboBoxItem Content="Dreng"/>
                         <ComboBoxItem Content="Pige"/>
                     </ComboBox>
