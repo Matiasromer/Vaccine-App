@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage.AccessCache;
 
 namespace Vaccine_App.Model
 {
@@ -19,8 +20,24 @@ namespace Vaccine_App.Model
             this.Date = DateTime;
         }
 
+        public List<string> Liste()
+        {
+
+            List<string> vacciner = new List<string>();
+            vacciner.Add("");
+            
+            return vacciner;
+        }
+        //Liste over vaccinationer:
+       
+        
+        
+
+        
+
 
         //Vacciner, og forskellige anal måneder der skal gå før de skal modtages - inkluderer navn, nr. og Antal måneder fra foedsel.
+        #region Vacciner
         public string HepatitisB1()
         {
             return "Hepatitis B Vaccination 1, 1 Måned";
@@ -74,5 +91,6 @@ namespace Vaccine_App.Model
         {
             return "MFR vaccination 2, 144 Måneder";
         }
+        #endregion
     }
 }
