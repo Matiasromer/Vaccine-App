@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Vaccine_App.Model;
+using Vaccine_App.ViewModel;
 
 namespace Vaccine_App.Persistency
 {
@@ -20,6 +21,16 @@ namespace Vaccine_App.Persistency
         // Post, laver et barn og sender til db - 
         public static void PostBarnAsync(Barn PostBarn)
         {
+
+            List<VaccineView> vacViewList = VaccineViewSingleton.Instance.VaccineViewCollection.ToList();
+
+            foreach (VaccineView v in vacViewList)
+            {
+                DateTime injDate = PostBarn.Barn_Foedsel.AddMonths(v.TidMdr);
+                Kalender k = new Kalender(PostBarn.Barn_Id,v.Vac_Id,injDate);  
+                PostKalenderAsync(k);   
+            }
+
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -47,7 +58,32 @@ namespace Vaccine_App.Persistency
                     throw;
                 }
             }
-        }        
+        }
+
+        private static void PostKalenderAsync(Kalender k)
+        {
+            //TODO implement
+            throw new NotImplementedException();
+        }
+
+        public static async Task<ObservableCollection<VaccineView>> GetVaccineViewAsync()
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+                string urlstring = "api/vaccineViews/";
+                HttpResponseMessage response = await client.GetAsync(urlstring);
+                if (response.IsSuccessStatusCode)
+                {
+
+                    var vaccineViewList = response.Content.ReadAsAsync<ObservableCollection<VaccineView>>().Result;
+                    return vaccineViewList;
+                }
+                return null;
+            }
+        }
 
         // Delete Barn
         public static void DeleteBarnAsync(Barn DeleteBarn)
@@ -110,6 +146,7 @@ namespace Vaccine_App.Persistency
                 HttpResponseMessage response = await client.GetAsync(urlstring);
                 if (response.IsSuccessStatusCode)
                 {
+                   
                     var VaccineListe = response.Content.ReadAsAsync<ObservableCollection<Vaccine>>().Result;
                     return VaccineListe;
                 }
