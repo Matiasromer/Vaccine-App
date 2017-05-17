@@ -102,6 +102,7 @@
     <Compile Include="Handler\BarnHandler.cs" />
     <Compile Include="Handler\VaccineHandler.cs" />
     <Compile Include="Model\Barn.cs" />
+    <Compile Include="Model\BarnListe.cs" />
     <Compile Include="Model\BarnSingleton.cs" />
     <Compile Include="Model\Kalender.cs" />
     <Compile Include="Model\Vaccine.cs" />
