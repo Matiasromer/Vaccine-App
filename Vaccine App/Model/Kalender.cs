@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vaccine_App.Model
 {
-    class Kalender
+    public class Kalender
     {
         //Props
         public int BarnId { get; set; }

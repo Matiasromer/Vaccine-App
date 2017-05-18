@@ -23,14 +23,6 @@ namespace Vaccine_App.Persistency
         public static void PostBarnAsync(Barn PostBarn)
         {
 
-            List<VaccineView> vacViewList = VaccineViewSingleton.Instance.VaccineViewCollection.ToList();
-
-            foreach (VaccineView v in vacViewList)
-            {
-                DateTime injDate = PostBarn.Barn_Foedsel.AddMonths(v.TidMdr);
-                Kalender k = new Kalender(PostBarn.Barn_Id, v.Vac_Navn, injDate);
-                PostKalenderAsync(k);
-            }
 
             using (var client = new HttpClient())
             {
@@ -61,7 +53,7 @@ namespace Vaccine_App.Persistency
         }
         }
 
-        private static void PostKalenderAsync(Kalender k)
+        public static void PostKalenderAsync(Kalender k)
         {
             //TODO implement
             using (var client = new HttpClient())

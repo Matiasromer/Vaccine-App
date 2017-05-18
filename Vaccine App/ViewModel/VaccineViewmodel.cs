@@ -11,12 +11,12 @@ using Vaccine_App.Handler;
 using Vaccine_App.Model;
 
 namespace Vaccine_App.ViewModel
-{ 
+{
 
-   public class VaccineViewmodel : INotifyPropertyChanged
+    public class VaccineViewmodel : INotifyPropertyChanged
     {
-       // Singletons
-      //  public VaccineSingleton VaccineSingleton { get; set; }
+        // Singletons
+        //  public VaccineSingleton VaccineSingleton { get; set; }
         public VaccineViewSingleton VaccineViewSingleton { get; set; }
         //ObservableColletions
         //private ObservableCollection<Vaccine> vaccineCollection;
@@ -34,11 +34,12 @@ namespace Vaccine_App.ViewModel
             set { vaccineViewCollection = value; }
         }
 
-        
+
 
         //Commands
         public ICommand CreateVaccineCommand { get; set; }
         public ICommand GetVaccineCommand { get; set; }
+        public ICommand OpretKalenderCommand { get; set; }
 
         //props
         private int vac_Id;
@@ -58,11 +59,13 @@ namespace Vaccine_App.ViewModel
         }
 
         private string vac_Info;
+
         public string Vac_Info
         {
             get { return vac_Info; }
             set { vac_Info = value; }
         }
+
         // ændrede vaccine til vaccineview her
         private VaccineView selectedVaccine;
 
@@ -72,6 +75,12 @@ namespace Vaccine_App.ViewModel
             set { selectedVaccine = value; }
         }
 
+        private VaccineView selectedBarn;
+        public VaccineView SelectedBarn
+        {
+            get { return selectedBarn; }
+            set { selectedBarn = value; }
+        }
         //Handler
         public Handler.VaccineHandler VH;
 
@@ -79,12 +88,13 @@ namespace Vaccine_App.ViewModel
         public VaccineViewmodel()
         {
             VaccineViewCollection = VaccineViewSingleton.Instance.VaccineViewCollection;
-          //  VaccineCollection = VaccineSingleton.Instance.VaccinesCollection;
+            //  VaccineCollection = VaccineSingleton.Instance.VaccinesCollection;
             VH = new VaccineHandler(this);
-           // VaccineSingleton = VaccineSingleton.Instance;
+            // VaccineSingleton = VaccineSingleton.Instance;
             VaccineViewSingleton = VaccineViewSingleton.Instance;
 
             GetVaccineCommand = new RelayCommand(VH.VaccineGet, null);
+            OpretKalenderCommand = new RelayCommand(VH.KalenderOpret, null);
         }
 
         //INotifyPropChanged interface
@@ -98,5 +108,4 @@ namespace Vaccine_App.ViewModel
             }
         }
     }
-
 }

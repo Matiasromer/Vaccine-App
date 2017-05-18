@@ -58,5 +58,17 @@ namespace Vaccine_App.Model
                 this.VaccineViewCollection.Add(item);
             }
         }
+        public void OpretKalender(Barn kopret)
+        {
+
+            List<VaccineView> vacViewList = VaccineViewSingleton.Instance.VaccineViewCollection.ToList();
+
+            foreach (VaccineView v in vacViewList)
+            {
+                DateTime injDate = kopret.Barn_Foedsel.AddMonths(v.TidMdr);
+                Kalender k = new Kalender(kopret.Barn_Id, v.Vac_Navn, injDate);
+                PersistencyService.PostKalenderAsync(k);
+            }
+        }
     }
 }

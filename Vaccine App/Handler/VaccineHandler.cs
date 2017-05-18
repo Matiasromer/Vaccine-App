@@ -33,5 +33,19 @@ namespace Vaccine_App.Handler
         {
             await VaccineViewSingleton.Instance.GetVaccineViewASync();
         }
+
+        public async void KalenderOpret()
+        {
+            //if (Persistency.PersistencyService.GetBarnAsync() != null)
+            //{
+            //}
+            //else if (Persistency.PersistencyService)
+            //{
+            //    VaccineViewSingleton.Instance.OpretKalender(ViewModel.BrugerViewmodel.SelectedBarn);
+            //}
+            //{
+            //    KalenderOpret();
+            //}
+        }
     }
 }
