@@ -135,6 +135,25 @@ namespace Vaccine_App.Persistency
             }                     
         }
 
+        //Get Kalender
+        public static async Task<ObservableCollection<Kalender>> GetKalenderAsync()
+        {
+            ObservableCollection<Kalender> TempKalenderCollection = new ObservableCollection<Kalender>();
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+                string urlstring = "api/kalender/Barn_id";
+                HttpResponseMessage response = await client.GetAsync(urlstring);
+                if (response.IsSuccessStatusCode)
+                {
+                    TempKalenderCollection = response.Content.ReadAsAsync<ObservableCollection<Kalender>>().Result;
+                }
+                return TempKalenderCollection;
+            }
+        }
+
         public static async Task<ObservableCollection<Vaccine>> GetVaccineAsync()
         {
             using (var client = new HttpClient())
