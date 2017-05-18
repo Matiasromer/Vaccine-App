@@ -83,6 +83,7 @@ namespace Vaccine_App.ViewModel
         }
         //Handler
         public Handler.VaccineHandler VH;
+        public Handler.BarnHandler BH;
 
         //ViewModel
         public VaccineViewmodel()
@@ -99,7 +100,7 @@ namespace Vaccine_App.ViewModel
 
         //INotifyPropChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
-
+        
         protected virtual void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

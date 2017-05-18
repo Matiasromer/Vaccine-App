@@ -9,10 +9,9 @@ namespace Vaccine_App.Model
     public class Kalender
     {
         //Props
-        public int BarnId { get; set; }
-        public int VaccineId { get; set; }
-        public DateTime InjectionDate { get; set; }
-        public string VaccineNavn { get; set; }
+        public int Barn_id { get; set; }
+        public DateTime Dato { get; set; }
+        public string Vac_navn { get; set; }
 
         //Constructor
         public Kalender()
@@ -20,11 +19,12 @@ namespace Vaccine_App.Model
                
         }
 
-        public Kalender(int barnId, string vaccineNavn, DateTime injectionDate)
+        public Kalender(DateTime injectionDate, int barnId, string vaccineNavn)
         {
-            BarnId = barnId;
-            VaccineNavn = vaccineNavn;
-            InjectionDate = injectionDate;
+            Dato = injectionDate;
+            Barn_id = barnId;
+            Vac_navn = vaccineNavn;
+            
 
         }
 

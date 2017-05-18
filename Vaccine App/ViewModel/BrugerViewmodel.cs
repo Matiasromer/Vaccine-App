@@ -46,6 +46,7 @@ namespace Vaccine_App.ViewModel
  
         //Singletons
         public BarnSingleton BarnSingleton { get; set; }
+        public VaccineViewSingleton VaccineViewSingleton { get; set; }
         // public VaccineSingleton VaccineSingleton { get; set; }
 
         //ObersvableCollections
@@ -106,7 +107,7 @@ namespace Vaccine_App.ViewModel
             set { deviceId = value; }
         }
 
-        private Barn selectedBarn;
+        public static Barn selectedBarn;
         public Barn SelectedBarn
         {
             get { return selectedBarn; }
@@ -123,6 +124,7 @@ namespace Vaccine_App.ViewModel
             BarnCollection = BarnSingleton.Instance.BarnsCollection;
             Bh = new Handler.BarnHandler(this);
             BarnSingleton = BarnSingleton.Instance;
+            VaccineViewSingleton = VaccineViewSingleton.Instance;
 
             CreateBarnCommand = new RelayCommand(Bh.CreateBarn, CanCreateBarnNavn);
             DeleteBarnCommand = new RelayCommand(Bh.DeleteBarn, CanDeleteBarn);

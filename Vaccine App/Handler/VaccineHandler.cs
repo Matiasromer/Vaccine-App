@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,16 +37,12 @@ namespace Vaccine_App.Handler
 
         public async void KalenderOpret()
         {
-            //if (Persistency.PersistencyService.GetBarnAsync() != null)
-            //{
-            //}
-            //else if (Persistency.PersistencyService)
-            //{
-            //    VaccineViewSingleton.Instance.OpretKalender(ViewModel.BrugerViewmodel.SelectedBarn);
-            //}
-            //{
-            //    KalenderOpret();
-            //}
+            ObservableCollection<Kalender> tempList = new ObservableCollection<Kalender>();
+            tempList = await Persistency.PersistencyService.GetKalenderAsync(BrugerViewmodel.selectedBarn.Barn_Id);
+            if (tempList.Count == 0)
+            {
+                VaccineViewSingleton.Instance.OpretKalender(BrugerViewmodel.selectedBarn);
+            }
         }
     }
 }

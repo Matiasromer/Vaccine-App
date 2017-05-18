@@ -61,12 +61,12 @@ namespace Vaccine_App.Model
         public void OpretKalender(Barn kopret)
         {
 
-            List<VaccineView> vacViewList = VaccineViewSingleton.Instance.VaccineViewCollection.ToList();
+            List<VaccineView> vacViewList = Instance.VaccineViewCollection.ToList();
 
             foreach (VaccineView v in vacViewList)
             {
                 DateTime injDate = kopret.Barn_Foedsel.AddMonths(v.TidMdr);
-                Kalender k = new Kalender(kopret.Barn_Id, v.Vac_Navn, injDate);
+                Kalender k = new Kalender(injDate, kopret.Barn_Id, v.Vac_Navn);
                 PersistencyService.PostKalenderAsync(k);
             }
         }

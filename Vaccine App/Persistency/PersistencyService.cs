@@ -58,14 +58,18 @@ namespace Vaccine_App.Persistency
             //TODO implement
             using (var client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 string urlStringCreate = "api/kalender/";
 
                 var response = client.PostAsJsonAsync<Kalender>(urlStringCreate, k).Result;
-                
+
+                if (response.IsSuccessStatusCode)
+                {
+                    
+                }
 
             }
 
@@ -141,6 +145,23 @@ namespace Vaccine_App.Persistency
                     return TempBarnCollection;               
             }                     
         }
+        public static async Task<ObservableCollection<Kalender>> GetKalenderAsync(int id)
+        {
+            ObservableCollection<Kalender> TempKalenderCollection = new ObservableCollection<Kalender>();
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+                string urlstring = "api/kalender/Barn_id/" + id;
+                HttpResponseMessage response = await client.GetAsync(urlstring);
+                if (response.IsSuccessStatusCode)
+                {
+                    TempKalenderCollection = response.Content.ReadAsAsync<ObservableCollection<Kalender>>().Result;
+                }
+                return TempKalenderCollection;
+            }
+        }
 
         //public static async Task<ObservableCollection<Vaccine>> GetVaccineAsync()
         //{
@@ -153,7 +174,7 @@ namespace Vaccine_App.Persistency
         //        HttpResponseMessage response = await client.GetAsync(urlstring);
         //        if (response.IsSuccessStatusCode)
         //        {
-                   
+
         //            var VaccineListe = response.Content.ReadAsAsync<ObservableCollection<Vaccine>>().Result;
         //            return VaccineListe;
         //        }
