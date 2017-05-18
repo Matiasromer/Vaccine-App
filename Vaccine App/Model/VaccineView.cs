@@ -19,5 +19,29 @@ namespace Vaccine_App.Model
         public int RkFlg { get; set; }
         
         public int TidMdr { get; set; }
+
+        public VaccineView()
+        {
+            
+        }
+
+        public VaccineView(int vacId, string vacNavn, string vacInfo, int rkFlg, int tidMdr)
+        {
+            Vac_Id = vacId;
+            Vac_Navn = vacNavn;
+            Vac_Info = vacInfo;
+            RkFlg = rkFlg;
+            TidMdr = tidMdr;
+        }
+
+        public override string ToString()
+        {
+            return $"{Vac_Navn}  -  {TidMdr}";
+        }
+
     }
+
+    
+
+    
 }

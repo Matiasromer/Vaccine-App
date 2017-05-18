@@ -16,15 +16,25 @@ namespace Vaccine_App.ViewModel
    public class VaccineViewmodel : INotifyPropertyChanged
     {
        // Singletons
-        public VaccineSingleton VaccineSingleton { get; set; }
-
+      //  public VaccineSingleton VaccineSingleton { get; set; }
+        public VaccineViewSingleton VaccineViewSingleton { get; set; }
         //ObservableColletions
-        private ObservableCollection<Vaccine> vaccineCollection;
-        public ObservableCollection<Vaccine> VaccineCollection
+        //private ObservableCollection<Vaccine> vaccineCollection;
+        //public ObservableCollection<Vaccine> VaccineCollection
+        //{
+        //    get { return vaccineCollection; }
+        //    set { vaccineCollection = value; }
+        //}
+
+        private ObservableCollection<VaccineView> vaccineViewCollection;
+
+        public ObservableCollection<VaccineView> VaccineViewCollection
         {
-            get { return vaccineCollection; }
-            set { vaccineCollection = value; }
+            get { return vaccineViewCollection; }
+            set { vaccineViewCollection = value; }
         }
+
+        
 
         //Commands
         public ICommand CreateVaccineCommand { get; set; }
@@ -53,10 +63,10 @@ namespace Vaccine_App.ViewModel
             get { return vac_Info; }
             set { vac_Info = value; }
         }
+        // ændrede vaccine til vaccineview her
+        private VaccineView selectedVaccine;
 
-        private Vaccine selectedVaccine;
-
-        public Vaccine SelectedVaccine
+        public VaccineView SelectedVaccine
         {
             get { return selectedVaccine; }
             set { selectedVaccine = value; }
@@ -68,9 +78,11 @@ namespace Vaccine_App.ViewModel
         //ViewModel
         public VaccineViewmodel()
         {
-            VaccineCollection = VaccineSingleton.Instance.VaccinesCollection;
+            VaccineViewCollection = VaccineViewSingleton.Instance.VaccineViewCollection;
+          //  VaccineCollection = VaccineSingleton.Instance.VaccinesCollection;
             VH = new VaccineHandler(this);
-            VaccineSingleton = VaccineSingleton.Instance;
+           // VaccineSingleton = VaccineSingleton.Instance;
+            VaccineViewSingleton = VaccineViewSingleton.Instance;
 
             GetVaccineCommand = new RelayCommand(VH.VaccineGet, null);
         }

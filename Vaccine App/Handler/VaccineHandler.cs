@@ -31,7 +31,7 @@ namespace Vaccine_App.Handler
         //Henter vaccine dataen
         public async void VaccineGet()
         {
-            await VaccineSingleton.Instance.GetVaccineASync();
+            await VaccineViewSingleton.Instance.GetVaccineViewASync();
         }
     }
 }
