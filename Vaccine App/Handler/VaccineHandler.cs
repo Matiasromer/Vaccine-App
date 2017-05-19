@@ -9,7 +9,7 @@ using Vaccine_App.Model;
 
 namespace Vaccine_App.Handler
 {
-   public class VaccineHandler
+    public class VaccineHandler
     {
         public VaccineViewmodel VaccineViewmodel { get; set; }
 
@@ -37,7 +37,7 @@ namespace Vaccine_App.Handler
 
         public async void KalenderOpret()
         {
-            ObservableCollection<Kalender> tempList = new ObservableCollection<Kalender>();
+            int tempList = new int();
             tempList = await Persistency.PersistencyService.GetKalenderSum(BrugerViewmodel.selectedBarn.Barn_Id);
             if (tempList.Equals(0))
             {
@@ -45,4 +45,5 @@ namespace Vaccine_App.Handler
             }
         }
     }
+    
 }

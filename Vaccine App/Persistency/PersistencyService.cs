@@ -163,19 +163,19 @@ namespace Vaccine_App.Persistency
             }
         }
 
-        public static async Task<ObservableCollection<Kalender>> GetKalenderSum(int barn)
+        public static async Task<int> GetKalenderSum(int barn)
         {
-            ObservableCollection<Kalender> TempKalenderCollection = new ObservableCollection<Kalender>();
+            int TempKalenderCollection = new int();
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlstring = "api/kalender?barn=" + barn;
+                string urlstring = "api/GetKalenderBarn/" + barn;
                 HttpResponseMessage response = await client.GetAsync(urlstring);
                 if (response.IsSuccessStatusCode)
                 {
-                    TempKalenderCollection = response.Content.ReadAsAsync<ObservableCollection<Kalender>>().Result;
+                    TempKalenderCollection = response.Content.ReadAsAsync<int>().Result;
                 }
                 return TempKalenderCollection;
             }
