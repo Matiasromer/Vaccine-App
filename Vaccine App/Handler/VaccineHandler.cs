@@ -38,8 +38,8 @@ namespace Vaccine_App.Handler
         public async void KalenderOpret()
         {
             ObservableCollection<Kalender> tempList = new ObservableCollection<Kalender>();
-            tempList = await Persistency.PersistencyService.GetKalenderAsync(BrugerViewmodel.selectedBarn.Barn_Id);
-            if (tempList.Count == 0)
+            tempList = await Persistency.PersistencyService.GetKalenderSum(BrugerViewmodel.selectedBarn.Barn_Id);
+            if (tempList.Equals(0))
             {
                 VaccineViewSingleton.Instance.OpretKalender(BrugerViewmodel.selectedBarn);
             }

@@ -11,7 +11,7 @@ namespace Vaccine_App.Model
         //Props
         public int Barn_id { get; set; }
         public DateTime Dato { get; set; }
-        public string Vac_navn { get; set; }
+        public int Vac_id { get; set; }
 
         //Constructor
         public Kalender()
@@ -19,11 +19,11 @@ namespace Vaccine_App.Model
                
         }
 
-        public Kalender(DateTime injectionDate, int barnId, string vaccineNavn)
+        public Kalender(DateTime injectionDate, int barnId, int vaccineid)
         {
             Dato = injectionDate;
             Barn_id = barnId;
-            Vac_navn = vaccineNavn;
+            Vac_id = vaccineid;
             
 
         }

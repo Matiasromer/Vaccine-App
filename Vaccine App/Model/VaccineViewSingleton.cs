@@ -66,7 +66,7 @@ namespace Vaccine_App.Model
             foreach (VaccineView v in vacViewList)
             {
                 DateTime injDate = kopret.Barn_Foedsel.AddMonths(v.TidMdr);
-                Kalender k = new Kalender(injDate, kopret.Barn_Id, v.Vac_Navn);
+                Kalender k = new Kalender(injDate, kopret.Barn_Id, v.Vac_Id);
                 PersistencyService.PostKalenderAsync(k);
             }
         }
