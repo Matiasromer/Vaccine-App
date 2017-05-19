@@ -33,7 +33,7 @@ namespace Vaccine_App.Model
             RkFlg = rkFlg;
             TidMdr = tidMdr;
         }
-
+        //changes
         public override string ToString()
         {
             return $"{Vac_Navn}  -  {TidMdr}";
