@@ -163,5 +163,7 @@ namespace Vaccine_App.ViewModel
                  PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        
     }
 }

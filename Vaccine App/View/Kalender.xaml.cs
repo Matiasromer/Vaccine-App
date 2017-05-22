@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Vaccine_App.ViewModel;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -54,6 +55,17 @@ namespace Vaccine_App.View
         private void Buttom_Click_7(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(View.VaccinationsInfo));
+        }
+
+        private string _entityId;
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //base.OnNavigatedTo(e);
+            //var vm = DataContext as VaccineViewmodel;
+            //vm.SelectedBarn = BrugerViewmodel.selectedBarn.Barn_Id
+            //_entityId = e.Parameter as string;
+            //int id = int.Parse(_entityId);
         }
     }
 }

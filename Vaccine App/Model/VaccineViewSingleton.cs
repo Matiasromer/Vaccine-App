@@ -9,15 +9,23 @@ using Vaccine_App.ViewModel;
 
 namespace Vaccine_App.Model
 {
+    // VaccineViewPlan ligger også her inde 
     public class VaccineViewSingleton
     {
-
+        public Barn barn { get; set; }
         //observableCollections - Lister
         private ObservableCollection<VaccineView> _vaccineView;
         public ObservableCollection<VaccineView> VaccineViewCollection
         {
             get { return _vaccineView; }
             set { _vaccineView = value; }
+        }
+
+        private ObservableCollection<VaccinePlanView> _vaccinePlanView;
+        public ObservableCollection<VaccinePlanView> VaccinePlanViewCollection
+        {
+            get { return _vaccinePlanView; }
+            set { _vaccinePlanView = value; }
         }
 
         //Singleton Instances
@@ -38,6 +46,8 @@ namespace Vaccine_App.Model
         public VaccineViewSingleton()
         {
             VaccineViewCollection = new ObservableCollection<VaccineView>();
+            VaccinePlanViewCollection = new ObservableCollection<VaccinePlanView>();
+            GetVaccinePlanViewAsync();
             GetVaccineViewASync();
         }
 
@@ -56,6 +66,16 @@ namespace Vaccine_App.Model
             foreach (var item in await PersistencyService.GetVaccineViewAsync())
             {
                 this.VaccineViewCollection.Add(item);
+            }
+        }
+
+        
+        public async Task GetVaccinePlanViewAsync()
+        {
+            ObservableCollection<VaccinePlanView> listen = await PersistencyService.GetVaccinePlanViewAsync(barn.Barn_Id);
+            foreach (var item in listen)
+            {
+                this.VaccinePlanViewCollection.Add(item);
             }
         }
         public void OpretKalender(Barn kopret)

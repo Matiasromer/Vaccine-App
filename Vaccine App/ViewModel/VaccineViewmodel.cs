@@ -34,12 +34,20 @@ namespace Vaccine_App.ViewModel
             set { vaccineViewCollection = value; }
         }
 
+        private ObservableCollection<VaccinePlanView> vaccinePlanViewCollection;
+        public ObservableCollection<VaccinePlanView>  VaccinePlanViewCollection
+        {
+            get { return vaccinePlanViewCollection; }
+            set { vaccinePlanViewCollection = value; }
+        }
+
 
 
         //Commands
         public ICommand CreateVaccineCommand { get; set; }
         public ICommand GetVaccineCommand { get; set; }
         public ICommand OpretKalenderCommand { get; set; }
+
 
         //props
         private int vac_Id;
@@ -74,13 +82,16 @@ namespace Vaccine_App.ViewModel
             get { return selectedVaccine; }
             set { selectedVaccine = value; }
         }
-
-        private VaccineView selectedBarn;
-        public VaccineView SelectedBarn
+        // Ændret VaccineView til VaccinePlanView - test fordi vacplan ikke viser en plan for hvert enkelt barn
+        private VaccinePlanView selectedBarn;
+        public VaccinePlanView SelectedBarn
         {
             get { return selectedBarn; }
             set { selectedBarn = value; }
         }
+
+        
+    
         //Handler
         public Handler.VaccineHandler VH;
         public Handler.BarnHandler BH;
@@ -89,6 +100,7 @@ namespace Vaccine_App.ViewModel
         public VaccineViewmodel()
         {
             VaccineViewCollection = VaccineViewSingleton.Instance.VaccineViewCollection;
+            VaccinePlanViewCollection = VaccineViewSingleton.Instance.VaccinePlanViewCollection;
             //  VaccineCollection = VaccineSingleton.Instance.VaccinesCollection;
             VH = new VaccineHandler(this);
             // VaccineSingleton = VaccineSingleton.Instance;

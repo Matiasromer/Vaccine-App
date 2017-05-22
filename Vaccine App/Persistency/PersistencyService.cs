@@ -84,13 +84,33 @@ namespace Vaccine_App.Persistency
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlstring = "api/vaccineViews/";
+                string urlstring = "api/vaccineViews/" ;
                 HttpResponseMessage response = await client.GetAsync(urlstring);
                 if (response.IsSuccessStatusCode)
                 {
 
                     var vaccineViewList = response.Content.ReadAsAsync<ObservableCollection<VaccineView>>().Result;
                     return vaccineViewList;
+                }
+                return null;
+            }
+        }
+        // sat barn HentVaccBarn i titel og i urlstring (obs)!!!
+        public static async Task<ObservableCollection<VaccinePlanView>> GetVaccinePlanViewAsync(int id)
+        {
+            using (var client = new HttpClient())
+            {
+                //http://vaccineapi.azurewebsites.net/api/vaccineplanview2/120
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+                string urlstring = $"api/vaccineplanview2/{id.ToString()}";
+                HttpResponseMessage response = await client.GetAsync(urlstring);
+                if (response.IsSuccessStatusCode)
+                {
+
+                    var vaccinePlanViewList = response.Content.ReadAsAsync<ObservableCollection<VaccinePlanView>>().Result;
+                    return vaccinePlanViewList;
                 }
                 return null;
             }

@@ -59,7 +59,9 @@ namespace Vaccine_App.View
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(View.Kalender));
+            var list = BrugerViewmodel.selectedBarn.Barn_Id;
+            
+            this.Frame.Navigate(typeof(View.Kalender), list);
 
         }
     }
