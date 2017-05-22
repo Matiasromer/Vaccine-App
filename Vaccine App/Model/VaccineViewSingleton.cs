@@ -69,10 +69,10 @@ namespace Vaccine_App.Model
             }
         }
 
-        
+        // problem med vaccplan atm
         public async Task GetVaccinePlanViewAsync()
         {
-            ObservableCollection<VaccinePlanView> listen = await PersistencyService.GetVaccinePlanViewAsync(barn.Barn_Id);
+            ObservableCollection<VaccinePlanView> listen = await PersistencyService.GetVaccinePlanViewAsync(90);
             foreach (var item in listen)
             {
                 this.VaccinePlanViewCollection.Add(item);
