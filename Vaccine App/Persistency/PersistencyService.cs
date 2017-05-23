@@ -18,7 +18,7 @@ namespace Vaccine_App.Persistency
         //server Url
         const string serverURL = "http://vaccineapi.azurewebsites.net/";
 
-        // Post, laver et barn og sender til db - 
+        // Post, laver et barn og sender til db - -
         // date er det der viser hvilket barn har hvilken liste - det er det der skal kigges på i post
         public static void PostBarnAsync(Barn PostBarn)
         {
