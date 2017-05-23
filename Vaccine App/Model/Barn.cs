@@ -29,7 +29,7 @@ namespace Vaccine_App.Model
         //Override string. Format data hentes ind i.
         public override string ToString()
         {
-            return $"{Barn_Navn}   -  {Barn_Foedsel:d} -  {Gender}  ";
+            return $"{Barn_Navn}   -  {Barn_Foedsel:dd/MM/yyyy} -  {Gender}  ";
         }
     }
 }

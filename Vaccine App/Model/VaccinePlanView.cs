@@ -29,7 +29,7 @@ namespace Vaccine_App.Model
 
         public override string ToString()
         {
-            return $"{Barn_id}  -  {Vac_Navn}  -  {Dato:d}";
+            return $"{Vac_Navn}  -  {Dato:dd/MM/yyyy}";
         }
     }
 }
