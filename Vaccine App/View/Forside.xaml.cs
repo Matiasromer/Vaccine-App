@@ -71,5 +71,7 @@ namespace Vaccine_App.View
         {
             this.Frame.Navigate(typeof(View.Alarm));
         }
+
+        
     }
 }
