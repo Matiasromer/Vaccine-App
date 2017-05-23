@@ -66,5 +66,10 @@ namespace Vaccine_App.View
         {
             this.Frame.Navigate(typeof(View.VaccinationsInfo));
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(View.Alarm));
+        }
     }
 }
