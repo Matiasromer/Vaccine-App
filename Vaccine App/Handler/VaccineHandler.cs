@@ -44,6 +44,12 @@ namespace Vaccine_App.Handler
                 VaccineViewSingleton.Instance.OpretKalender(BrugerViewmodel.selectedBarn);
             }
         }
+
+        //public async void HentKalenderViaID()
+        //{
+        //    await VaccineViewSingleton.Instance.GetVaccinePlanViewAsync();
+        //}
+
     }
     
 }

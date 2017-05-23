@@ -62,6 +62,7 @@ namespace Vaccine_App.View
             var list = BrugerViewmodel.selectedBarn.Barn_Id;
             
             this.Frame.Navigate(typeof(View.Kalender), list);
+            
 
         }
     }

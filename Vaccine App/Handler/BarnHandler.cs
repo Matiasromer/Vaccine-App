@@ -19,6 +19,12 @@ namespace Vaccine_App.Handler
         {
             this.BrugerViewmodel = bvm;
         }
+        public VaccineViewmodel VaccineViewmodel { get; set; }
+
+        public BarnHandler(VaccineViewmodel vvm)
+        {
+            this.VaccineViewmodel = vvm;
+        }
 
         //createBarn - Laver temp barn, og tilføjer til Instancen i sngleton
         public void CreateBarn()
@@ -42,5 +48,16 @@ namespace Vaccine_App.Handler
         {
             await BarnSingleton.Instance.GetBarnASync();
         }
+
+
+
+        public async void GetspecificBarn()
+        {
+            VaccineViewSingleton.Instance.VaccinePlanViewCollection.Clear();
+            int BarnID = BrugerViewmodel.SelectedBarn.Barn_Id;
+            await VaccineViewSingleton.Instance.GetVaccinePlanViewAsync(BarnID);
+        }
+
+
     }
 }

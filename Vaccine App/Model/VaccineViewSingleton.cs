@@ -13,6 +13,7 @@ namespace Vaccine_App.Model
     public class VaccineViewSingleton
     {
         public Barn barn { get; set; }
+        public VaccinePlanView BarnVacc { get; set; }
         //observableCollections - Lister
         private ObservableCollection<VaccineView> _vaccineView;
         public ObservableCollection<VaccineView> VaccineViewCollection
@@ -47,7 +48,8 @@ namespace Vaccine_App.Model
         {
             VaccineViewCollection = new ObservableCollection<VaccineView>();
             VaccinePlanViewCollection = new ObservableCollection<VaccinePlanView>();
-            GetVaccinePlanViewAsync();
+           
+            // GetVaccinePlanViewAsync();
             GetVaccineViewASync();
         }
 
@@ -69,10 +71,10 @@ namespace Vaccine_App.Model
             }
         }
 
-        // problem med vaccplan atm
-        public async Task GetVaccinePlanViewAsync()
+        // problem med vaccplan atm, viser kun hardcodede resultater
+        public async Task GetVaccinePlanViewAsync(int id)
         {
-            ObservableCollection<VaccinePlanView> listen = await PersistencyService.GetVaccinePlanViewAsync(90);
+            ObservableCollection<VaccinePlanView> listen = await PersistencyService.GetVaccinePlanViewAsync(id);
             foreach (var item in listen)
             {
                 this.VaccinePlanViewCollection.Add(item);

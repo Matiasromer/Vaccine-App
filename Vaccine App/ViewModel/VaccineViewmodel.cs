@@ -47,6 +47,7 @@ namespace Vaccine_App.ViewModel
         public ICommand CreateVaccineCommand { get; set; }
         public ICommand GetVaccineCommand { get; set; }
         public ICommand OpretKalenderCommand { get; set; }
+        public ICommand HentKalenderViaIDCommand { get; set; }
 
 
         //props
@@ -108,6 +109,7 @@ namespace Vaccine_App.ViewModel
 
             GetVaccineCommand = new RelayCommand(VH.VaccineGet, null);
             OpretKalenderCommand = new RelayCommand(VH.KalenderOpret, null);
+        //    HentKalenderViaIDCommand = new RelayCommand(VH.HentKalenderViaID, null);
         }
 
         //INotifyPropChanged interface

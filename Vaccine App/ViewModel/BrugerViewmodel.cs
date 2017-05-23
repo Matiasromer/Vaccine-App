@@ -111,7 +111,8 @@ namespace Vaccine_App.ViewModel
         public Barn SelectedBarn
         {
             get { return selectedBarn; }
-            set { selectedBarn = value; OnPropertyChanged(nameof(SelectedBarn)); }
+            set { selectedBarn = value;
+                OnPropertyChanged(nameof(SelectedBarn)); Bh.GetspecificBarn();  }
         }
 
         //Handler

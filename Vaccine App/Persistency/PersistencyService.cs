@@ -111,6 +111,7 @@ namespace Vaccine_App.Persistency
 
                     var vaccinePlanViewList = response.Content.ReadAsAsync<ObservableCollection<VaccinePlanView>>().Result;
                     return vaccinePlanViewList;
+                   
                 }
                 return null;
             }
