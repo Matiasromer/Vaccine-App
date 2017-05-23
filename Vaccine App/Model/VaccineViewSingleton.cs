@@ -9,15 +9,23 @@ using Vaccine_App.ViewModel;
 
 namespace Vaccine_App.Model
 {
+    // VaccineViewPlan ligger også her inde 
     public class VaccineViewSingleton
     {
-
+        public Barn barn { get; set; }
         //observableCollections - Lister
         private ObservableCollection<VaccineView> _vaccineView;
         public ObservableCollection<VaccineView> VaccineViewCollection
         {
             get { return _vaccineView; }
             set { _vaccineView = value; }
+        }
+
+        private ObservableCollection<VaccinePlanView> _vaccinePlanView;
+        public ObservableCollection<VaccinePlanView> VaccinePlanViewCollection
+        {
+            get { return _vaccinePlanView; }
+            set { _vaccinePlanView = value; }
         }
 
         //Singleton Instances
@@ -38,6 +46,8 @@ namespace Vaccine_App.Model
         public VaccineViewSingleton()
         {
             VaccineViewCollection = new ObservableCollection<VaccineView>();
+            VaccinePlanViewCollection = new ObservableCollection<VaccinePlanView>();
+            //GetVaccinePlanViewAsync();
             GetVaccineViewASync();
         }
 
@@ -56,6 +66,29 @@ namespace Vaccine_App.Model
             foreach (var item in await PersistencyService.GetVaccineViewAsync())
             {
                 this.VaccineViewCollection.Add(item);
+            }
+        }
+
+        // problem med vaccplan atm
+        public async Task GetVaccinePlanViewAsync(int selectedBarnId)
+        {
+            ObservableCollection<VaccinePlanView> listen = await PersistencyService.GetVaccinePlanViewAsync(selectedBarnId);
+            this.VaccinePlanViewCollection.Clear();
+            foreach (var item in listen)
+            {
+                this.VaccinePlanViewCollection.Add(item);
+            }
+        }
+        public void OpretKalender(Barn kopret)
+        {
+
+            List<VaccineView> vacViewList = Instance.VaccineViewCollection.ToList();
+
+            foreach (VaccineView v in vacViewList)
+            {
+                DateTime injDate = kopret.Barn_Foedsel.AddMonths(v.TidMdr);
+                Kalender k = new Kalender(injDate, kopret.Barn_Id, v.Vac_Id);
+                PersistencyService.PostKalenderAsync(k);
             }
         }
     }

@@ -11,24 +11,43 @@ using Vaccine_App.Handler;
 using Vaccine_App.Model;
 
 namespace Vaccine_App.ViewModel
-{ 
+{
 
-   public class VaccineViewmodel : INotifyPropertyChanged
+    public class VaccineViewmodel : INotifyPropertyChanged
     {
-       // Singletons
-        public VaccineSingleton VaccineSingleton { get; set; }
-
+        // Singletons
+        //  public VaccineSingleton VaccineSingleton { get; set; }
+        public VaccineViewSingleton VaccineViewSingleton { get; set; }
         //ObservableColletions
-        private ObservableCollection<Vaccine> vaccineCollection;
-        public ObservableCollection<Vaccine> VaccineCollection
+        //private ObservableCollection<Vaccine> vaccineCollection;
+        //public ObservableCollection<Vaccine> VaccineCollection
+        //{
+        //    get { return vaccineCollection; }
+        //    set { vaccineCollection = value; }
+        //}
+
+        private ObservableCollection<VaccineView> vaccineViewCollection;
+
+        public ObservableCollection<VaccineView> VaccineViewCollection
         {
-            get { return vaccineCollection; }
-            set { vaccineCollection = value; }
+            get { return vaccineViewCollection; }
+            set { vaccineViewCollection = value; }
         }
+
+        private ObservableCollection<VaccinePlanView> vaccinePlanViewCollection;
+        public ObservableCollection<VaccinePlanView>  VaccinePlanViewCollection
+        {
+            get { return vaccinePlanViewCollection; }
+            set { vaccinePlanViewCollection = value; }
+        }
+
+
 
         //Commands
         public ICommand CreateVaccineCommand { get; set; }
         public ICommand GetVaccineCommand { get; set; }
+        public ICommand OpretKalenderCommand { get; set; }
+
 
         //props
         private int vac_Id;
@@ -48,36 +67,52 @@ namespace Vaccine_App.ViewModel
         }
 
         private string vac_Info;
+
         public string Vac_Info
         {
             get { return vac_Info; }
             set { vac_Info = value; }
         }
 
-        private Vaccine selectedVaccine;
+        // ændrede vaccine til vaccineview her
+        private VaccineView selectedVaccine;
 
-        public Vaccine SelectedVaccine
+        public VaccineView SelectedVaccine
         {
             get { return selectedVaccine; }
             set { selectedVaccine = value; }
         }
+        // Ændret VaccineView til VaccinePlanView - test fordi vacplan ikke viser en plan for hvert enkelt barn
+        private VaccinePlanView selectedBarn;
+        public VaccinePlanView SelectedBarn
+        {
+            get { return selectedBarn; }
+            set { selectedBarn = value; }
+        }
 
+        
+    
         //Handler
         public Handler.VaccineHandler VH;
+        public Handler.BarnHandler BH;
 
         //ViewModel
         public VaccineViewmodel()
         {
-            VaccineCollection = VaccineSingleton.Instance.VaccinesCollection;
+            VaccineViewCollection = VaccineViewSingleton.Instance.VaccineViewCollection;
+            VaccinePlanViewCollection = VaccineViewSingleton.Instance.VaccinePlanViewCollection;
+            //  VaccineCollection = VaccineSingleton.Instance.VaccinesCollection;
             VH = new VaccineHandler(this);
-            VaccineSingleton = VaccineSingleton.Instance;
+            // VaccineSingleton = VaccineSingleton.Instance;
+            VaccineViewSingleton = VaccineViewSingleton.Instance;
 
             GetVaccineCommand = new RelayCommand(VH.VaccineGet, null);
+            OpretKalenderCommand = new RelayCommand(VH.KalenderOpret, null);
         }
 
         //INotifyPropChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
-
+        
         protected virtual void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
@@ -86,5 +121,4 @@ namespace Vaccine_App.ViewModel
             }
         }
     }
-
 }

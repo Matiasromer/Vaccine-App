@@ -19,17 +19,10 @@ namespace Vaccine_App.Persistency
         const string serverURL = "http://vaccineapi.azurewebsites.net/";
 
         // Post, laver et barn og sender til db - 
+        // date er det der viser hvilket barn har hvilken liste - det er det der skal kigges på i post
         public static void PostBarnAsync(Barn PostBarn)
         {
 
-            List<VaccineView> vacViewList = VaccineViewSingleton.Instance.VaccineViewCollection.ToList();
-
-            foreach (VaccineView v in vacViewList)
-            {
-                DateTime injDate = PostBarn.Barn_Foedsel.AddMonths(v.TidMdr);
-                Kalender k = new Kalender(PostBarn.Barn_Id,v.Vac_Id,injDate);  
-                PostKalenderAsync(k);   
-            }
 
             using (var client = new HttpClient())
             {
@@ -42,28 +35,46 @@ namespace Vaccine_App.Persistency
                 try
                 {
                     var response = client.PostAsJsonAsync<Barn>(urlStringCreate, PostBarn).Result;
-                    if (response.IsSuccessStatusCode)
-                    {
-                        MessageDialog BarnAdded = new MessageDialog("Dit barn blev tilføjet");
-                        BarnAdded.Commands.Add(new UICommand {Label = "Ok"});
-                        BarnAdded.ShowAsync().AsTask();
-                    }
-
-                }   
-                catch (Exception e)
+                if (response.IsSuccessStatusCode)
                 {
-                    MessageDialog BarnAdded = new MessageDialog("Fejl, barn blev ikke tilføjet" + e);
-                    BarnAdded.Commands.Add(new UICommand {Label = "Ok"});
+                    MessageDialog BarnAdded = new MessageDialog("Dit barn blev tilføjet");
+                    BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
                     BarnAdded.ShowAsync().AsTask();
-                    throw;
                 }
+
+            }
+                catch (Exception e)
+            {
+                MessageDialog BarnAdded = new MessageDialog("Fejl, barn blev ikke tilføjet" + e);
+                BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
+                BarnAdded.ShowAsync().AsTask();
+                throw;
             }
         }
+        }
 
-        private static void PostKalenderAsync(Kalender k)
+        public static void PostKalenderAsync(Kalender k)
         {
             //TODO implement
-            throw new NotImplementedException();
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+
+                string urlStringCreate = "api/kalender/";
+
+                var response = client.PostAsJsonAsync<Kalender>(urlStringCreate, k).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    
+                }
+
+            }
+
+
+
         }
 
         public static async Task<ObservableCollection<VaccineView>> GetVaccineViewAsync()
@@ -73,13 +84,33 @@ namespace Vaccine_App.Persistency
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlstring = "api/vaccineViews/";
+                string urlstring = "api/vaccineViews/" ;
                 HttpResponseMessage response = await client.GetAsync(urlstring);
                 if (response.IsSuccessStatusCode)
                 {
 
                     var vaccineViewList = response.Content.ReadAsAsync<ObservableCollection<VaccineView>>().Result;
                     return vaccineViewList;
+                }
+                return null;
+            }
+        }
+        // sat barn HentVaccBarn i titel og i urlstring (obs)!!!
+        public static async Task<ObservableCollection<VaccinePlanView>> GetVaccinePlanViewAsync(int id)
+        {
+            using (var client = new HttpClient())
+            {
+                //http://vaccineapi.azurewebsites.net/api/vaccineplanview2/120
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+                string urlstring = $"api/vaccineplanview2/{id.ToString()}";
+                HttpResponseMessage response = await client.GetAsync(urlstring);
+                if (response.IsSuccessStatusCode)
+                {
+
+                    var vaccinePlanViewList = response.Content.ReadAsAsync<ObservableCollection<VaccinePlanView>>().Result;
+                    return vaccinePlanViewList;
                 }
                 return null;
             }
@@ -134,25 +165,60 @@ namespace Vaccine_App.Persistency
                     return TempBarnCollection;               
             }                     
         }
-
-        public static async Task<ObservableCollection<Vaccine>> GetVaccineAsync()
+        public static async Task<ObservableCollection<Kalender>> GetKalenderAsync(int id)
         {
+            ObservableCollection<Kalender> TempKalenderCollection = new ObservableCollection<Kalender>();
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
-                string urlstring = "api/vaccine/";
+                string urlstring = "api/kalender/" + id;
                 HttpResponseMessage response = await client.GetAsync(urlstring);
                 if (response.IsSuccessStatusCode)
                 {
-                   
-                    var VaccineListe = response.Content.ReadAsAsync<ObservableCollection<Vaccine>>().Result;
-                    return VaccineListe;
+                    TempKalenderCollection = response.Content.ReadAsAsync<ObservableCollection<Kalender>>().Result;
                 }
-                return null;
+                return TempKalenderCollection;
             }
         }
+
+        public static async Task<int> GetKalenderSum(int barn)
+        {
+            int TempKalenderCollection = new int();
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+                string urlstring = "api/GetKalenderBarn/" + barn;
+                HttpResponseMessage response = await client.GetAsync(urlstring);
+                if (response.IsSuccessStatusCode)
+                {
+                    TempKalenderCollection = response.Content.ReadAsAsync<int>().Result;
+                }
+                return TempKalenderCollection;
+            }
+        }
+
+        //public static async Task<ObservableCollection<Vaccine>> GetVaccineAsync()
+        //{
+        //    using (var client = new HttpClient())
+        //    {
+        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //        client.BaseAddress = new Uri(serverURL);
+        //        client.DefaultRequestHeaders.Clear();
+        //        string urlstring = "api/vaccine/";
+        //        HttpResponseMessage response = await client.GetAsync(urlstring);
+        //        if (response.IsSuccessStatusCode)
+        //        {
+
+        //            var VaccineListe = response.Content.ReadAsAsync<ObservableCollection<Vaccine>>().Result;
+        //            return VaccineListe;
+        //        }
+        //        return null;
+        //    }
+        //}
         //Post-Vaccine metode, til eventuelle extra vacciner - Bruges dog ikke, da den ikke er nødvendig lige nu.
         //public static void PostVaccineAsync(Vaccine PostVac)
         //{

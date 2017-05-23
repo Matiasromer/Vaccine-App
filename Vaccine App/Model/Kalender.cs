@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Vaccine_App.Model
 {
-    class Kalender
+    public class Kalender
     {
         //Props
-        public int BarnId { get; set; }
-        public int VaccineId { get; set; }
-        public DateTime InjectionDate { get; set; }
+        public int Barn_id { get; set; }
+        public DateTime Dato { get; set; }
+        public int Vac_id { get; set; }
 
         //Constructor
         public Kalender()
@@ -19,11 +19,13 @@ namespace Vaccine_App.Model
                
         }
 
-        public Kalender(int barnId, int vaccineId, DateTime injectionDate)
+        public Kalender(DateTime injectionDate, int barnId, int vaccineid)
         {
-            BarnId = barnId;
-            VaccineId = vaccineId;
-            InjectionDate = injectionDate;
+            Dato = injectionDate;
+            Barn_id = barnId;
+            Vac_id = vaccineid;
+            
+
         }
 
 

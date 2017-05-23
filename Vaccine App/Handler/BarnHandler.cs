@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vaccine_App.Model;
-using Vaccine_App.View;
 using Vaccine_App.ViewModel;
 using Vaccine_App.Persistency;
+using System.Collections.ObjectModel;
 
 namespace Vaccine_App.Handler
 {
    public class BarnHandler
     {
         // denne klasse hed engang BrugerHandler.
+
         public BrugerViewmodel BrugerViewmodel { get; set; }
         public BarnHandler(BrugerViewmodel bvm)
         {

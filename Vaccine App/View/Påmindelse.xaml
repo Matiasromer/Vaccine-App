@@ -102,7 +102,11 @@
                 <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="8,150,0,0" TextWrapping="Wrap" Text="__________________________________________________________________" VerticalAlignment="Top" Width="337" Height="27" Grid.Row="1"/>
                 <ListView x:Name="listView" HorizontalAlignment="Left" Height="295" Margin="36,200,0,0" VerticalAlignment="Top" Width="288" BorderThickness="2" BorderBrush="Black" Grid.Row="1" ItemsSource="{Binding BarnCollection, Mode=TwoWay}" SelectedItem="{Binding SelectedBarn, Mode=TwoWay}"/>
                 <Button x:Name="button1" Content="Delete" HorizontalAlignment="Left" Padding="0,0,0,1" Margin="195,515,0,0" VerticalAlignment="Top" Height="45" Width="105" FontSize="18" Background="#FF9CC6ED" Grid.Row="1" Command="{Binding DeleteBarnCommand, Mode=TwoWay}"/>
-                <Button x:Name="button2" Content="Vaccineplan" HorizontalAlignment="Left" Padding="0,0,0,1" Margin="63,515,0,0" VerticalAlignment="Top" Height="45" Width="105" FontSize="18" Background="#FF9CC6ED" Grid.Row="1" RenderTransformOrigin="0.489,0.541"/>
+                <Button x:Name="button2" Content="Vaccineplan" HorizontalAlignment="Left" Padding="0,0,0,1" Margin="63,515,0,0" VerticalAlignment="Top" Height="45" Width="105" FontSize="18" Background="#FF9CC6ED" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Click="button2_Click" Command="{Binding OpretKalenderCommand, Mode=TwoWay}">
+                    <Button.DataContext>
+                        <ViewModel:VaccineViewmodel/>
+                    </Button.DataContext>
+                </Button>
             </Grid>
         </SplitView>
     </Grid>
