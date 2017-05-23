@@ -13,7 +13,7 @@ namespace Vaccine_App.ViewModel
    public class VaccineSingleton
     {
 
-        //observableCollections - Lister
+        ////observableCollections - Lister
      //   private ObservableCollection<Model.Vaccine> vaccine;
         //public ObservableCollection<Model.Vaccine> VaccinesCollection
         //{
