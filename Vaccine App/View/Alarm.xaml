@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Vaccine_App.View.Forside"
+    x:Class="Vaccine_App.View.Alarm"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Vaccine_App.View"
@@ -61,19 +61,14 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="#FF6BAFCD">
-                        <!--<TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Påmindelser" VerticalAlignment="Top" Height="30" Width="160" FontSize="25"/>-->
+                        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="Alarm" VerticalAlignment="Top" Height="35" Width="160" FontSize="25"/>
                     </Grid>
-                    <Image x:Name="image" HorizontalAlignment="Left" Height="178" Margin="10,97,0,0" VerticalAlignment="Top" Width="340" Visibility="Visible" Source="ms-appx:///Assets/stort_logo.png" Grid.Row="1">
-                        
-                    </Image>
-                    <Button x:Name="button" 
-                        Content="+ Opret Barn" 
-                        HorizontalAlignment="Left" 
-                        Margin="90,421,0,0" 
-                        VerticalAlignment="Top" Height="61" 
-                        Width="180" Grid.Row="1" FontSize="25"
-                        Click="Buttom_Click_5" Background="#FF9CC6ED"/>
-                    <Button x:Name="button1" Content="Alarm" HorizontalAlignment="Left" Margin="257,35,0,0" Grid.Row="1" VerticalAlignment="Top" Click="button1_Click"/>
+                    <Button x:Name="button" Content="1 Måneds Varsel" HorizontalAlignment="Left" Margin="45,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="270" Height="40" Background="#FF9CC6ED" Click="Buttom_Click_10"/>
+                    <Button x:Name="button1" Content="2 Måneders Varsel" HorizontalAlignment="Left" Margin="45,140,0,0" Grid.Row="1" VerticalAlignment="Top" Width="270" Height="40" Background="#FF9CC6ED" Click="Buttom_Click_11"/>
+                    <Button x:Name="button2" Content="3 Måneders Varsel" HorizontalAlignment="Left" Margin="45,230,0,0" Grid.Row="1" VerticalAlignment="Top" Width="270" Height="40" Background="#FF9CC6ED" Click="Buttom_Click_12"/>
+                    <Button x:Name="button3" Content="4 Måneders Varsel" HorizontalAlignment="Left" Margin="45,320,0,0" Grid.Row="1" VerticalAlignment="Top" Width="270" Height="40" Background="#FF9CC6ED" Click="Buttom_Click_13"/>
+                    <Button x:Name="button4" Content="5 Måneders Varsel" HorizontalAlignment="Left" Margin="45,410,0,0" Grid.Row="1" VerticalAlignment="Top" Width="270" Height="40" Background="#FF9CC6ED" Click="Buttom_Click_14"/>
+                    <Button x:Name="button5" Content="6 Måneders Varsel" HorizontalAlignment="Left" Margin="45,500,0,0" Grid.Row="1" VerticalAlignment="Top" Width="270" Height="40" Background="#FF9CC6ED" Click="Buttom_Click_15"/>
                 </Grid>
             </SplitView.Content>
         </SplitView>

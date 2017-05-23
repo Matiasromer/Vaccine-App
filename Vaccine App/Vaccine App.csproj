@@ -113,6 +113,9 @@
     <Compile Include="Model\VaccineSingleton.cs" />
     <Compile Include="ViewModel\BrugerViewmodel.cs" />
     <Compile Include="ViewModel\VaccineViewmodel.cs" />
+    <Compile Include="View\Alarm.xaml.cs">
+      <DependentUpon>Alarm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Forside.xaml.cs">
       <DependentUpon>Forside.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\Alarm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Forside.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

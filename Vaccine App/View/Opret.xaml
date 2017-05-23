@@ -83,7 +83,11 @@
                         <Run/>
                 </TextBlock>
                 <TextBox x:Name="textBox2" HorizontalAlignment="Left" TextAlignment="Center" Margin="37,290,0,0" TextWrapping="Wrap" Text="{Binding BarnNavn, Mode=TwoWay}" VerticalAlignment="Top" Width="287" Height="59" Grid.Row="1" PlaceholderText="Navn" FontSize="25"/>
-                <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="115,436,0,0" VerticalAlignment="Top" Height="67" Width="133" FontSize="40" Click="Buttom_Click_5" Background="#FF9CC6ED" Grid.Row="1" Command="{Binding CreateBarnCommand}"/>
+                
+                <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="115,436,0,0" 
+                        VerticalAlignment="Top" Height="67" Width="133" FontSize="40" Click="Buttom_Click_5" 
+                        Background="#FF9CC6ED" Grid.Row="1" Command="{Binding CreateBarnCommand}"/>
+                
                 <DatePicker HorizontalAlignment="Left" Margin="32,112,0,0" VerticalAlignment="Top" Date="{Binding Fødselsdato, Mode=TwoWay, Converter={StaticResource DtToDtOffset}}" Grid.Row="1" Width="261"/>
 
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="135,173,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1">
