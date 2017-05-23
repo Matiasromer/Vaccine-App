@@ -43,6 +43,7 @@ namespace Vaccine_App.Handler
             {
                 VaccineViewSingleton.Instance.OpretKalender(BrugerViewmodel.selectedBarn);
             }
+            await VaccineViewmodel.VaccineViewSingleton.GetVaccinePlanViewAsync(BrugerViewmodel.selectedBarn.Barn_Id);
         }
     }
     

@@ -47,7 +47,7 @@ namespace Vaccine_App.Model
         {
             VaccineViewCollection = new ObservableCollection<VaccineView>();
             VaccinePlanViewCollection = new ObservableCollection<VaccinePlanView>();
-            GetVaccinePlanViewAsync();
+            //GetVaccinePlanViewAsync();
             GetVaccineViewASync();
         }
 
@@ -70,9 +70,10 @@ namespace Vaccine_App.Model
         }
 
         // problem med vaccplan atm
-        public async Task GetVaccinePlanViewAsync()
+        public async Task GetVaccinePlanViewAsync(int selectedBarnId)
         {
-            ObservableCollection<VaccinePlanView> listen = await PersistencyService.GetVaccinePlanViewAsync(90);
+            ObservableCollection<VaccinePlanView> listen = await PersistencyService.GetVaccinePlanViewAsync(selectedBarnId);
+            this.VaccinePlanViewCollection.Clear();
             foreach (var item in listen)
             {
                 this.VaccinePlanViewCollection.Add(item);
