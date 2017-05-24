@@ -203,6 +203,24 @@ namespace Vaccine_App.Persistency
             }
         }
 
+        //public static async Task<ObservableCollection<Kalender>> GetKalenderDato()
+        //{
+        //    ObservableCollection<Kalender> TempKalenderCollection = new ObservableCollection<Kalender>();
+        //    using (var client = new HttpClient())
+        //    {
+        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //        client.BaseAddress = new Uri(serverURL);
+        //        client.DefaultRequestHeaders.Clear();
+        //        string urlstring = "api/kalender/";
+        //        HttpResponseMessage response = await client.GetAsync(urlstring);
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            TempKalenderCollection = response.Content.ReadAsAsync<ObservableCollection<Kalender>>().Result;
+        //        }
+        //        return TempKalenderCollection;
+        //    }
+        //}
+
         public static async Task<int> GetKalenderSum(int barn)
         {
             int TempKalenderCollection = new int();

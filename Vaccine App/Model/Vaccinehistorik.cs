@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vaccine_App.Model
 {
-    class Vaccinehistorik
+    public class Vaccinehistorik
     {
         //Props
         public string VaccineNavn { get; set; }

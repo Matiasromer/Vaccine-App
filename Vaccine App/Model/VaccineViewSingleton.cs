@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Data.Xml.Dom;
+using Windows.UI.Notifications;
 using Vaccine_App.Persistency;
 using Vaccine_App.ViewModel;
 using Windows.UI.Popups;
@@ -96,6 +98,19 @@ namespace Vaccine_App.Model
                 DateTime injDate = kopret.Barn_Foedsel.AddMonths(v.TidMdr);
                 Kalender k = new Kalender(injDate, kopret.Barn_Id, v.Vac_Id);
                 PersistencyService.PostKalenderAsync(k);
+
+                ToastTemplateType toastTemplate = ToastTemplateType.ToastText02;
+                XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
+
+                IXmlNode toasttextelements = toastXml.GetElementsByTagName("text").FirstOrDefault();
+                toasttextelements.AppendChild(toastXml.CreateTextNode($"{k.Barn_id} skal have vaccine {k.Vac_id} den {k.Dato:dd-MM-yyyy} "));
+
+                //DateTime dueTime = k.Dato.AddMonths(-1);
+                DateTime dueTime = DateTime.Now.AddSeconds(10);
+
+                ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml, dueTime);
+
+                ToastNotificationManager.CreateToastNotifier().AddToSchedule(scheduledToast);
             }
         }
 
