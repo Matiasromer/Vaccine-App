@@ -69,9 +69,8 @@
                         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="Kalender" VerticalAlignment="Top" Height="35" Width="160" FontSize="25"/>
                     </Grid>
                     <ListView x:Name="listView" HorizontalAlignment="Left" Height="428" Margin="30,31,0,0" VerticalAlignment="Top" Width="299" BorderBrush="#7F256FB4" Background="#FF9CC6ED" BorderThickness="2" Grid.Row="1" ItemsSource="{Binding VaccinePlanViewCollection, Mode=TwoWay}" SelectedItem="{Binding SelectedVaccine, Mode=TwoWay}"/>
-                    <Button x:Name="button1" Content="Taget" HorizontalAlignment="Left" Margin="30,470,0,0" VerticalAlignment="Top" Height="66" Width="133" Background="#FF9CC6ED" FontSize="40" Grid.Row="1"/>
-                    <Button x:Name="button2" Content="Afvis" HorizontalAlignment="Left" Margin="196,470,0,0" VerticalAlignment="Top" Height="66" Width="133" Background="#FF9CC6ED" FontSize="40" Grid.Row="1" Command="{Binding DeleteVaccineCommand, Mode=TwoWay}"/>
-                    <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="107,548,0,0" Grid.Row="1" VerticalAlignment="Top" Width="144"/>
+                    <Button x:Name="button1" Padding="0,0,0,0" Content="Taget" HorizontalAlignment="Left" Margin="30,478,0,0" VerticalAlignment="Top" Height="58" Width="116" Background="#FF9CC6ED" FontSize="36" Grid.Row="1"/>
+                    <Button x:Name="button2" Padding="0,0,0,0" Content="Afvis" HorizontalAlignment="Left" Margin="213,478,0,0" VerticalAlignment="Top" Height="58" Width="116" Background="#FF9CC6ED" FontSize="36" Grid.Row="1" Command="{Binding DeleteVaccineCommand, Mode=TwoWay}"/>
                 </Grid>
             </SplitView.Content>
         </SplitView>

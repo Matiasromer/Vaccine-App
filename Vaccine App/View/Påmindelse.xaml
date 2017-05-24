@@ -67,41 +67,41 @@
                 <Grid HorizontalAlignment="Left" Height="50" Margin="50,0,0,0" VerticalAlignment="Top" Width="974" Background="#FF6BAFCD">
                     <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="Påmindelser" VerticalAlignment="Top" Height="35" Width="160" FontSize="25"/>
                 </Grid>
-                <CheckBox x:Name="checkBox" Content="6 Måneder" HorizontalAlignment="Left" Margin="39,27,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="33" Width="122" Grid.Row="1">
+                <CheckBox x:Name="checkBox" Content="6 Måneder" HorizontalAlignment="Left" Margin="39,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="33" Width="122" Grid.Row="1">
                     <CheckBox.RenderTransform>
                         <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
                     </CheckBox.RenderTransform>
                 </CheckBox>
-                <CheckBox x:Name="checkBox_Copy" Content="5 Måneder" HorizontalAlignment="Left" Margin="39,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="32" Width="122" Grid.Row="1">
+                <CheckBox x:Name="checkBox_Copy" Content="5 Måneder" HorizontalAlignment="Left" Margin="39,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="32" Width="122" Grid.Row="1">
                     <CheckBox.RenderTransform>
                         <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
                     </CheckBox.RenderTransform>
                 </CheckBox>
-                <CheckBox x:Name="checkBox_Copy1" Content="4 Måneder" HorizontalAlignment="Left" Margin="39,105,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" IsChecked="False" Height="32" Width="122" Grid.Row="1">
+                <CheckBox x:Name="checkBox_Copy1" Content="4 Måneder" HorizontalAlignment="Left" Margin="39,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" IsChecked="False" Height="32" Width="122" Grid.Row="1">
                     <CheckBox.RenderTransform>
                         <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
                     </CheckBox.RenderTransform>
                 </CheckBox>
-                <CheckBox x:Name="checkBox_Copy2" Content="3 Måneder" HorizontalAlignment="Left" Margin="231,27,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="33" Width="122" Grid.Row="1">
+                <CheckBox x:Name="checkBox_Copy2" Content="3 Måneder" HorizontalAlignment="Left" Margin="231,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="33" Width="122" Grid.Row="1">
                     <CheckBox.RenderTransform>
                         <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
                     </CheckBox.RenderTransform>
                 </CheckBox>
-                <CheckBox x:Name="checkBox_Copy3" Content="2 Måneder" HorizontalAlignment="Left" Margin="231,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="32" Width="122" Grid.Row="1">
+                <CheckBox x:Name="checkBox_Copy3" Content="2 Måneder" HorizontalAlignment="Left" Margin="231,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="32" Width="122" Grid.Row="1">
                     <CheckBox.RenderTransform>
                         <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
                     </CheckBox.RenderTransform>
                 </CheckBox>
-                <CheckBox x:Name="checkBox_Copy4" Content="1 Måned" HorizontalAlignment="Left" IsChecked="True" Margin="231,105,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="33" Width="122" Grid.Row="1">
+                <CheckBox x:Name="checkBox_Copy4" Content="1 Måned" HorizontalAlignment="Left" IsChecked="True" Margin="231,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="33" Width="122" Grid.Row="1">
                     <CheckBox.RenderTransform>
                         <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
                     </CheckBox.RenderTransform>
                 </CheckBox>
 
-                <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="8,150,0,0" TextWrapping="Wrap" Text="__________________________________________________________________" VerticalAlignment="Top" Width="337" Height="27" Grid.Row="1"/>
-                <ListView x:Name="listView" HorizontalAlignment="Left" Height="295" Margin="36,200,0,0" VerticalAlignment="Top" Width="288" BorderThickness="2" BorderBrush="Black" Grid.Row="1" ItemsSource="{Binding BarnCollection, Mode=TwoWay}" SelectedItem="{Binding SelectedBarn, Mode=TwoWay}"/>
-                <Button x:Name="button1" Content="Delete" HorizontalAlignment="Left" Padding="0,0,0,1" Margin="195,515,0,0" VerticalAlignment="Top" Height="45" Width="105" FontSize="18" Background="#FF9CC6ED" Grid.Row="1" Command="{Binding DeleteBarnCommand, Mode=TwoWay}"/>
-                <Button x:Name="button2" Content="Vaccineplan" HorizontalAlignment="Left" Padding="0,0,0,1" Margin="63,515,0,0" VerticalAlignment="Top" Height="45" Width="105" FontSize="18" Background="#FF9CC6ED" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Click="button2_Click" Command="{Binding OpretKalenderCommand, Mode=TwoWay}">
+                <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="8,136,0,0" TextWrapping="Wrap" Text="__________________________________________________________________" VerticalAlignment="Top" Width="337" Height="27" Grid.Row="1"/>
+                <ListView x:Name="listView" HorizontalAlignment="Left" Height="295" Margin="36,186,0,0" VerticalAlignment="Top" Width="288" BorderThickness="2" BorderBrush="Black" Grid.Row="1" ItemsSource="{Binding BarnCollection, Mode=TwoWay}" SelectedItem="{Binding SelectedBarn, Mode=TwoWay}"/>
+                <Button x:Name="button1" Content="Delete" HorizontalAlignment="Left" Padding="0,0,0,1" Margin="195,501,0,0" VerticalAlignment="Top" Height="45" Width="105" FontSize="18" Background="#FF9CC6ED" Grid.Row="1" Command="{Binding DeleteBarnCommand, Mode=TwoWay}"/>
+                <Button x:Name="button2" Content="Vaccineplan" HorizontalAlignment="Left" Padding="0,0,0,1" Margin="63,501,0,0" VerticalAlignment="Top" Height="45" Width="105" FontSize="18" Background="#FF9CC6ED" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Click="button2_Click" Command="{Binding OpretKalenderCommand, Mode=TwoWay}">
                     <Button.DataContext>
                         <ViewModel:VaccineViewmodel/>
                     </Button.DataContext>
