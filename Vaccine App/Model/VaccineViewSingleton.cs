@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Vaccine_App.Persistency;
 using Vaccine_App.ViewModel;
+using Windows.UI.Popups;
 
 namespace Vaccine_App.Model
 {
@@ -69,6 +70,12 @@ namespace Vaccine_App.Model
             }
         }
 
+        //public async Task GetVaccineInfo(int id)
+        //{
+        //    MessageDialog BarnAdded = new MessageDialog();
+        //    BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
+        //    BarnAdded.ShowAsync().AsTask();
+        //}
         // problem med vaccplan atm
         public async Task GetVaccinePlanViewAsync(int selectedBarnId)
         {
@@ -90,6 +97,12 @@ namespace Vaccine_App.Model
                 Kalender k = new Kalender(injDate, kopret.Barn_Id, v.Vac_Id);
                 PersistencyService.PostKalenderAsync(k);
             }
+        }
+
+        public void RemoveVaccine(VaccinePlanView VaccRemove)
+        {
+            VaccinePlanViewCollection.Remove(VaccRemove);
+            PersistencyService.DeleteVaccineAsync(VaccRemove);
         }
     }
 }

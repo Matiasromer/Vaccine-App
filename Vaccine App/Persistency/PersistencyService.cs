@@ -95,6 +95,26 @@ namespace Vaccine_App.Persistency
                 return null;
             }
         }
+        // Vaccine info - så man kan se info når man klikker på en vaccine i vaccine viewet
+        public static async Task<ObservableCollection<Vaccine>> GetVaccineAsync(int id)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+                string urlstring = "api/vaccine/" + id;
+                HttpResponseMessage response = await client.GetAsync(urlstring);
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageDialog BarnAdded = new MessageDialog("lul");
+                    BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
+                    BarnAdded.ShowAsync().AsTask();
+
+                }
+                return null;
+            }
+        }
         // sat barn HentVaccBarn i titel og i urlstring (obs)!!!
         public static async Task<ObservableCollection<VaccinePlanView>> GetVaccinePlanViewAsync(int id)
         {
@@ -200,6 +220,38 @@ namespace Vaccine_App.Persistency
                 return TempKalenderCollection;
             }
         }
+        // slet en vaccine i barn
+        public static void DeleteVaccineAsync(VaccinePlanView DeleteVaccine)
+        {
+            using (var client = new HttpClient())
+
+            {
+
+                client.BaseAddress = new Uri(serverURL);
+                client.DefaultRequestHeaders.Clear();
+                string urlString = "api/Kalender/" + DeleteVaccine.Kalender_id.ToString();
+
+                try
+                {
+                    var response = client.DeleteAsync(urlString).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageDialog vaccineDeleted = new MessageDialog("Vaccine er Slettet");
+                        vaccineDeleted.Commands.Add(new UICommand { Label = "Ok" });
+                        vaccineDeleted.ShowAsync().AsTask();
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageDialog vaccineDeleted = new MessageDialog("Vaccine blev ikke Slettet" + e);
+                    vaccineDeleted.Commands.Add(new UICommand { Label = "Ok" });
+                    vaccineDeleted.ShowAsync().AsTask();
+                }
+            }
+        }
+
+
 
         //public static async Task<ObservableCollection<Vaccine>> GetVaccineAsync()
         //{

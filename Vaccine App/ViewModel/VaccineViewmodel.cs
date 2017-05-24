@@ -47,7 +47,8 @@ namespace Vaccine_App.ViewModel
         public ICommand CreateVaccineCommand { get; set; }
         public ICommand GetVaccineCommand { get; set; }
         public ICommand OpretKalenderCommand { get; set; }
-
+        public ICommand SeInfoCommand { get; set; }
+        public ICommand DeleteVaccineCommand { get; set; }
 
         //props
         private int vac_Id;
@@ -74,20 +75,20 @@ namespace Vaccine_App.ViewModel
             set { vac_Info = value; }
         }
 
-        // ændrede vaccine til vaccineview her
-        private VaccineView selectedVaccine;
+        // ændrede vaccine til vaccineview her - v er lille (før stort)
+        private VaccineView selectedvaccine;
 
-        public VaccineView SelectedVaccine
+        public VaccineView Selectedvaccine
+        {
+            get { return selectedvaccine; }
+            set { selectedvaccine = value; }
+        }
+        // Ændret VaccineView til VaccinePlanView - test fordi vacplan ikke viser en plan for hvert enkelt barn (var selectedBarn før)
+        private VaccinePlanView selectedVaccine;
+        public VaccinePlanView SelectedVaccine
         {
             get { return selectedVaccine; }
             set { selectedVaccine = value; }
-        }
-        // Ændret VaccineView til VaccinePlanView - test fordi vacplan ikke viser en plan for hvert enkelt barn
-        private VaccinePlanView selectedBarn;
-        public VaccinePlanView SelectedBarn
-        {
-            get { return selectedBarn; }
-            set { selectedBarn = value; }
         }
 
         
@@ -108,7 +109,9 @@ namespace Vaccine_App.ViewModel
 
             GetVaccineCommand = new RelayCommand(VH.VaccineGet, null);
             OpretKalenderCommand = new RelayCommand(VH.KalenderOpret, null);
+            DeleteVaccineCommand = new RelayCommand(VH.DeleteVaccine, null);
         }
+
 
         //INotifyPropChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
