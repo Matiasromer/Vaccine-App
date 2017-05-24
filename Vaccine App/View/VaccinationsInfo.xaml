@@ -75,7 +75,7 @@
         </SplitView>
 
         <SplitView x:Name="Info1" DisplayMode="CompactOverlay"  IsPaneOpen="False"
-               CompactPaneLength="0" OpenPaneLength="250" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="60,60,50,80">
+               CompactPaneLength="0" OpenPaneLength="250" Margin="10,10,50,0" Grid.Column="1" Height="500" Grid.Row="1" VerticalAlignment="Top">
             <SplitView.Pane>
                 <StackPanel Background="#FF6BAFCD" RenderTransformOrigin="0,0">
                     <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp1" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
@@ -101,7 +101,7 @@
         </SplitView>
 
         <SplitView x:Name="Info2" DisplayMode="CompactOverlay"  IsPaneOpen="False"
-               CompactPaneLength="0" OpenPaneLength="250" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="60,60,50,80">
+               CompactPaneLength="0" OpenPaneLength="250" Margin="10,10,50,0" Grid.Column="1" Height="500" Grid.Row="1" VerticalAlignment="Top">
             <SplitView.Pane>
                 <StackPanel Margin="0,0,0,0" Background="#FF6BAFCD">
                     <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp2" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
@@ -135,7 +135,7 @@
         </SplitView>
 
         <SplitView x:Name="Info3" DisplayMode="CompactOverlay"  IsPaneOpen="False"
-               CompactPaneLength="0" OpenPaneLength="250" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="60,60,50,80">
+               CompactPaneLength="0" OpenPaneLength="250" Margin="10,10,50,0" Grid.Column="1" Height="500" Grid.Row="1" VerticalAlignment="Top">
             <SplitView.Pane>
                 <StackPanel Margin="0,0,0,0" Background="#FF6BAFCD">
                     <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp3" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
@@ -155,7 +155,7 @@
                                VerticalAlignment="Top" Height="20" Width="243" FontSize="12" Text="- Hovedpine."/>
                     <TextBlock x:Name="Pneumokok9" HorizontalAlignment="Left" Margin="2,5,0,0" TextWrapping="Wrap" 
                                VerticalAlignment="Top" Height="23" Width="243" FontSize="12" Text="- Utilpashed og feber."/>
-                    
+
 
 
                 </StackPanel>
@@ -163,7 +163,7 @@
         </SplitView>
 
         <SplitView x:Name="Info4" DisplayMode="CompactOverlay"  IsPaneOpen="False"
-               CompactPaneLength="0" OpenPaneLength="250" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="60,60,50,80">
+               CompactPaneLength="0" OpenPaneLength="250" Margin="10,10,50,0" Grid.Column="1" Height="500" Grid.Row="1" VerticalAlignment="Top">
             <SplitView.Pane>
                 <StackPanel Margin="0,0,0,0" Background="#FF6BAFCD">
                     <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp4" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
@@ -192,7 +192,7 @@
         </SplitView>
 
         <SplitView x:Name="Info5" DisplayMode="CompactOverlay"  IsPaneOpen="False"
-               CompactPaneLength="0" OpenPaneLength="250" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="60,60,50,80">
+               CompactPaneLength="0" OpenPaneLength="250" Margin="10,10,50,0" Grid.Column="1" Height="500" Grid.Row="1" VerticalAlignment="Top">
             <SplitView.Pane>
                 <StackPanel Margin="0,0,0,0" Background="#FF6BAFCD">
                     <Button Margin="220,0,0,0" Height="30" Width="30" Click="PopUp5" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Padding="0,0,0,0"></Button>
