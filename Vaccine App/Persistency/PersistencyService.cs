@@ -13,7 +13,7 @@ using Vaccine_App.ViewModel;
 
 namespace Vaccine_App.Persistency
 {
-    class PersistencyService
+    public class PersistencyService
     {
         //server Url
         const string serverURL = "http://vaccineapi.azurewebsites.net/";
