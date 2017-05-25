@@ -71,7 +71,7 @@
                         VerticalAlignment="Top" Height="61" 
                         Width="180" Grid.Row="1" FontSize="25"
                         Click="Buttom_Click_5" Background="#FF9CC6ED"/>
-                <ListView x:Name="listView" HorizontalAlignment="Left" Height="170" Margin="50,270,0,0" Grid.Row="1" VerticalAlignment="Top" Width="250" ItemsSource="{Binding BarnCollection, Mode=TwoWay}" IsEnabled="False">
+                <ListView x:Name="listView" HorizontalAlignment="Left" Height="170" Margin="70,270,0,0" Grid.Row="1" VerticalAlignment="Top" Width="250" ItemsSource="{Binding BarnCollection, Mode=TwoWay}" IsEnabled="False">
                     <ListView.DataContext>
                         <ViewModel:BrugerViewmodel/>
                     </ListView.DataContext>
