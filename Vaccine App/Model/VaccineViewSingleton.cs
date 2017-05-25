@@ -98,12 +98,11 @@ namespace Vaccine_App.Model
                 DateTime injDate = kopret.Barn_Foedsel.AddMonths(v.TidMdr);
                 Kalender k = new Kalender(injDate, kopret.Barn_Id, v.Vac_Id);
                 PersistencyService.PostKalenderAsync(k);
-
                 ToastTemplateType toastTemplate = ToastTemplateType.ToastText02;
                 XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
 
                 IXmlNode toasttextelements = toastXml.GetElementsByTagName("text").FirstOrDefault();
-                toasttextelements.AppendChild(toastXml.CreateTextNode($"{k.Barn_id} skal have vaccine {k.Vac_id} den {k.Dato:dd-MM-yyyy} "));
+                toasttextelements.AppendChild(toastXml.CreateTextNode($"{kopret.Barn_Navn} skal have vaccine {v.Vac_Navn} den {k.Dato:dd-MM-yyyy} "));
                 
                 //Filler så jeg kan commit
                 //DateTime dueTime = k.Dato.AddMonths(-1);
