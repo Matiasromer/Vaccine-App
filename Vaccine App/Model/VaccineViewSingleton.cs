@@ -88,6 +88,7 @@ namespace Vaccine_App.Model
                 this.VaccinePlanViewCollection.Add(item);
             }
         }
+        // Opret kalender skaber alle vacciner og notifikation til barnet.
         public void OpretKalender(Barn kopret)
         {
 
