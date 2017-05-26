@@ -88,6 +88,7 @@ namespace Vaccine_App.Model
                 this.VaccinePlanViewCollection.Add(item);
             }
         }
+        // Opret kalender skaber alle vacciner og notifikation til barnet.
         public void OpretKalender(Barn kopret)
         {
 
@@ -98,20 +99,34 @@ namespace Vaccine_App.Model
                 DateTime injDate = kopret.Barn_Foedsel.AddMonths(v.TidMdr);
                 Kalender k = new Kalender(injDate, kopret.Barn_Id, v.Vac_Id);
                 PersistencyService.PostKalenderAsync(k);
-
                 ToastTemplateType toastTemplate = ToastTemplateType.ToastText02;
                 XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
 
                 IXmlNode toasttextelements = toastXml.GetElementsByTagName("text").FirstOrDefault();
-                toasttextelements.AppendChild(toastXml.CreateTextNode($"{kopret.Barn_Navn} skal have vaccine {v.Vac_Navn} den {k.Dato:dd-MM-yyyy} "));
-                
+                if (k.Dato > DateTime.Now)
+                {
+                    toasttextelements.AppendChild(toastXml.CreateTextNode($"{kopret.Barn_Navn} skal have vaccine {v.Vac_Navn} den {k.Dato:dd-MM-yyyy} "));
+
                 //Filler så jeg kan commit
                 DateTime dueTime = k.Dato.AddMonths(-1);
                 //DateTime dueTime = DateTime.Now.AddSeconds(10);
+                    if (dueTime < DateTime.Now)
+                    {
+                        double plusdate = (DateTime.Now - dueTime).TotalDays;
+                        ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml,
+                            dueTime.Date.AddDays(plusdate));
 
-                ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml, dueTime);
+                        ToastNotificationManager.CreateToastNotifier().AddToSchedule(scheduledToast);
+                    }
+                    else
+                    {
+                        ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml,
+                            dueTime.Date);
 
-                ToastNotificationManager.CreateToastNotifier().AddToSchedule(scheduledToast);
+                        ToastNotificationManager.CreateToastNotifier().AddToSchedule(scheduledToast);
+                    }
+                }
+
             }
         }
 
