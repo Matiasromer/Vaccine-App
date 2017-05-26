@@ -103,14 +103,14 @@ namespace Vaccine_App.Model
                 XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
 
                 IXmlNode toasttextelements = toastXml.GetElementsByTagName("text").FirstOrDefault();
-                if (k.Dato > DateTime.Now)
+                if (k.Dato > DateTime.Today)
                 {
                     toasttextelements.AppendChild(toastXml.CreateTextNode($"{kopret.Barn_Navn} skal have vaccine {v.Vac_Navn} den {k.Dato:dd-MM-yyyy} "));
 
                 //Filler så jeg kan commit
                 DateTime dueTime = k.Dato.AddMonths(-1);
                 //DateTime dueTime = DateTime.Now.AddSeconds(10);
-                    if (dueTime < DateTime.Now)
+                    if (dueTime < DateTime.Today)
                     {
                         double plusdate = (DateTime.Now - dueTime).TotalDays;
                         ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml,
@@ -121,7 +121,7 @@ namespace Vaccine_App.Model
                     else
                     {
                         ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml,
-                            dueTime.Date);
+                            dueTime.AddDays(1));
 
                         ToastNotificationManager.CreateToastNotifier().AddToSchedule(scheduledToast);
                     }
