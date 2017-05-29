@@ -22,8 +22,6 @@ namespace Vaccine_App.Persistency
         // date er det der viser hvilket barn har hvilken liste - det er det der skal kigges på i post
         public static void PostBarnAsync(Barn PostBarn)
         {
-
-
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -41,7 +39,6 @@ namespace Vaccine_App.Persistency
                     BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
                     BarnAdded.ShowAsync().AsTask();
                 }
-
             }
                 catch (Exception e)
             {
@@ -70,11 +67,7 @@ namespace Vaccine_App.Persistency
                 {
                     
                 }
-
             }
-
-
-
         }
 
         public static async Task<ObservableCollection<VaccineView>> GetVaccineViewAsync()
@@ -88,13 +81,13 @@ namespace Vaccine_App.Persistency
                 HttpResponseMessage response = await client.GetAsync(urlstring);
                 if (response.IsSuccessStatusCode)
                 {
-
                     var vaccineViewList = response.Content.ReadAsAsync<ObservableCollection<VaccineView>>().Result;
                     return vaccineViewList;
                 }
                 return null;
             }
         }
+
         // Vaccine info - så man kan se info når man klikker på en vaccine i vaccine viewet
         public static async Task<ObservableCollection<Vaccine>> GetVaccineAsync(int id)
         {
@@ -115,6 +108,7 @@ namespace Vaccine_App.Persistency
                 return null;
             }
         }
+
         // sat barn HentVaccBarn i titel og i urlstring (obs)!!!
         public static async Task<ObservableCollection<VaccinePlanView>> GetVaccinePlanViewAsync(int id)
         {
@@ -142,7 +136,6 @@ namespace Vaccine_App.Persistency
             using (var client = new HttpClient())
 
             {
-
                 client.BaseAddress = new Uri(serverURL);
                 client.DefaultRequestHeaders.Clear();
                 string urlString = "api/barn/" + DeleteBarn.Barn_Id.ToString();
@@ -185,6 +178,7 @@ namespace Vaccine_App.Persistency
                     return TempBarnCollection;               
             }                     
         }
+
         public static async Task<ObservableCollection<Kalender>> GetKalenderAsync(int id)
         {
             ObservableCollection<Kalender> TempKalenderCollection = new ObservableCollection<Kalender>();
@@ -238,6 +232,7 @@ namespace Vaccine_App.Persistency
                 return TempKalenderCollection;
             }
         }
+
         // slet en vaccine i barn
         public static void DeleteVaccineAsync(VaccinePlanView DeleteVaccine)
         {
@@ -258,7 +253,6 @@ namespace Vaccine_App.Persistency
                         vaccineDeleted.Commands.Add(new UICommand { Label = "Ok" });
                         vaccineDeleted.ShowAsync().AsTask();
                     }
-
                 }
                 catch (Exception e)
                 {

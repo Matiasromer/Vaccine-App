@@ -46,8 +46,7 @@ namespace Vaccine_App.ViewModel
  
         //Singletons
         public BarnSingleton BarnSingleton { get; set; }
-        public VaccineViewSingleton VaccineViewSingleton { get; set; }
-        // public VaccineSingleton VaccineSingleton { get; set; }
+        public VaccineViewSingleton VaccineViewSingleton { get; set; }        
 
         //ObersvableCollections
         private ObservableCollection<Barn> barnCollection;
@@ -142,6 +141,7 @@ namespace Vaccine_App.ViewModel
             }
         }
 
+        //Fail-Safe; Kan ikke skabe barn.objekt, hvis der ikke er angivet navn og køn.
         public bool CanCreateBarnNavn()
         {
             if (BarnNavn != null && Gender != null)
@@ -152,18 +152,14 @@ namespace Vaccine_App.ViewModel
             }
         }
 
-        // test
         //INotifyPropChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected virtual void OnPropertyChanged(string propertyName)
         {         
             {
                  //PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
                  PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
-        }
-
-        
+        }        
     }
 }

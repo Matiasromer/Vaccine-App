@@ -39,6 +39,18 @@ namespace UnitTest
         }
 
         [TestMethod]
+        public void TestForToString()
+        {
+            //arrange
+            Barn TestBarn = new Barn("Pepe", 0, DateTime.Now, "Dreng");
+            string expected = $"Pepe   -  {TestBarn.Barn_Foedsel:dd/MM/yyyy} -  Dreng  ";
+            string actual = TestBarn.ToString();
+            //act
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         public void TestForBirth()
         {
             //arrange
@@ -51,16 +63,5 @@ namespace UnitTest
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
-        public void TestForToString()
-        {
-            //arrange
-            Barn TestBarn = new Barn("Pepe", 0, DateTime.Now, "Dreng");
-            string expected = $"Pepe   -  {TestBarn.Barn_Foedsel:dd/MM/yyyy} -  Dreng  ";
-            string actual = TestBarn.ToString();
-            //act
-            //assert
-            Assert.AreEqual(expected, actual);
-        }
     }
 }

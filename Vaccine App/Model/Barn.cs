@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace Vaccine_App.Model
 {
    public class Barn
-    {   
-       
+    {          
         // Barn klasse (denne klasse) hed engang Bruger.
         //Properties
         public string Barn_Navn;

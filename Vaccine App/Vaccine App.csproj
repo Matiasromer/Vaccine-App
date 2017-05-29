@@ -111,7 +111,6 @@
     <Compile Include="Model\VaccineView.cs" />
     <Compile Include="Model\VaccineViewSingleton.cs" />
     <Compile Include="Persistency\PersistencyService.cs" />
-    <Compile Include="Model\VaccineSingleton.cs" />
     <Compile Include="ViewModel\BrugerViewmodel.cs" />
     <Compile Include="ViewModel\VaccineViewmodel.cs" />
     <Compile Include="View\Alarm.xaml.cs">

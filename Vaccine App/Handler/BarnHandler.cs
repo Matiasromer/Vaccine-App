@@ -13,7 +13,6 @@ namespace Vaccine_App.Handler
    public class BarnHandler
     {
         // denne klasse hed engang BrugerHandler.
-
         public BrugerViewmodel BrugerViewmodel { get; set; }
         public BarnHandler(BrugerViewmodel bvm)
         {
