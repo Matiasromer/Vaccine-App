@@ -87,28 +87,7 @@ namespace Vaccine_App.Persistency
                 return null;
             }
         }
-
-        // Vaccine info - så man kan se info når man klikker på en vaccine i vaccine viewet
-        public static async Task<ObservableCollection<Vaccine>> GetVaccineAsync(int id)
-        {
-            using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.BaseAddress = new Uri(serverURL);
-                client.DefaultRequestHeaders.Clear();
-                string urlstring = "api/vaccine/" + id;
-                HttpResponseMessage response = await client.GetAsync(urlstring);
-                if (response.IsSuccessStatusCode)
-                {
-                    MessageDialog BarnAdded = new MessageDialog("lul");
-                    BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
-                    BarnAdded.ShowAsync().AsTask();
-
-                }
-                return null;
-            }
-        }
-
+        
         // sat barn HentVaccBarn i titel og i urlstring (obs)!!!
         public static async Task<ObservableCollection<VaccinePlanView>> GetVaccinePlanViewAsync(int id)
         {
