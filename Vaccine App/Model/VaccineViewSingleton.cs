@@ -121,7 +121,7 @@ namespace Vaccine_App.Model
                     else
                     {
                         ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml,
-                            dueTime.AddDays(1));
+                            dueTime.AddDays(+1));
 
                         ToastNotificationManager.CreateToastNotifier().AddToSchedule(scheduledToast);
                     }
