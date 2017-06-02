@@ -45,24 +45,11 @@ namespace Vaccine_App.Handler
             }
             await VaccineViewmodel.VaccineViewSingleton.GetVaccinePlanViewAsync(BrugerViewmodel.selectedBarn.Barn_Id);
         }
-
-        //public async void GetInfo()
-        //{
-        //    if (VaccineViewmodel.SelectedVaccine != null)
-        //    {
-
-        //    await VaccineViewmodel.VaccineViewSingleton.GetVaccinePlanViewAsync(VaccineViewmodel.SelectedVaccine.Vac_Id);
-
-        //    }
-
-
-        //}
         
+        //Sletter Vaccine fra liste
         public void DeleteVaccine()
-        {
-            
-            VaccineViewSingleton.Instance.RemoveVaccine(VaccineViewmodel.SelectedVaccine);
-            
+        {            
+            VaccineViewSingleton.Instance.RemoveVaccine(VaccineViewmodel.SelectedVaccine);            
         }
 
     }

@@ -105,13 +105,11 @@
     <Compile Include="Model\BarnListe.cs" />
     <Compile Include="Model\BarnSingleton.cs" />
     <Compile Include="Model\Kalender.cs" />
-    <Compile Include="Model\Vaccine.cs" />
     <Compile Include="Model\Vaccinehistorik.cs" />
     <Compile Include="Model\VaccinePlanView.cs" />
     <Compile Include="Model\VaccineView.cs" />
     <Compile Include="Model\VaccineViewSingleton.cs" />
     <Compile Include="Persistency\PersistencyService.cs" />
-    <Compile Include="Model\VaccineSingleton.cs" />
     <Compile Include="ViewModel\BrugerViewmodel.cs" />
     <Compile Include="ViewModel\VaccineViewmodel.cs" />
     <Compile Include="View\Alarm.xaml.cs">

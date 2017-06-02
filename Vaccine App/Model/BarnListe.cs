@@ -10,9 +10,7 @@ namespace Vaccine_App.Model
     {
         //Properties
         public string Barn_Navn;
-
         public int Barn_Id { get; set; }
-
         public string Info;
 
         //Constructor

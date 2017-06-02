@@ -107,21 +107,21 @@ namespace Vaccine_App.Model
                 {
                     toasttextelements.AppendChild(toastXml.CreateTextNode($"{kopret.Barn_Navn} skal have vaccine {v.Vac_Navn} den {k.Dato:dd-MM-yyyy} "));
 
-                //Filler så jeg kan commit
+                
                 DateTime dueTime = k.Dato.AddMonths(-1);
                 //DateTime dueTime = DateTime.Now.AddSeconds(10);
                     if (dueTime < DateTime.Today)
                     {
-                        double plusdate = (DateTime.Now - dueTime).TotalDays;
+                         var plusdate = (DateTime.Now - dueTime).TotalDays;
                         ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml,
-                            dueTime.Date.AddDays(plusdate));
+                            dueTime.Date.AddDays(plusdate + 1));
 
                         ToastNotificationManager.CreateToastNotifier().AddToSchedule(scheduledToast);
                     }
                     else
                     {
                         ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml,
-                            dueTime.AddDays(1));
+                            dueTime.AddDays(+1));
 
                         ToastNotificationManager.CreateToastNotifier().AddToSchedule(scheduledToast);
                     }

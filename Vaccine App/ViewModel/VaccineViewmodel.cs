@@ -16,15 +16,7 @@ namespace Vaccine_App.ViewModel
     public class VaccineViewmodel : INotifyPropertyChanged
     {
         // Singletons
-        //  public VaccineSingleton VaccineSingleton { get; set; }
         public VaccineViewSingleton VaccineViewSingleton { get; set; }
-        //ObservableColletions
-        //private ObservableCollection<Vaccine> vaccineCollection;
-        //public ObservableCollection<Vaccine> VaccineCollection
-        //{
-        //    get { return vaccineCollection; }
-        //    set { vaccineCollection = value; }
-        //}
 
         private ObservableCollection<VaccineView> vaccineViewCollection;
 
@@ -102,9 +94,7 @@ namespace Vaccine_App.ViewModel
         {
             VaccineViewCollection = VaccineViewSingleton.Instance.VaccineViewCollection;
             VaccinePlanViewCollection = VaccineViewSingleton.Instance.VaccinePlanViewCollection;
-            //  VaccineCollection = VaccineSingleton.Instance.VaccinesCollection;
             VH = new VaccineHandler(this);
-            // VaccineSingleton = VaccineSingleton.Instance;
             VaccineViewSingleton = VaccineViewSingleton.Instance;
 
             GetVaccineCommand = new RelayCommand(VH.VaccineGet, null);
