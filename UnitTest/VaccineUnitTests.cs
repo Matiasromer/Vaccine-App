@@ -17,7 +17,7 @@ namespace UnitTest
         {
             //Tester Navnet - Vil teste forkert.
             //arrange
-            Vaccine TestVacc = new Vaccine(1, "TestVaccine", "Brugt til Test");
+            VaccineView TestVacc = new VaccineView(1, "TestVaccine", "Brugt til Test", 5, 12);
             string expected = "VaccineTest";
             string actual = TestVacc.Vac_Navn;
             //act
@@ -30,7 +30,7 @@ namespace UnitTest
         {
             //Tester Vaccinenes Information
             //arrange
-            Vaccine TestVacc = new Vaccine(1, "TestVaccine", "Brugt til Test");
+            VaccineView TestVacc = new VaccineView(1, "TestVaccine", "Brugt til Test", 5, 12);
             string expected = "Brugt til Test";
             string actual = TestVacc.Vac_Info;
             //act
@@ -43,8 +43,8 @@ namespace UnitTest
         {
             //Tester ToString Metoden - Hvad der vises i View/liste
             //arrange
-            Vaccine TestVacc = new Vaccine(1, "TestVaccine", "Brugt til Test");
-            string expected = $"1  -  TestVaccine  ";
+            VaccineView TestVacc = new VaccineView(1, "TestVaccine", "Brugt til Test", 5, 12);
+            string expected = $"TestVaccine  -  12";
             string actual = TestVacc.ToString();
             //act
             //assert
