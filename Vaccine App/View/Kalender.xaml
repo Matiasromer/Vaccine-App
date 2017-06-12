@@ -36,26 +36,18 @@
                     <StackPanel Orientation="Horizontal">
                         <Button x:Name="MenuButton1" FontFamily="Arial" Content="Startside"
                     Width="150" Height="50" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Click="Buttom_Click_1"/>
-                        <!--<TextBlock Text="Startside" FontSize="18" VerticalAlignment="Center" />-->
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Button x:Name="MenuButton2" FontFamily="Arial" Content="Påmindelser"
                         Width="150" Height="50" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Click="Buttom_Click_2"/>
-                        <!--<TextBlock Text="Påmindelser" FontSize="18" VerticalAlignment="Center" />-->
                     </StackPanel>
-                    <!--<StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton3" FontFamily="Arial" Content="Kalender"
-                        Width="150" Height="50" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Click="Buttom_Click_3"/>
-                    </StackPanel>-->
                     <StackPanel Orientation="Horizontal">
                         <Button x:Name="MenuButton4" FontFamily="Arial" Content="Historik"
                         Width="150" Height="50" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Click="Buttom_Click_4"/>
-                        <!--<TextBlock Text="Historik" FontSize="18" VerticalAlignment="Center" />-->
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Button x:Name="MenuButton5" FontFamily="Arial" Content="Vaccine Info"
                         Width="150" Height="50" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Click="Buttom_Click_7"/>
-                        <!--<TextBlock Text="Historik" FontSize="18" VerticalAlignment="Center" />-->
                     </StackPanel>
                 </StackPanel>
             </SplitView.Pane>

@@ -54,15 +54,6 @@ namespace Vaccine_App.Model
             GetVaccineViewASync();
         }
 
-
-
-        ////Add metode - ikke brugt for nu (fordi det ikke er needed)
-        //public void AddVaccine(VaccineView VacAdd)
-        //{
-        //    VaccineViewCollection.Add(VacAdd);
-        //    //  PersistencyService.PostVaccineAsync(VacAdd);
-        //}
-
         //GetMetode - bruges samme måde som GetBarn. Henter vacciner fra Database, og tilføjer til Listen.
         public async Task GetVaccineViewASync()
         {
@@ -72,12 +63,6 @@ namespace Vaccine_App.Model
             }
         }
 
-        //public async Task GetVaccineInfo(int id)
-        //{
-        //    MessageDialog BarnAdded = new MessageDialog();
-        //    BarnAdded.Commands.Add(new UICommand { Label = "Ok" });
-        //    BarnAdded.ShowAsync().AsTask();
-        //}
         // problem med vaccplan atm
         public async Task GetVaccinePlanViewAsync(int selectedBarnId)
         {

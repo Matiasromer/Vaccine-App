@@ -19,7 +19,7 @@ namespace Vaccine_App.Handler
             this.BrugerViewmodel = bvm;
         }
 
-        //createBarn - Laver temp barn, og tilføjer til Instancen i sngleton
+        //createBarn - Laver temp barn, og tilføjer til Instancen i singleton
         public void CreateBarn()
         {
             Barn tempBarn = new Barn(BrugerViewmodel.BarnNavn, BrugerViewmodel.DeviceId, BrugerViewmodel.Fødselsdato, BrugerViewmodel.Gender);

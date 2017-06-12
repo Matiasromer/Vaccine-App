@@ -42,11 +42,7 @@ namespace Vaccine_App.View
             this.Frame.Navigate(typeof(View.Påmindelse), null);
 
         }
-        private void Buttom_Click_3(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(View.Kalender), null);
-
-        }
+        
         private void Buttom_Click_4(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(View.Historik), null);
@@ -56,21 +52,13 @@ namespace Vaccine_App.View
         {
             this.Frame.Navigate(typeof(View.Opret), null);
         }
-
-        private void Buttom_Click_6(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(MainPage));
-        }
+        
 
         private void Buttom_Click_7(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(View.VaccinationsInfo));
         }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(View.Alarm));
-        }
+        
 
         
     }

@@ -18,17 +18,6 @@ namespace Vaccine_App.Handler
             this.VaccineViewmodel = vvm;
         }
 
-        //Post Metode - laver temp vaccine, og tilføjer til Instancen
-        //public void CreateVaccine()
-        //{
-        //    Vaccine tempVacc = new Vaccine(VaccineViewmodel.Vac_Id, VaccineViewmodel.Vac_Name, VaccineViewmodel.Vac_Info);
-        //    tempVacc.Vac_Id = VaccineViewmodel.Vac_Id;
-        //    tempVacc.Vac_Navn = VaccineViewmodel.Vac_Name;
-        //    tempVacc.Vac_Info = VaccineViewmodel.Vac_Info;
-
-        //    VaccineSingleton.Instance.AddVaccine(tempVacc);
-        //}
-
         //Henter vaccine dataen
         public async void VaccineGet()
         {

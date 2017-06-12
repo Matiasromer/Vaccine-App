@@ -43,11 +43,7 @@ namespace Vaccine_App.View
             this.Frame.Navigate(typeof(View.Påmindelse), null);
 
         }
-        private void Buttom_Click_3(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(View.Kalender), null);
-
-        }
+        
         private void Buttom_Click_4(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(View.Historik), null);
@@ -56,16 +52,6 @@ namespace Vaccine_App.View
         {
             this.Frame.Navigate(typeof(View.VaccinationsInfo));
         }
-
-        private string _entityId;
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            //base.OnNavigatedTo(e);
-            //var vm = DataContext as VaccineViewmodel;
-            //vm.SelectedBarn = BrugerViewmodel.selectedBarn.Barn_Id
-            //_entityId = e.Parameter as string;
-            //int id = int.Parse(_entityId);
-        }
+        
     }
 }
